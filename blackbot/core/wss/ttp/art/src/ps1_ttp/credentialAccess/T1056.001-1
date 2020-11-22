@@ -1,0 +1,12 @@
+#TechniqueName: Input Capture: Keylogging
+#AtomicTestName: Input Capture
+#Language: ps1
+
+#commands
+Set-Location $PathToAtomicsFolder
+.\T1056.001\src\Get-Keystrokes.ps1 -LogPath $env:TEMP\key.log
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\key.log -ErrorAction Ignore
+

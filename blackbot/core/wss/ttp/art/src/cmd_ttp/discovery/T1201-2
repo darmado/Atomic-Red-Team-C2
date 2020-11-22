@@ -1,0 +1,7 @@
+#TechniqueName: Password Policy Discovery
+#AtomicTestName: Examine domain password policy - Windows
+#Language: cmd
+
+#commands
+net accounts /domain
+

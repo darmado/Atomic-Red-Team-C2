@@ -1,0 +1,12 @@
+#TechniqueName: Masquerading: Rename System Utilities
+#AtomicTestName: Masquerading - powershell.exe running as taskhostw.exe
+#Language: cmd
+
+#commands
+copy %windir%\System32\windowspowershell\v1.0\powershell.exe %APPDATA%\taskhostw.exe /Y
+cmd.exe /K %APPDATA%\taskhostw.exe
+
+
+#cleanup_commands
+del /Q /F %APPDATA%\taskhostw.exe >nul 2>&1
+

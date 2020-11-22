@@ -1,0 +1,7 @@
+#TechniqueName: OS Credential Dumping: NTDS
+#AtomicTestName: Create Volume Shadow Copy with Powershell
+#Language: ps1
+
+#commands
+(gwmi -list win32_shadowcopy).Create(C:,'ClientAccessible')
+

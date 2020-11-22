@@ -1,0 +1,14 @@
+atomic
+use Privesc/powershell
+set Atomic Invoke-Portscan.ps1
+run ADD_SESSION
+set Atomic T1548.002-1.daniel
+run ADD_SESSION
+set Atomic T1053.005-4
+run ADD_SESSION
+set Atomic T1055-1
+run ADD_SESSION
+set Atomic T1055.012-1
+run ADD_SESSION
+set Atomic T1134.004-1
+run ADD_SESSION

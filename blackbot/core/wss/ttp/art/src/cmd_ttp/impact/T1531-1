@@ -1,0 +1,12 @@
+#TechniqueName: Account Access Removal
+#AtomicTestName: Change User Password - Windows
+#Language: cmd
+
+#commands
+net user AtomicAdministrator User2ChangePW! /add
+net.exe user AtomicAdministrator HuHuHUHoHo283283@dJD
+
+
+#cleanup_commands
+net.exe user AtomicAdministrator /delete >nul 2>&1
+

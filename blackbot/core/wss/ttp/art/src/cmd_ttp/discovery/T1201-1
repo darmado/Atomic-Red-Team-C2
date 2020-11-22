@@ -1,0 +1,7 @@
+#TechniqueName: Password Policy Discovery
+#AtomicTestName: Examine local password policy - Windows
+#Language: cmd
+
+#commands
+net accounts
+

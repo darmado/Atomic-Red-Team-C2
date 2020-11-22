@@ -1,0 +1,7 @@
+#TechniqueName: System Network Connections Discovery
+#AtomicTestName: System Network Connections Discovery with PowerShell
+#Language: ps1
+
+#commands
+Get-NetTCPConnection
+

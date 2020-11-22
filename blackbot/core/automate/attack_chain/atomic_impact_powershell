@@ -1,0 +1,8 @@
+atomic
+use Impact/powershell
+set Atomic T1490-5
+run ADD_SESSION
+set Atomic T1531-3
+run ADD_SESSION
+set Atomic T1485-1
+run ADD_SESSION

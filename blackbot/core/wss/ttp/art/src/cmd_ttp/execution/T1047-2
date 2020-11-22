@@ -1,0 +1,7 @@
+#TechniqueName: Windows Management Instrumentation
+#AtomicTestName: WMI Reconnaissance Processes
+#Language: cmd
+
+#commands
+wmic process get caption,executablepath,commandline /format:csv
+

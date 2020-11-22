@@ -1,0 +1,7 @@
+#TechniqueName: Software Discovery
+#AtomicTestName: Find and Display Internet Explorer Browser Version
+#Language: cmd
+
+#commands
+reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer" /v svcVersion
+

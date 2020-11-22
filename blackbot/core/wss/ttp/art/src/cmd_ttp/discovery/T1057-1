@@ -1,0 +1,7 @@
+#TechniqueName: Process Discovery
+#AtomicTestName: Process Discovery - tasklist
+#Language: cmd
+
+#commands
+tasklist
+

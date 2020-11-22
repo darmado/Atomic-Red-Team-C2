@@ -1,0 +1,7 @@
+#TechniqueName: Network Share Discovery
+#AtomicTestName: View available share drives
+#Language: cmd
+
+#commands
+net share
+

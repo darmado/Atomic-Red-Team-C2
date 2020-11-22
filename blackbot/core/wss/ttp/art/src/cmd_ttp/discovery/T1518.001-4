@@ -1,0 +1,6 @@
+#TechniqueName: Software Discovery: Security Software Discovery
+#AtomicTestName: Security Software Discovery - AV Discovery via WMI
+#Language: cmd
+
+#commands
+wmic.exe /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get displayName /Format:List

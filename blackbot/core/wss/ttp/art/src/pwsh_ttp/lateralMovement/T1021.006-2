@@ -1,0 +1,7 @@
+#TechniqueName: Remote Services: Windows Remote Management
+#AtomicTestName: Invoke-Command
+#Language: ps1
+
+#commands
+invoke-command -ComputerName localhost -scriptblock {ipconfig}
+

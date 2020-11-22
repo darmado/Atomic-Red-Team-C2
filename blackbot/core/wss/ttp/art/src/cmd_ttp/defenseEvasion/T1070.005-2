@@ -1,0 +1,7 @@
+#TechniqueName: Indicator Removal on Host: Network Share Connection Removal
+#AtomicTestName: Remove Network Share
+#Language: cmd
+
+#commands
+net share \\test\share /delete
+

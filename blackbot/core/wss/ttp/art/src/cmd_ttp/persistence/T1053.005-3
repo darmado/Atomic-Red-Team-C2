@@ -1,0 +1,11 @@
+#TechniqueName: Scheduled Task/Job: Scheduled Task
+#AtomicTestName: Scheduled task Remote
+#Language: cmd
+
+#commands
+SCHTASKS /Create /S localhost /RU DOMAIN\user /RP At0micStrong /TN "Atomic task" /TR "C:\windows\system32\cmd.exe" /SC daily /ST 1210
+
+
+#cleanup_commands
+SCHTASKS /Delete /S localhost /RU DOMAIN\user /RP At0micStrong /TN "Atomic task" /F >nul 2>&1
+

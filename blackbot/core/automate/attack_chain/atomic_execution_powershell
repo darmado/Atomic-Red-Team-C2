@@ -1,0 +1,50 @@
+atomic
+use Execution/powershell
+set Atomic T1059.001-2
+run ADD_SESSION
+set Atomic T1059.001-5
+run ADD_SESSION
+set Atomic T1218.004-4
+run ADD_SESSION
+set Atomic T1059.005-1
+run ADD_SESSION
+set Atomic T1059.001-13
+run ADD_SESSION
+set Atomic T1204.002-1
+run ADD_SESSION
+set Atomic T1218.009-2
+run ADD_SESSION
+set Atomic T1059.003-1
+run ADD_SESSION
+set Atomic T1204.002-3
+run ADD_SESSION
+set Atomic T1218.004-8
+run ADD_SESSION
+set Atomic T1059.001-11
+run ADD_SESSION
+set Atomic T1059.001-12
+run ADD_SESSION
+set Atomic T1053.005-4
+run ADD_SESSION
+set Atomic T1218.004-1
+run ADD_SESSION
+set Atomic T1218.004-7
+run ADD_SESSION
+set Atomic T1204.002-4
+run ADD_SESSION
+set Atomic T1218.004-5
+run ADD_SESSION
+set Atomic T1218.004-6
+run ADD_SESSION
+set Atomic T1059.001-14
+run ADD_SESSION
+set Atomic T1218.004-2
+run ADD_SESSION
+set Atomic T1218.005-3
+run ADD_SESSION
+set Atomic T1059.001-3
+run ADD_SESSION
+set Atomic T1059.001-4
+run ADD_SESSION
+set Atomic T1218.004-3
+run ADD_SESSION

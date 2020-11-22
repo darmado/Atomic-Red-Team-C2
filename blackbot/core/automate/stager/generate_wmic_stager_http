@@ -1,0 +1,4 @@
+stagers
+use wmic
+generate http
+exit

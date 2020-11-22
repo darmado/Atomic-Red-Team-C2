@@ -1,0 +1,9 @@
+#TechniqueName: System Network Connections Discovery
+#AtomicTestName: System Network Connections Discovery
+#Language: cmd
+
+#commands
+netstat
+net use
+net sessions
+

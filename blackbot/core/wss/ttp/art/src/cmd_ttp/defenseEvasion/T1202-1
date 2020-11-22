@@ -1,0 +1,8 @@
+#TechniqueName: Indirect Command Execution
+#AtomicTestName: Indirect Command Execution - pcalua.exe
+#Language: cmd
+
+#commands
+pcalua.exe -a calc.exe
+pcalua.exe -a C:\Windows\System32\calc.exe
+

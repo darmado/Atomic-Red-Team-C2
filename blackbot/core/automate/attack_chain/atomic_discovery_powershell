@@ -1,0 +1,50 @@
+atomic
+use Discovery/powershell
+set Atomic T1046-1
+run ADD_SESSION
+set Atomic T1087.002-2
+run ADD_SESSION
+set Atomic T1087.001-4
+run ADD_SESSION
+set Atomic T1069.002-7
+run ADD_SESSION
+set Atomic T1087.002-5
+run ADD_SESSION
+set Atomic T1135-2
+run ADD_SESSION
+set Atomic T1049-2
+run ADD_SESSION
+set Atomic T1482-3
+run ADD_SESSION
+set Atomic T1135-4
+run ADD_SESSION
+set Atomic T1083-2
+run ADD_SESSION
+set Atomic T1069.002-4
+run ADD_SESSION
+set Atomic T1087.002-4
+run ADD_SESSION
+set Atomic T1087.001-2
+run ADD_SESSION
+set Atomic T1069.002-2
+run ADD_SESSION
+set Atomic T1069.002-6
+run ADD_SESSION
+set Atomic T1033-2
+run ADD_SESSION
+set Atomic T1016-4
+run ADD_SESSION
+set Atomic T1217-1
+run ADD_SESSION
+set Atomic T1018-6
+run ADD_SESSION
+set Atomic T1069.001-2
+run ADD_SESSION
+set Atomic T1518.001-2
+run ADD_SESSION
+set Atomic T1124-2
+run ADD_SESSION
+set Atomic T1069.002-5
+run ADD_SESSION
+set Atomic T1518-2
+run ADD_SESSION

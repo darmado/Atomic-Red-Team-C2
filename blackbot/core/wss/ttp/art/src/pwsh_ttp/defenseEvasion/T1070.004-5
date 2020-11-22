@@ -1,0 +1,7 @@
+#TechniqueName: Indicator Removal on Host: File Deletion
+#AtomicTestName: Delete-PrefetchFile
+#Language: ps1
+
+#commands
+Remove-Item -Path (Join-Path "$Env:SystemRoot\prefetch\" (Get-ChildItem -Path "$Env:SystemRoot\prefetch\*.pf" -Name)[0])
+

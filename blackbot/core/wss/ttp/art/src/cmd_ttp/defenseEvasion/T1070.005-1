@@ -1,0 +1,8 @@
+#TechniqueName: Indicator Removal on Host: Network Share Connection Removal
+#AtomicTestName: Add Network Share
+#Language: cmd
+
+#commands
+net use c: \\test\share
+net share test=\\test\share /REMARK:"test share" /CACHE:No
+

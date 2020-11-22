@@ -1,0 +1,11 @@
+#TechniqueName: Create Account: Local Account
+#AtomicTestName: Create a new user in a command prompt
+#Language: cmd
+
+#commands
+net user /add "T1136.001_CMD" "T1136.001_CMD!"
+
+
+#cleanup_commands
+net user /del "T1136.001_CMD" >nul 2>&1
+

@@ -1,0 +1,30 @@
+atomic
+use CommandControl/powershell
+set Atomic T1095-1
+run ADD_SESSION
+set Atomic T1071.001-1
+run ADD_SESSION
+set Atomic T1219-1
+run ADD_SESSION
+set Atomic T1090.001-1
+run ADD_SESSION
+set Atomic T1071.004-2
+run ADD_SESSION
+set Atomic T1105-2
+run ADD_SESSION
+set Atomic T1105-4
+run ADD_SESSION
+set Atomic T1095-2
+run ADD_SESSION
+set Atomic T1071.004-4
+run ADD_SESSION
+set Atomic T1095-3
+run ADD_SESSION
+set Atomic T1219-3
+run ADD_SESSION
+set Atomic T1071.004-1
+run ADD_SESSION
+set Atomic T1071.004-3
+run ADD_SESSION
+set Atomic T1219-2
+run ADD_SESSION

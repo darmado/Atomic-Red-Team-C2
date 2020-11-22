@@ -1,0 +1,7 @@
+#TechniqueName: Service Stop
+#AtomicTestName: Windows - Stop service by killing process
+#Language: cmd
+
+#commands
+taskkill.exe /f /im spoolsv.exe
+

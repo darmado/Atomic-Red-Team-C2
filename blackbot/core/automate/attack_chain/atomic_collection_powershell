@@ -1,0 +1,22 @@
+atomic
+use Collection/powershell
+set Atomic T1123-1
+run ADD_SESSION
+set Atomic T1074.001-1
+run ADD_SESSION
+set Atomic T1056.001-1
+run ADD_SESSION
+set Atomic T1119-3
+run ADD_SESSION
+set Atomic T1074.001-2
+run ADD_SESSION
+set Atomic T1115-2
+run ADD_SESSION
+set Atomic T1119-2
+run ADD_SESSION
+set Atomic T1056.002-1
+run ADD_SESSION
+set Atomic T1114.001-1
+run ADD_SESSION
+set Atomic T1056.004-1
+run ADD_SESSION

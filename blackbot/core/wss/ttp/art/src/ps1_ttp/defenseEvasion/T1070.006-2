@@ -1,0 +1,20 @@
+#TechniqueName: Indicator Removal on Host: Timestomp
+#AtomicTestName: Windows - Modify file last modified timestamp with PowerShell
+#Language: ps1
+
+#get_prereq_commands
+New-Item -Path $env:TEMP\T1551.006_timestomp.txt -Force | Out-Null
+Set-Content $env:TEMP\T1551.006_timestomp.txt -Value "T1551.006 Timestomp" -Force | Out-Null
+
+
+#prereq_commands
+if (Test-Path $env:TEMP\T1551.006_timestomp.txt) {exit 0} else {exit 1}
+
+
+#commands
+Get-ChildItem $env:TEMP\T1551.006_timestomp.txt | % { $_.LastWriteTime = "01/01/1970 00:00:00" }
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\T1551.006_timestomp.txt -Force -ErrorAction Ignore
+

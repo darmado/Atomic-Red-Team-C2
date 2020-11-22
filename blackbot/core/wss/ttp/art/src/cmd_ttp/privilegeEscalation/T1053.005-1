@@ -1,0 +1,13 @@
+#TechniqueName: Scheduled Task/Job: Scheduled Task
+#AtomicTestName: Scheduled Task Startup Script
+#Language: cmd
+
+#commands
+schtasks /create /tn "T1053_005_OnLogon" /sc onlogon /tr "cmd.exe /c calc.exe"
+schtasks /create /tn "T1053_005_OnStartup" /sc onstart /ru system /tr "cmd.exe /c calc.exe"
+
+
+#cleanup_commands
+schtasks /delete /tn "T1053_005_OnLogon" /f >nul 2>&1
+schtasks /delete /tn "T1053_005_OnStartup" /f >nul 2>&1
+

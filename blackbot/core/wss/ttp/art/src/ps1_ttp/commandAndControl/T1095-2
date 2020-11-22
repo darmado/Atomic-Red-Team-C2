@@ -1,0 +1,23 @@
+#TechniqueName: Non-Application Layer Protocol
+#AtomicTestName: Netcat C2
+#Language: ps1
+
+#get_prereq_commands
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+New-Item -ItemType Directory -Force -Path $env:TEMP\T1095 | Out-Null
+$parentpath = Split-Path (Split-Path "$env:TEMP\T1095\nmap-7.80\ncat.exe"); $zippath = "$parentpath\nmap.zip"
+Invoke-WebRequest  "https://nmap.org/dist/nmap-7.80-win32.zip" -OutFile "$zippath"
+  Expand-Archive $zippath $parentpath -Force
+  $unzipPath = Join-Path $parentPath "nmap-7.80"
+if( $null -eq (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | ?{$_.DisplayName -like "Microsoft Visual C++*"}) ) {
+  Start-Process (Join-Path $unzipPath "vcredist_x86.exe")
+}
+
+
+#prereq_commands
+if( Test-Path "$env:TEMP\T1095\nmap-7.80\ncat.exe") {exit 0} else {exit 1}
+
+
+#commands
+cmd /c $env:TEMP\T1095\nmap-7.80\ncat.exe 127.0.0.1 80
+

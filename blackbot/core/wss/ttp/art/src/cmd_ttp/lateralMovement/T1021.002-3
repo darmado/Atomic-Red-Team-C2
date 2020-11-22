@@ -1,0 +1,7 @@
+#TechniqueName: Remote Services: SMB/Windows Admin Shares
+#AtomicTestName: Copy and Execute File with PsExec
+#Language: cmd
+
+#commands
+psexec.exe \\localhost -accepteula -c C:\Windows\System32\cmd.exe
+

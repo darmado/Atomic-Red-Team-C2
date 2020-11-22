@@ -1,0 +1,5 @@
+stagers
+use shellcode
+set architecture x64+x86
+generate http
+exit

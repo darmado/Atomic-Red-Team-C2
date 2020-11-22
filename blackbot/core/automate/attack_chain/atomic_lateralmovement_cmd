@@ -1,0 +1,20 @@
+atomic
+use LateralMovement/cmd
+set Atomic T1105-7
+run ADD_SESSION
+set Atomic T1105-3
+run ADD_SESSION
+set Atomic T1105-5
+run ADD_SESSION
+set Atomic T1021.002-3
+run ADD_SESSION
+set Atomic T1105-6
+run ADD_SESSION
+set Atomic T1037.001-1
+run ADD_SESSION
+set Atomic T1105-1
+run ADD_SESSION
+set Atomic T1021.002-4
+run ADD_SESSION
+set Atomic T1021.002-1
+run ADD_SESSION

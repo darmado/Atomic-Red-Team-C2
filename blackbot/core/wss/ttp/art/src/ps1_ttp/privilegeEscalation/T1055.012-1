@@ -1,0 +1,13 @@
+#TechniqueName: Process Injection: Process Hollowing
+#AtomicTestName: Process Hollowing using PowerShell
+#Language: ps1
+
+#commands
+. $PathToAtomicsFolder\T1055.012\src\Start-Hollow.ps1
+$ppid=Get-Process explorer | select -expand id
+Start-Hollow -Sponsor "C:\Windows\System32\calc.exe" -Hollow "C:\Windows\System32\cmd.exe" -ParentPID $ppid -Verbose
+
+
+#cleanup_commands
+Stop-Process -Name "calc" -ErrorAction Ignore
+

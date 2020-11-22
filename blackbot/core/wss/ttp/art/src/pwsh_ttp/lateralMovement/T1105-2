@@ -1,0 +1,15 @@
+#TechniqueName: Ingress Tool Transfer
+#AtomicTestName: certutil download (verifyctl)
+#Language: ps1
+
+#commands
+$datePath = "certutil-$(Get-Date -format yyyy_MM_dd)"
+New-Item -Path $datePath -ItemType Directory
+Set-Location $datePath
+certutil -verifyctl -split -f https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/LICENSE.txt
+Get-ChildItem | Where-Object {$_.Name -notlike "*.txt"} | Foreach-Object { Move-Item $_.Name -Destination Atomic-license.txt }
+
+
+#cleanup_commands
+Remove-Item "certutil-$(Get-Date -format yyyy_MM_dd)" -Force -Recurse -ErrorAction Ignore
+

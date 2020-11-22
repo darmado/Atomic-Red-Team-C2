@@ -1,0 +1,9 @@
+#TechniqueName: File and Directory Discovery
+#AtomicTestName: File and Directory Discovery (PowerShell)
+#Language: ps1
+
+#commands
+ls -recurse
+get-childitem -recurse
+gci -recurse
+

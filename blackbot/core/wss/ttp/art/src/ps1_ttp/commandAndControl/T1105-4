@@ -1,0 +1,11 @@
+#TechniqueName: Ingress Tool Transfer
+#AtomicTestName: Windows - PowerShell Download
+#Language: ps1
+
+#commands
+(New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/LICENSE.txt", "$env:TEMP\Atomic-license.txt")
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\Atomic-license.txt -Force -ErrorAction Ignore
+

@@ -1,0 +1,20 @@
+#TechniqueName: Account Discovery: Domain Account
+#AtomicTestName: Automated AD Recon (ADRecon)
+#Language: ps1
+
+#get_prereq_commands
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sense-of-security/ADRecon/38e4abae3e26d0fa87281c1d0c65cabd4d3c6ebd/ADRecon.ps1" -OutFile $env:TEMP\ADRecon.ps1
+
+
+#prereq_commands
+if (Test-Path $env:TEMP\ADRecon.ps1) {exit 0} else {exit 1}
+
+
+#commands
+Invoke-Expression $env:TEMP\ADRecon.ps1
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\ADRecon.ps1 -Force -ErrorAction Ignore | Out-Null
+Get-ChildItem $env:TEMP -Recurse -Force | Where{$_.Name -Match "^ADRecon-Report-"} | Remove-Item -Force -Recurse
+

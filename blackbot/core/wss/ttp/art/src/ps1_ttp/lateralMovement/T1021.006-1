@@ -1,0 +1,7 @@
+#TechniqueName: Remote Services: Windows Remote Management
+#AtomicTestName: Enable Windows Remote Management
+#Language: ps1
+
+#commands
+Enable-PSRemoting -Force
+

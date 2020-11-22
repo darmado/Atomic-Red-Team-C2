@@ -1,0 +1,12 @@
+#TechniqueName: Software Discovery: Security Software Discovery
+#AtomicTestName: Security Software Discovery
+#Language: cmd
+
+#commands
+netsh.exe advfirewall  show allprofiles
+tasklist.exe
+tasklist.exe | findstr /i virus
+tasklist.exe | findstr /i cb
+tasklist.exe | findstr /i defender
+tasklist.exe | findstr /i cylance
+

@@ -1,0 +1,11 @@
+#TechniqueName: Modify Registry
+#AtomicTestName: Javascript in registry
+#Language: ps1
+
+#commands
+New-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name T1112 -Value "<script>"
+
+
+#cleanup_commands
+Remove-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name T1112 -ErrorAction Ignore
+

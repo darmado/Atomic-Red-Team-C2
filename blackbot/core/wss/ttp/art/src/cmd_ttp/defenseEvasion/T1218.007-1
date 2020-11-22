@@ -1,0 +1,15 @@
+#TechniqueName: Signed Binary Proxy Execution: Msiexec
+#AtomicTestName: Msiexec.exe - Execute Local MSI file
+#Language: cmd
+
+#get_prereq_commands
+Write-Host "You must provide your own MSI"
+
+
+#prereq_commands
+if (Test-Path PathToAtomicsFolder\T1218.007\src\Win32\T1218.msi) {exit 0} else {exit 1}
+
+
+#commands
+msiexec.exe /q /i "PathToAtomicsFolder\T1218.007\src\Win32\T1218.msi"
+

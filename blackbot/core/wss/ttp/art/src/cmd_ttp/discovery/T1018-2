@@ -1,0 +1,7 @@
+#TechniqueName: Remote System Discovery
+#AtomicTestName: Remote System Discovery - net group Domain Computers
+#Language: cmd
+
+#commands
+net group "Domain Computers" /domain
+

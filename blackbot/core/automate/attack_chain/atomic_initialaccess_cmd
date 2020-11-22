@@ -1,0 +1,4 @@
+atomic
+use InitialAccess/cmd
+set Atomic T1078.001-1
+run ADD_SESSION
