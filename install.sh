@@ -12,7 +12,7 @@ check_internet() {
 
 debian_install() {
 	sudo apt-get install git python3.7 python3-pip wget unzip -y
-	git clone git@gitlab.blackbot.net:ossig/artic2.git
+	git clone https://github.com/blackbotinc/Atomic-Red-Team-Intelligence-C2.git
 	cd artic2
 	pip3 install -r requirements.txt
 	sudo wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip -O /usr/local/sbin/ngrok
@@ -24,7 +24,7 @@ debian_install() {
 arch_install() {
 	echo "y" | sudo pacman -S git python-pip python3 wget unzip
 	check_internet
-	git clone git@gitlab.blackbot.net:ossig/artic2.git
+	git clone https://github.com/blackbotinc/Atomic-Red-Team-Intelligence-C2.git
 	cd artic2
 	pip3 install -r requirements.txt
 	sudo wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip -O /usr/local/sbin/ngrok
