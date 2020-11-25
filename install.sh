@@ -26,7 +26,7 @@ debian_install() {
     sudo apt-get install git python3.7 python3-pip wget unzip -y
     git clone https://github.com/blackbotinc/Atomic-Red-Team-Intelligence-C2.git
     cd artic2
-    pip3 install -r requirements.txt
+    python3.7 -m pip install -r requirements.txt
     sudo wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip -O /usr/local/sbin/ngrok
     sudo unzip /usr/local/sbin/ngrok
     sudo chmod a+x /usr/local/sbin/ngrok
