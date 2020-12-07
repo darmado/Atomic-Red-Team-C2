@@ -18,7 +18,7 @@ check_internet() {
     else
     	printf "NO Connection Found\nExiting...\n"
 	exit 0
-    fi	
+    fi
 }
 
 debian_install() {
@@ -36,7 +36,7 @@ debian_install() {
 
 arch_install() {
 	check_root
-	cehck_internet
+	check_internet
     echo "y" | sudo pacman -S git python-pip python3 wget unzip lsof
     check_internet
     git clone https://github.com/blackbotinc/Atomic-Red-Team-Intelligence-C2.git
@@ -53,8 +53,9 @@ start_artic2() {
 }
 
 stop_artic2() {
-	# NOT READY
-	echo "stop"
+    file=$(cat blackbot/core/wss/pid.txt)
+    kill $file
+    echo "PID $file killed"
 }
 
 if [[ $1 == "install" ]]
