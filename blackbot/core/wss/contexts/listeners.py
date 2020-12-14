@@ -17,6 +17,7 @@ class Listeners(Loader):
         self.selected = None
 
         ipc_server.attach(Events.GET_LISTENERS, self._get_listeners)
+        ipc_server.write()
         super().__init__(type="listener", paths=[get_path_in_package("core/wss/listeners/")])
 
     def _get_listeners(self, name):
@@ -90,7 +91,7 @@ class Listeners(Loader):
             self.selected[name] = value
         except KeyError:
             raise CmdError(f"Unknown option '{name}'")
-    
+
     def get_selected(self):
         if self.selected:
             return dict(self.selected)

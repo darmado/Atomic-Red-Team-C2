@@ -2,12 +2,14 @@ import logging
 import functools
 import random
 import traceback
+from os import getpid
 from time import sleep
-from threading import Thread
+from threading import Thread, get_ident
 from secrets import token_bytes
 from collections import defaultdict
 from multiprocessing.connection import Listener, Client
 from blackbot.core.events import Events
+from blackbot.core.utils import get_path_in_artic2
 
 
 class IPCServer(Thread):
@@ -36,6 +38,13 @@ class IPCServer(Thread):
                 t = Thread(target=self.wait_for_event, args=(client, listener))
                 t.setDaemon(True)
                 t.start()
+
+    def write(self):
+        path = get_path_in_artic2("/blackbot/core/wss/pid.txt")
+        print(path)
+        f = open(path, "w")
+        f.write(str(getpid()))
+        f.close()
 
     def attach(self, event, func):
         logging.debug(f"Attaching event: {event.name} -> {func.__qualname__}")

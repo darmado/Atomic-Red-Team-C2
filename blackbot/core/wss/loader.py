@@ -1,5 +1,5 @@
 import os
-import importlib
+import importlib.util
 import logging
 from blackbot.core.utils import get_path_in_package
 
