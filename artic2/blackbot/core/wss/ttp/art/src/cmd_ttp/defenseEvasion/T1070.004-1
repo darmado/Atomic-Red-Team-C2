@@ -1,0 +1,15 @@
+#TechniqueName: Indicator Removal on Host: File Deletion
+#AtomicTestName: Delete a single file - Windows cmd
+#Language: cmd
+
+#get_prereq_commands
+echo deleteme_T1551.004 >> %temp%\deleteme_T1551.004
+
+
+#prereq_commands
+IF EXIST "%temp%\deleteme_T1551.004" ( EXIT 0 ) ELSE ( EXIT 1 )
+
+
+#commands
+del /f %temp%\deleteme_T1551.004
+

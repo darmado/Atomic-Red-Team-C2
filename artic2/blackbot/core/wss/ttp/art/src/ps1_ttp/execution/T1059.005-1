@@ -1,0 +1,18 @@
+#TechniqueName: Command and Scripting Interpreter: Visual Basic
+#AtomicTestName: Visual Basic script execution to gather local computer information
+#Language: ps1
+
+#get_prereq_commands
+Invoke-WebRequest "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1059.005/src/sys_info.vbs" -OutFile "$env:TEMP\sys_info.vbs"
+New-Item -ItemType Directory (Split-Path PathToAtomicsFolder\T1059.005\src\sys_info.vbs) -Force | Out-Null
+Copy-Item $env:TEMP\sys_info.vbs PathToAtomicsFolder\T1059.005\src\sys_info.vbs -Force
+
+#prereq_commands
+if (Test-Path PathToAtomicsFolder\T1059.005\src\sys_info.vbs) {exit 0} else {exit 1} 
+
+#commands
+cscript PathToAtomicsFolder\T1059.005\src\sys_info.vbs > $env:TEMP\out.txt
+
+#cleanup_commands
+Remove-Item $env:TEMP\sys_info.vbs -ErrorAction Ignore
+Remove-Item $env:TEMP\T1059.005.out.txt -ErrorAction Ignore

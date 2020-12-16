@@ -1,0 +1,5 @@
+stagers
+use raw
+set architecture x64+x86
+generate http
+exit

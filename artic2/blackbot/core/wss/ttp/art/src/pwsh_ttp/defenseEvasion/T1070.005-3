@@ -1,0 +1,8 @@
+#TechniqueName: Indicator Removal on Host: Network Share Connection Removal
+#AtomicTestName: Remove Network Share PowerShell
+#Language: ps1
+
+#commands
+Remove-SmbShare -Name \\test\share
+Remove-FileShare -Name \\test\share
+

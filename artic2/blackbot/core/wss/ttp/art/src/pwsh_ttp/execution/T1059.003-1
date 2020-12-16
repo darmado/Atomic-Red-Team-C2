@@ -1,0 +1,20 @@
+#TechniqueName: Command and Scripting Interpreter: Windows Command Shell
+#AtomicTestName: Create and Execute Batch Script
+#Language: ps1
+
+#get_prereq_commands
+New-Item $env:TEMP\T1059.003_script.bat -Force | Out-Null
+Set-Content -Path $env:TEMP\T1059.003_script.bat -Value "dir"
+
+
+#prereq_commands
+if (Test-Path $env:TEMP\T1059.003_script.bat) {exit 0} else {exit 1}
+
+
+#commands
+Start-Process $env:TEMP\T1059.003_script.bat
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\T1059.003_script.bat -Force -ErrorAction Ignore
+

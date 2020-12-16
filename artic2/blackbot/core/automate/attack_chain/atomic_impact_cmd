@@ -1,0 +1,26 @@
+atomic
+use Impact/cmd
+set Atomic T1531-2
+run ADD_SESSION
+set Atomic T1490-1
+run ADD_SESSION
+set Atomic T1490-3
+run ADD_SESSION
+set Atomic T1489-2
+run ADD_SESSION
+set Atomic T1529-2
+run ADD_SESSION
+set Atomic T1489-1
+run ADD_SESSION
+set Atomic T1531-1
+run ADD_SESSION
+set Atomic T1490-2
+run ADD_SESSION
+set Atomic T1490-4
+run ADD_SESSION
+set Atomic T1490-6
+run ADD_SESSION
+set Atomic T1529-1
+run ADD_SESSION
+set Atomic T1489-3
+run ADD_SESSION

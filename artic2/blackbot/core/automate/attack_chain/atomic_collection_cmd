@@ -1,0 +1,8 @@
+atomic
+use Collection/cmd
+set Atomic T1119-4
+run ADD_SESSION
+set Atomic T1115-1
+run ADD_SESSION
+set Atomic T1119-1
+run ADD_SESSION

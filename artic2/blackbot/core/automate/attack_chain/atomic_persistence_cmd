@@ -1,0 +1,26 @@
+atomic
+use Persistence/cmd
+set Atomic T1197-1
+run ADD_SESSION
+set Atomic T1136.001-3
+run ADD_SESSION
+set Atomic T1053.005-3
+run ADD_SESSION
+set Atomic T1037.001-1
+run ADD_SESSION
+set Atomic T1136.001-1
+run ADD_SESSION
+set Atomic T1053.005-1
+run ADD_SESSION
+set Atomic T1505.003-1
+run ADD_SESSION
+set Atomic T1078.001-1
+run ADD_SESSION
+set Atomic T1197-4
+run ADD_SESSION
+set Atomic T1053.005-2
+run ADD_SESSION
+set Atomic T1053.002-1
+run ADD_SESSION
+set Atomic T1197-3
+run ADD_SESSION

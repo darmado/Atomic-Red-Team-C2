@@ -1,0 +1,88 @@
+atomic
+use Discovery/cmd
+set Atomic T1087.001-3
+run ADD_SESSION
+set Atomic T1201-2
+run ADD_SESSION
+set Atomic T1518.001-1
+run ADD_SESSION
+set Atomic T1518.001-4
+run ADD_SESSION
+set Atomic T1033-1
+run ADD_SESSION
+set Atomic T1069.002-1
+run ADD_SESSION
+set Atomic T1217-2
+run ADD_SESSION
+set Atomic T1007-2
+run ADD_SESSION
+set Atomic T1018-4
+run ADD_SESSION
+set Atomic T1135-1
+run ADD_SESSION
+set Atomic T1069.001-1
+run ADD_SESSION
+set Atomic T1007-1
+run ADD_SESSION
+set Atomic T1482-1
+run ADD_SESSION
+set Atomic T1135-3
+run ADD_SESSION
+set Atomic T1018-7
+run ADD_SESSION
+set Atomic T1082-1
+run ADD_SESSION
+set Atomic T1082-3
+run ADD_SESSION
+set Atomic T1518.001-3
+run ADD_SESSION
+set Atomic T1016-2
+run ADD_SESSION
+set Atomic T1049-1
+run ADD_SESSION
+set Atomic T1217-4
+run ADD_SESSION
+set Atomic T1124-1
+run ADD_SESSION
+set Atomic T1087.001-1
+run ADD_SESSION
+set Atomic T1010-1
+run ADD_SESSION
+set Atomic T1018-5
+run ADD_SESSION
+set Atomic T1016-3
+run ADD_SESSION
+set Atomic T1040-1
+run ADD_SESSION
+set Atomic T1087.002-3
+run ADD_SESSION
+set Atomic T1012-1
+run ADD_SESSION
+set Atomic T1018-1
+run ADD_SESSION
+set Atomic T1087.002-1
+run ADD_SESSION
+set Atomic T1069.002-3
+run ADD_SESSION
+set Atomic T1217-3
+run ADD_SESSION
+set Atomic T1201-1
+run ADD_SESSION
+set Atomic T1082-2
+run ADD_SESSION
+set Atomic T1040-2
+run ADD_SESSION
+set Atomic T1016-1
+run ADD_SESSION
+set Atomic T1518-1
+run ADD_SESSION
+set Atomic T1482-2
+run ADD_SESSION
+set Atomic T1083-1
+run ADD_SESSION
+set Atomic T1018-3
+run ADD_SESSION
+set Atomic T1018-2
+run ADD_SESSION
+set Atomic T1057-1
+run ADD_SESSION

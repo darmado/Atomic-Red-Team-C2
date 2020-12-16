@@ -1,0 +1,20 @@
+atomic
+use LateralMovement/powershell
+set Atomic T1105-2
+run ADD_SESSION
+set Atomic T1021.006-3
+run ADD_SESSION
+set Atomic T1105-4
+run ADD_SESSION
+set Atomic T1021.002-2
+run ADD_SESSION
+set Atomic T1021.001-1
+run ADD_SESSION
+set Atomic T1021.006-2
+run ADD_SESSION
+set Atomic T1021.001-2
+run ADD_SESSION
+set Atomic T1021.003-1
+run ADD_SESSION
+set Atomic T1021.006-1
+run ADD_SESSION

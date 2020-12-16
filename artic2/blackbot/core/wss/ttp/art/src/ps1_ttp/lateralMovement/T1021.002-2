@@ -1,0 +1,7 @@
+#TechniqueName: Remote Services: SMB/Windows Admin Shares
+#AtomicTestName: Map Admin Share PowerShell
+#Language: ps1
+
+#commands
+New-PSDrive -name g -psprovider filesystem -root \\Target\C$
+

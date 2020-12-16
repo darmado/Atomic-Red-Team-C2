@@ -1,0 +1,15 @@
+#TechniqueName: Indicator Removal on Host: File Deletion
+#AtomicTestName: Delete an entire folder - Windows cmd
+#Language: cmd
+
+#get_prereq_commands
+mkdir %temp%\deleteme_T1551.004
+
+
+#prereq_commands
+IF EXIST "%temp%\deleteme_T1551.004" ( EXIT 0 ) ELSE ( EXIT 1 )
+
+
+#commands
+rmdir /s /q %temp%\deleteme_T1551.004
+

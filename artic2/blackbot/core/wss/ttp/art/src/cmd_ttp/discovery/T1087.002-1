@@ -1,0 +1,8 @@
+#TechniqueName: Account Discovery: Domain Account
+#AtomicTestName: Enumerate all accounts (Domain)
+#Language: cmd
+
+#commands
+net user /domain
+net group /domain
+

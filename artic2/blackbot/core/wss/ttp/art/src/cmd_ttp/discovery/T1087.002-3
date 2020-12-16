@@ -1,0 +1,7 @@
+#TechniqueName: Account Discovery: Domain Account
+#AtomicTestName: Enumerate logged on users via CMD (Domain)
+#Language: cmd
+
+#commands
+query user /SERVER:$env:COMPUTERNAME
+

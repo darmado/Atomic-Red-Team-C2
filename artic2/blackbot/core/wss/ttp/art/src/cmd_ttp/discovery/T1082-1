@@ -1,0 +1,8 @@
+#TechniqueName: System Information Discovery
+#AtomicTestName: System Information Discovery
+#Language: cmd
+
+#commands
+systeminfo
+reg query HKLM\SYSTEM\CurrentControlSet\Services\Disk\Enum
+

@@ -1,0 +1,6 @@
+#Abuse Elevation Control Mechanism: Bypass User Access Control
+###Bypass UAC using Event Viewer (PowerShell)
+
+python -V
+# cleanup commands below
+

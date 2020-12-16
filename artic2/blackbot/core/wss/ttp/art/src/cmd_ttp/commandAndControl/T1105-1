@@ -1,0 +1,11 @@
+#TechniqueName: Ingress Tool Transfer
+#AtomicTestName: certutil download (urlcache)
+#Language: cmd
+
+#commands
+cmd /c certutil -urlcache -split -f https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/LICENSE.txt Atomic-license.txt
+
+
+#cleanup_commands
+del Atomic-license.txt >nul 2>&1
+

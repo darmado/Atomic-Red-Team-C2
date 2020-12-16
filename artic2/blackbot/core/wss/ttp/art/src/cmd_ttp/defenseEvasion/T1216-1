@@ -1,0 +1,7 @@
+#TechniqueName: Signed Script Proxy Execution
+#AtomicTestName: SyncAppvPublishingServer Signed Script PowerShell Command Execution
+#Language: cmd
+
+#commands
+C:\windows\system32\SyncAppvPublishingServer.vbs "\n;Start-Process calc"
+

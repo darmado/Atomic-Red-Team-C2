@@ -1,0 +1,11 @@
+#TechniqueName: Windows Management Instrumentation
+#AtomicTestName: WMI Execute Remote Process
+#Language: cmd
+
+#commands
+wmic /user:DOMAIN\Administrator /password:P@ssw0rd1 /node:"127.0.0.1" process call create notepad.exe
+
+
+#cleanup_commands
+wmic /user:DOMAIN\Administrator /password:P@ssw0rd1 /node:"127.0.0.1" process where name='notepad.exe' delete >nul 2>&1
+

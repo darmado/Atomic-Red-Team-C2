@@ -1,0 +1,6 @@
+atomic
+use Exfiltration/powershell
+set Atomic T1020-1
+run ADD_SESSION
+set Atomic T1048.003-1
+run ADD_SESSION

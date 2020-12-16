@@ -1,0 +1,7 @@
+#TechniqueName: System Time Discovery
+#AtomicTestName: System Time Discovery - PowerShell
+#Language: ps1
+
+#commands
+Get-Date
+

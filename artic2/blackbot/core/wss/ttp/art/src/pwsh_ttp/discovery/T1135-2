@@ -1,0 +1,8 @@
+#TechniqueName: Network Share Discovery
+#AtomicTestName: Network Share Discovery PowerShell
+#Language: ps1
+
+#commands
+net view \\localhost
+get-smbshare -Name localhost
+

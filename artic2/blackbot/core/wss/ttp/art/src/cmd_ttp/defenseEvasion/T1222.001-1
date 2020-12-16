@@ -1,0 +1,17 @@
+#TechniqueName: File and Directory Permissions Modification: Windows File and Directory Permissions Modification
+#AtomicTestName: Take ownership using takeown utility
+#Language: cmd
+
+#get_prereq_commands
+mkdir %temp%\T1222.001_takeown_folder
+echo T1222.001_takeown1 >> %temp%\T1222.001_takeown_folder\T1222.001_takeown1.txt
+echo T1222.001_takeown2 >> %temp%\T1222.001_takeown_folder\T1222.001_takeown2.txt
+
+
+#prereq_commands
+IF EXIST %temp%\T1222.001_takeown_folder ( EXIT 0 ) ELSE ( EXIT 1 )
+
+
+#commands
+takeown.exe /f %temp%\T1222.001_takeown_folder /r
+

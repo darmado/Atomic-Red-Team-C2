@@ -1,0 +1,25 @@
+#TechniqueName: Server Software Component: Transport Agent
+#AtomicTestName: Install MS Exchange Transport Agent Persistence
+#Language: ps1
+
+#get_prereq_commands
+Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn
+
+
+#prereq_commands
+Get-TransportAgent -TransportService FrontEnd
+
+
+#commands
+Install-TransportAgent -Name Security Interop Agent -TransportAgentFactory Microsoft.Exchange.Security.Interop.SecurityInteropAgentFactory -AssemblyPath c:\program files\microsoft\Exchange Server\v15\bin\Microsoft.Exchange.Security.Interop.dll
+Enable-TransportAgent Security Interop Agent
+Get-TransportAgent | Format-List Name,Enabled
+
+
+#cleanup_commands
+if(Get-Command "Get-TransportAgent" -ErrorAction Ignore){
+  Disable-TransportAgent Security Interop Agent
+  Uninstall-TransportAgent Security Interop Agent
+  Get-TransportAgent
+}
+

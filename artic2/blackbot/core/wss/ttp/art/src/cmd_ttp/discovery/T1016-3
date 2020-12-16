@@ -1,0 +1,10 @@
+#TechniqueName: System Network Configuration Discovery
+#AtomicTestName: System Network Configuration Discovery (TrickBot Style)
+#Language: cmd
+
+#commands
+ipconfig /all
+net config workstation
+net view /all /domain
+nltest /domain_trusts
+

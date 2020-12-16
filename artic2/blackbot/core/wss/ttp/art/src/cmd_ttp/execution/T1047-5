@@ -1,0 +1,11 @@
+#TechniqueName: Windows Management Instrumentation
+#AtomicTestName: WMI Execute Local Process
+#Language: cmd
+
+#commands
+wmic process call create notepad.exe
+
+
+#cleanup_commands
+wmic process where name='notepad.exe' delete >nul 2>&1
+

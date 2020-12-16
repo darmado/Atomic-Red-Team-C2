@@ -1,0 +1,8 @@
+#TechniqueName: Remote System Discovery
+#AtomicTestName: Remote System Discovery - net
+#Language: cmd
+
+#commands
+net view /domain
+net view
+

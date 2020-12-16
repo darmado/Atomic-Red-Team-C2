@@ -1,0 +1,106 @@
+atomic
+use Execution/cmd
+set Atomic T1047-2
+run ADD_SESSION
+set Atomic T1047-4
+run ADD_SESSION
+set Atomic T1059.001-6
+run ADD_SESSION
+set Atomic T1218.010-1
+run ADD_SESSION
+set Atomic T1218.011-5
+run ADD_SESSION
+set Atomic T1218.007-1
+run ADD_SESSION
+set Atomic T1047-6
+run ADD_SESSION
+set Atomic T1218.003-1
+run ADD_SESSION
+set Atomic T1059.001-7
+run ADD_SESSION
+set Atomic T1220-1
+run ADD_SESSION
+set Atomic T1218.001-1
+run ADD_SESSION
+set Atomic T1218-2
+run ADD_SESSION
+set Atomic T1218.008-1
+run ADD_SESSION
+set Atomic T1218-4
+run ADD_SESSION
+set Atomic T1047-1
+run ADD_SESSION
+set Atomic T1218.002-1
+run ADD_SESSION
+set Atomic T1204.002-2
+run ADD_SESSION
+set Atomic T1216.001-1
+run ADD_SESSION
+set Atomic T1127.001-1
+run ADD_SESSION
+set Atomic T1216-1
+run ADD_SESSION
+set Atomic T1218.010-4
+run ADD_SESSION
+set Atomic T1059.001-1
+run ADD_SESSION
+set Atomic T1218-1
+run ADD_SESSION
+set Atomic T1220-4
+run ADD_SESSION
+set Atomic T1053.005-3
+run ADD_SESSION
+set Atomic T1047-5
+run ADD_SESSION
+set Atomic T1218.011-3
+run ADD_SESSION
+set Atomic T1218-5
+run ADD_SESSION
+set Atomic T1053.005-1
+run ADD_SESSION
+set Atomic T1218.009-1
+run ADD_SESSION
+set Atomic T1218.011-4
+run ADD_SESSION
+set Atomic T1106-1
+run ADD_SESSION
+set Atomic T1220-2
+run ADD_SESSION
+set Atomic T1218.003-2
+run ADD_SESSION
+set Atomic T1047-3
+run ADD_SESSION
+set Atomic T1059.001-8
+run ADD_SESSION
+set Atomic T1220-3
+run ADD_SESSION
+set Atomic T1218.011-6
+run ADD_SESSION
+set Atomic T1218.005-1
+run ADD_SESSION
+set Atomic T1218.001-2
+run ADD_SESSION
+set Atomic T1218-3
+run ADD_SESSION
+set Atomic T1218.010-3
+run ADD_SESSION
+set Atomic T1216-2
+run ADD_SESSION
+set Atomic T1218.011-1
+run ADD_SESSION
+set Atomic T1218.007-3
+run ADD_SESSION
+set Atomic T1053.005-2
+run ADD_SESSION
+set Atomic T1218.007-2
+run ADD_SESSION
+set Atomic T1053.002-1
+run ADD_SESSION
+set Atomic T1218.010-2
+run ADD_SESSION
+set Atomic T1218.011-2
+run ADD_SESSION
+set Atomic T1059.001-9
+run ADD_SESSION
+set Atomic T1218.005-2
+run ADD_SESSION

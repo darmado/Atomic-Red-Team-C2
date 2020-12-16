@@ -1,0 +1,14 @@
+atomic
+use Persistence/powershell
+set Atomic T1098-2
+run ADD_SESSION
+set Atomic T1136.001-2
+run ADD_SESSION
+set Atomic T1505.002-1
+run ADD_SESSION
+set Atomic T1053.005-4
+run ADD_SESSION
+set Atomic T1098-1
+run ADD_SESSION
+set Atomic T1197-2
+run ADD_SESSION

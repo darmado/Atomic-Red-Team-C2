@@ -1,0 +1,4 @@
+stagers
+use powershell
+generate http
+exit

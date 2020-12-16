@@ -1,0 +1,8 @@
+#TechniqueName: Permission Groups Discovery: Local Groups
+#AtomicTestName: Permission Groups Discovery PowerShell (Local)
+#Language: ps1
+
+#commands
+get-localgroup
+Get-LocalGroupMember -Name "Administrators"
+

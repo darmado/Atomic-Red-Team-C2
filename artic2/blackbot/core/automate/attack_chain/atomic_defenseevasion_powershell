@@ -1,0 +1,84 @@
+atomic
+use DefenseEvasion/powershell
+set Atomic T1070.004-6
+run ADD_SESSION
+set Atomic T1070.006-1
+run ADD_SESSION
+set Atomic T1218.004-4
+run ADD_SESSION
+set Atomic T1222.001-4
+run ADD_SESSION
+set Atomic T1027-2
+run ADD_SESSION
+set Atomic T1036.003-6
+run ADD_SESSION
+set Atomic T1090.001-1
+run ADD_SESSION
+set Atomic T1218.009-2
+run ADD_SESSION
+set Atomic ListAllUsers.ps1
+run ADD_SESSION
+set Atomic T1070.006-3
+run ADD_SESSION
+set Atomic T1218.004-8
+run ADD_SESSION
+set Atomic test.ps1
+run ADD_SESSION
+set Atomic T1112-5
+run ADD_SESSION
+set Atomic T1070.003-2
+run ADD_SESSION
+set Atomic T1218.004-1
+run ADD_SESSION
+set Atomic T1070.001-2
+run ADD_SESSION
+set Atomic T1218.004-7
+run ADD_SESSION
+set Atomic T1218.004-5
+run ADD_SESSION
+set Atomic AutoRDPwn.ps1
+run ADD_SESSION
+set Atomic SharpHound.ps1
+run ADD_SESSION
+set Atomic T1027.004-2
+run ADD_SESSION
+set Atomic T1055-1
+run ADD_SESSION
+set Atomic T1070.003-1
+run ADD_SESSION
+set Atomic T1070.006-2
+run ADD_SESSION
+set Atomic T1197-2
+run ADD_SESSION
+set Atomic Invoke-Phant0m.ps1
+run ADD_SESSION
+set Atomic T1036.003-5
+run ADD_SESSION
+set Atomic T1112-4
+run ADD_SESSION
+set Atomic T1070.004-5
+run ADD_SESSION
+set Atomic T1055.012-1
+run ADD_SESSION
+set Atomic T1070.005-3
+run ADD_SESSION
+set Atomic T1070.004-3
+run ADD_SESSION
+set Atomic T1218.004-6
+run ADD_SESSION
+set Atomic T1218.004-2
+run ADD_SESSION
+set Atomic T1134.004-1
+run ADD_SESSION
+set Atomic T1218.005-3
+run ADD_SESSION
+set Atomic T1070.006-4
+run ADD_SESSION
+set Atomic Sherlock.ps1
+run ADD_SESSION
+set Atomic T1027-1
+run ADD_SESSION
+set Atomic T1070.004-4
+run ADD_SESSION
+set Atomic T1218.004-3
+run ADD_SESSION

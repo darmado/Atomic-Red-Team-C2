@@ -1,0 +1,16 @@
+#TechniqueName: Signed Binary Proxy Execution: Regsvr32
+#AtomicTestName: Regsvr32 local DLL execution
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1218.010\bin\AllTheThingsx86.dll) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.010/bin/AllTheThingsx86.dll" -OutFile "PathToAtomicsFolder\T1218.010\bin\AllTheThingsx86.dll"
+
+
+#prereq_commands
+if (Test-Path PathToAtomicsFolder\T1218.010\bin\AllTheThingsx86.dll) {exit 0} else {exit 1}
+
+
+#commands
+IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" (C:\Windows\syswow64\regsvr32.exe /s PathToAtomicsFolder\T1218.010\bin\AllTheThingsx86.dll) ELSE ( regsvr32.exe /s PathToAtomicsFolder\T1218.010\bin\AllTheThingsx86.dll )
+

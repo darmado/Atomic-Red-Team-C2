@@ -1,0 +1,8 @@
+#TechniqueName: System Time Discovery
+#AtomicTestName: System Time Discovery
+#Language: cmd
+
+#commands
+net time \\localhost
+w32tm /tz
+

@@ -1,0 +1,7 @@
+#TechniqueName: Domain Trust Discovery
+#AtomicTestName: Windows - Discover domain trusts with dsquery
+#Language: cmd
+
+#commands
+dsquery * -filter "(objectClass=trustedDomain)" -attr *
+

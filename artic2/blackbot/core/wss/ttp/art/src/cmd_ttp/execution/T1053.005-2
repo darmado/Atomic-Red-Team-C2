@@ -1,0 +1,11 @@
+#TechniqueName: Scheduled Task/Job: Scheduled Task
+#AtomicTestName: Scheduled task Local
+#Language: cmd
+
+#commands
+SCHTASKS /Create /SC ONCE /TN spawn /TR C:\windows\system32\cmd.exe /ST 1210
+
+
+#cleanup_commands
+SCHTASKS /Delete /TN spawn /F >nul 2>&1
+

