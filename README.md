@@ -87,6 +87,10 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and Boolan
 
 ## GET STARTED
 
+```bash
+wget https://github.com/blackbotinc/Atomic-Red-Team-Intelligence-C2/blob/master/artic2.sh && chmod 777 artic2.sh && ./artic2.sh install
+```
+
 1. Download the repo
 
 2. Run the installer script
