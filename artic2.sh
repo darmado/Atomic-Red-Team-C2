@@ -71,7 +71,7 @@ check_env() {
 start_artic2() {
 	check_internet;
     check_env;
-	python3 $ARTIC2_PATH/artic2.py wss 127.0.0.1 $1 --port $2 || echo -e "\033[91mFailed to start ARTiC2\033[0m";
+	python3 $ARTIC2_PATH/artic2.py wss 127.0.0.1 $2 --port $3 || echo -e "\033[91mFailed to start ARTiC2\033[0m";
 }
 
 stop_artic2() {
@@ -97,7 +97,7 @@ elif [[ $1 == "start" ]]
 then
     if [[ $# == 3 ]]
     then
-	    start_artic2
+	    start_artic2 "$@"
     else
         echo -e "\033[91mYou provided $# args. 2 args required";
         echo -e "Use \"./artic2.sh --help\" for help\033[0m";
