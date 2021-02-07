@@ -3,7 +3,10 @@
 # DESCRIPTION
 
 ARTi-C2 is a modern execution framework built to empower security teams to scale attack scenario execution from single and multi-breach point targets with the intent to produce actionable attack intelligence that improves the effectiveness security products and incident response.
-
+</br>
+</br>
+</br>
+</br>
 # PHILOSOPHY
 
 Blackbot Labs believes in creating tools where vendor solutions and open source can be provisioned and managed together by all organizations with the intent to deliver actionable attack intelligence organizations can use to define clear objectives and drive strategic security program initiatives.
@@ -31,10 +34,10 @@ Blackbot Labs builds and delivers open source tools with the flexibility and int
 
 - **RAPID DEPLOYMENT**
 Facilitating rapid deployment models is important to us. We'll do our best to deliver practical deployment frameworks that facilitate advanced security eco-systems and data-driven pipelines. 
-
-
-
-
+</br>
+</br>
+</br>
+</br>
 # CAPABILITIES
 
 ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic tests executed through Boo are from [ATOMIC-RED-TEAM](https://github.com/redcanaryco/atomic-red-team). All other feature enhancements were built to ensure operational trade-craft, agility, scalability, and rapid execution is not compromised.
@@ -51,18 +54,17 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic
 | **Dynamic Attack Formations** | Dynamically form and execute attack-chains in real-time without the need to recompile or restart ARTi-C2. As of today, ARTiC2 supports 3 differnt attack functions:</br>    - Attack Chains:</br>- Attack Profiles:</br>- Attack Scenarios:
 | **Modular Payload Delivery** | ARTi-C2 leverages [SILENTRINITY's](https://github.com/byt3bl33d3r/SILENTTRINITY) framework to deliver Red Team Atomic tests "As is" through the following dynamically compiled payload deliver controllers:</br>- unmanaged powershell</br>- stageless powershell
 | **Operational Management** | Job IDs are included for controller execution and evidence collection. They're great for event analysis and evidence correlation. 
-
 </br>
 </br>
 </br>
 </br>
-</br>
-
-
 ## MITRE ATT&CK COVERAGE
 - [MITRE ATT&CK Coverage Map](https://attack.blackbot.io)
 - Have questions? Join the attack intelligence community on Slack at [https://attackintelligence.slack.com](https://attackintelligence.slack.com)
 - Connect with us and signup via Slack. [Slack Signup Page](https://join.slack.com/t/attackintelligence/signup) 
+</br>
+</br>
+</br>
 
 
 
@@ -77,13 +79,13 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic
 - Organizations are required to keep tight margins between mean time to detect \(MTTD\) and mean time to respond \(MTTR\) metrics can demonstrate improvement
 - Organizations need to continually improve SOAR workbooks
 - Organizations need to evaluate system risk profiles across departments with thousands of systems. We recommend testing one and deploying the risk profile configuration settings based on your organizations' policy/system deployment orchestration framework. 
-
-
-
+</br>
+</br>
+</br>
+</br>
 ## GET STARTED
 
-```bash
-wget https://github.com/blackbotinc/Atomic-Red-Team-Intelligence-C2/blob/master/artic2.sh && chmod 777 artic2.sh && ./artic2.sh install
+```- In progress. Best to connect with us on slack.  
 ```
 
 ## DOCUMENTATION NOTES:
@@ -93,9 +95,10 @@ wget https://github.com/blackbotinc/Atomic-Red-Team-Intelligence-C2/blob/master/
 Write atomic test cases for the folks at Red Canary and we'll take care of the test.
 Join the Attack Intelligence Community Today!
 - [ https://attackintelligence.slack.com](https://attackintelligence.slack.com)
-
-
-
+</br>
+</br>
+</br>
+</br>
 ### CODE OF CONDUCT
 
 Blackbot Labs operates under the umbrella of full transparency while ensuring end-user privacy remains a top priority. For more details on how we operate with our community, visit our community page.
