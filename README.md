@@ -2,7 +2,7 @@
 
 # DESCRIPTION
 
-ARTi-C2 is a modern execution framework built to empower security teams to scale attack scenario execution from single and multi-breach point targets through the Dynamic Language Runtime \(DLR\) with the intent to produce actionable attack intelligence that improves the effectiveness of AV and EDR products.
+ARTi-C2 is a modern execution framework built to empower security teams to scale attack scenario execution from single and multi-breach point targets with the intent to produce actionable attack intelligence that improves the effectiveness security products and incident response.
 
 # PHILOSOPHY
 
@@ -11,34 +11,33 @@ Blackbot Labs believes in creating tools where vendor solutions and open source 
 ### *Commitment*
 
 - **INTEGRITY** 
-We build tools to help security teams evaluate the integrity of EDRs and anti-virus solutions by producing telemetry data in JSON that can integrate into any SIEM for real-time analytics without compromising the integrity of their defenses.
-
+We develop tools and frameworks that produce accurate attack intelligence to help security teams evaluate the integrity of their security solutions.
 
 - **TRANSPARENCY**
-We work under the umbrella of full transparency during all phases of tool development. From striking up ideas with our community enhancing the capabilities of tools used by red teams all over the world, if Blackbot Labs is brewing up a new tool, you'll know about it.
+We work under the umbrella of full transparency during all phases of tool and framework development. From striking up ideas with our community to enhancing the capabilities of tools used by red teams all over the world; if Blackbot Labs is brewing up a new tool or framework, you'll know about it.
 
 
 - **AGILITY**
-We enable lean security teams to remain agile and focused on developing a unique trade-craft that's agnostic to certain tools. Whether the focus is to keep tight margins between mean time to detect \(MTTD\) metrics and mean time to respond \(MTTR\) metrics or evaluating security control effectiveness, Blackbot Labs will always build tools to help cut through the noise and eliminate the gray areas of security testing.
+We take pride in enabling lean security teams to remain agile and focused on developing a unique trade-craft that's agnostic to certain tools developed by the red team community. Whether the focus is to keep tight margins between mean time to detect \(MTTD\) metrics and mean time to respond \(MTTR\) metrics or evaluating security control effectiveness, Blackbot Labs will always build tools and frameworks to help cut through the noise and eliminate the gray areas of targetted attacks and practical testing applications.
 
 
 - **SCALABILITY**
-Scaling security testing capabilities empowers security teams to automate and scale testing efforts from single and multi-target breach points in different regional locations with the intent to produce ingestible telemetry data. If a tool doesn't deliver a scalable solution, we won't release it. 
+Scaling operational activities is critical to sustaining efficient security ecosystem workflows in modern-day environments. If our tools don't help you scale your operational capabilities, let us know and we'll fix it. 
 
 
 - **FLEXIBILITY**
-Blackbot Labs builds and delivers open source tools with the flexibility and intent for security professionals to improve their trade-craft and scale security testing initiatives.
+Blackbot Labs builds and delivers open source tools with the flexibility and intent for security professionals to improve their trade-craft and scale security testing initiatives in IT, OT, cloud-native and hybrid workspaces.
 
 
 - **RAPID DEPLOYMENT**
-Facilitating rapid deployment models is important to us. We'll do our best to deliver practical deployment frameworks that facilitate advanced security eco-systems and data-driven pipelines without compromise. 
+Facilitating rapid deployment models is important to us. We'll do our best to deliver practical deployment frameworks that facilitate advanced security eco-systems and data-driven pipelines. 
 
 
 
 
 # CAPABILITIES
 
-ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic tests executed through Boo are from ATOMIC-RED-TEAM. All other feature enhancements were built to ensure operational trade-craft, agility, scalability, and rapid execution is not compromised.
+ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic tests executed through Boo are from [ATOMIC-RED-TEAM](https://github.com/redcanaryco/atomic-red-team). All other feature enhancements were built to ensure operational trade-craft, agility, scalability, and rapid execution is not compromised.
 
 
 | CAPABILITY | DESCRIPTION |
@@ -47,28 +46,23 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic
 | **Modern Command & Control** | *Implant and Server Comms:* Uses the power of SILENTRINITY's ECDHE Encrypted C2 Communication capabilities to encrypt all C2 traffic. Implant management capabilities allow security teams to use multi-channel communication techniques mapped to MITRE ATT&CK. </br>*Client and Server Comms*: Uses Asyncio and WebSockets are used by a modern CLI powered by prompt-toolkit. Notable features include:     - Implant location tagging NGROK integration 
 | **Standard Execution Header** | Automate and scale testing efforts from single and multi-target breach points located in different regional environments
 | **JSON Logging Support** | Streamline, ingest, decode, and analyze evidence with your ELK stack or any Analytics platform ready to parse JSON.
-| **Stageless in Memory Code Execution** | Send a single web request to a callback URL and observe the stager dynamically compile, check-in, evaluate, and execute tasks in the jobs queue. Continuously execute Atomic Red Team tests and measure and improve EDR and anti-virus protection capabilities, 24/7/365.
+| **Stageless in Memory Code Execution** | Send a single web request to a callback URL and observe the stager dynamically compile, check-in, evaluate, and execute tasks in the jobs queue. Continuously execute Atomic Red Team tests in real-time.
 | **Modular Payload Development** |     - Boo using reflective DLL injection to invoke Powershell's  run-time environment</br> - Boo using reflective DLL injection to invoke system calls and CMD
 | **Dynamic Attack Formations** | Dynamically form and execute attack-chains in real-time without the need to recompile or restart ARTi-C2. As of today, ARTiC2 supports 3 differnt attack functions:</br>    - Attack Chains:</br>- Attack Profiles:</br>- Attack Scenarios:
 | **Modular Payload Delivery** | ARTi-C2 leverages [SILENTRINITY's](https://github.com/byt3bl33d3r/SILENTTRINITY) framework to deliver Red Team Atomic tests "As is" through the following dynamically compiled payload deliver controllers:</br>- unmanaged powershell</br>- stageless powershell
-| ***Operational Management** | Job IDs are included controller execution and evidence collection for event analysis and correlation. 
+| **Operational Management** | Job IDs are included for controller execution and evidence collection. They're great for event analysis and evidence correlation. 
 
 </br>
 </br>
- 
+</br>
+</br>
+</br>
 
-# MITRE ATT&CK COVERAGE
 
-- Getting Started With ARTi-C2
-- Automated Test Execution with the Execution Frameworks
-- Peruse the Complete list of Atomic Tests (md, csv) and the ATT&CK Matrix
-- Windows Matrix and tests by tactic (md, csv)
-- MacOS Matrix and tests by tactic (md, csv)
-- Linux Matrix and tests by tactic (md, csv)
-- Using ATT&CK Navigator? Check out our coverage layers (All, Windows, MacOS, Linux)
-- Fork and Contribute your own modifications
+## MITRE ATT&CK COVERAGE
+- [MITRE ATT&CK Coverage Map](https://attack.blackbot.io)
 - Have questions? Join the attack intelligence community on Slack at [https://attackintelligence.slack.com](https://attackintelligence.slack.com)
-- Need a Slack invitation? email us: labs@blackbot.io or signup via Slack. [Slack Signup Page](https://join.slack.com/t/attackintelligence/signup) 
+- Connect with us and signup via Slack. [Slack Signup Page](https://join.slack.com/t/attackintelligence/signup) 
 
 
 
@@ -81,7 +75,8 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic
 - Organizations need to benchmark critical risk profiles against the ATT&CK framework before releasing systems to Corp IT/production
 - Organizations need to simulate ransomware tactics without introducing risk in order to develop specific detection and prevention capabilities
 - Organizations are required to keep tight margins between mean time to detect \(MTTD\) and mean time to respond \(MTTR\) metrics can demonstrate improvement
-
+- Organizations need to continually improve SOAR workbooks
+- Organizations need to evaluate system risk profiles across departments with thousands of systems. We recommend testing one and deploying the risk profile configuration settings based on your organizations' policy/system deployment orchestration framework. 
 
 
 
@@ -92,7 +87,7 @@ wget https://github.com/blackbotinc/Atomic-Red-Team-Intelligence-C2/blob/master/
 ```
 
 ## DOCUMENTATION NOTES:
-- In progress. For immediate help, reach out to us on Slack.
+- In progress. Best to connect with us on slack. 
 
 ## GET INVOLVED
 Write atomic test cases for the folks at Red Canary and we'll take care of the test.
