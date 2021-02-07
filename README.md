@@ -38,20 +38,20 @@ Facilitating rapid deployment models is important to us. We'll do our best to de
 
 # CAPABILITIES
 
-ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and Boolang atomic tests are from ATOMIC-RED-TEAM. All other feature enhancements were built to ensure Blackbot operators' operational trade-craft, agility, scalability, and rapid execution is not compromised while delivering scalable atomic testing capabilities from MITRE ATT&CK.
+ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic tests executed through Boo are from ATOMIC-RED-TEAM. All other feature enhancements were built to ensure operational trade-craft, agility, scalability, and rapid execution is not compromised.
 
 
 | CAPABILITY | DESCRIPTION |
 | ------ | ------ |
 | **Rapid Deployment** | Automate and scale testing efforts from single and multi-target breach points located in different regional environments
-| **Modern Command & Control** | *Implant and Server Comms:* Uses the power of SILENTRINITY's ECDHE Encrypted C2 Communication capabilities to encrypt all C2 traffic. Implant management capabilities allow security teams to use multi-channel communication techniques mapped to MITRE ATT&CK. </br>*Client and Server Comms*: Uses Asyncio and WebSockets are used by a modern CLI powered by prompt-toolkit. Notable featurse include:     - Implant location tagging NGROK integration 
+| **Modern Command & Control** | *Implant and Server Comms:* Uses the power of SILENTRINITY's ECDHE Encrypted C2 Communication capabilities to encrypt all C2 traffic. Implant management capabilities allow security teams to use multi-channel communication techniques mapped to MITRE ATT&CK. </br>*Client and Server Comms*: Uses Asyncio and WebSockets are used by a modern CLI powered by prompt-toolkit. Notable features include:     - Implant location tagging NGROK integration 
 | **Standard Execution Header** | Automate and scale testing efforts from single and multi-target breach points located in different regional environments
 | **JSON Logging Support** | Streamline, ingest, decode, and analyze evidence with your ELK stack or any Analytics platform ready to parse JSON.
 | **Stageless in Memory Code Execution** | Send a single web request to a callback URL and observe the stager dynamically compile, check-in, evaluate, and execute tasks in the jobs queue. Continuously execute Atomic Red Team tests and measure and improve EDR and anti-virus protection capabilities, 24/7/365.
-| **Modular Payload Development** |     - Boolang using reflective DLL injection to invoke powershell's  run-time environment</br> - Booland using refelctive DLL injection to invoke system calls and CMD
-| **Dynamic Attack Formations** | Dynamically form and execute attack-chains in real-time without the need to recompile or restart ARTi-C2. As of today, ARTiC2 support the dynamicac development of 3 differnt attack functions:</br>    - Attack Chains:</br>- Attack Profiles:</br>- Attack Scenarios:
+| **Modular Payload Development** |     - Boo using reflective DLL injection to invoke Powershell's  run-time environment</br> - Boo using reflective DLL injection to invoke system calls and CMD
+| **Dynamic Attack Formations** | Dynamically form and execute attack-chains in real-time without the need to recompile or restart ARTi-C2. As of today, ARTiC2 supports 3 differnt attack functions:</br>    - Attack Chains:</br>- Attack Profiles:</br>- Attack Scenarios:
 | **Modular Payload Delivery** | ARTi-C2 leverages [SILENTRINITY's](https://github.com/byt3bl33d3r/SILENTTRINITY) framework to deliver Red Team Atomic tests "As is" through the following dynamically compiled payload deliver controllers:</br>- unmanaged powershell</br>- stageless powershell
-| ***Operational Management** | Job IDs are included controller execution and evidence collection for seamless correlation. 
+| ***Operational Management** | Job IDs are included controller execution and evidence collection for event analysis and correlation. 
 
 </br>
 </br>
@@ -67,8 +67,8 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and Boolan
 - Linux Matrix and tests by tactic (md, csv)
 - Using ATT&CK Navigator? Check out our coverage layers (All, Windows, MacOS, Linux)
 - Fork and Contribute your own modifications
-- Have questions? Join the community on Slack at https://blackbotlab.slack.com
-- Need a Slack invitation? Grab one at https://slack.blackbot.io/
+- Have questions? Join the attack intelligence community on Slack at [https://attackintelligence.slack.com](https://attackintelligence.slack.com)
+- Need a Slack invitation? email us: labs@blackbot.io or signup via Slack. [Slack Signup Page](https://join.slack.com/t/attackintelligence/signup) 
 
 
 
@@ -91,18 +91,13 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and Boolan
 wget https://github.com/blackbotinc/Atomic-Red-Team-Intelligence-C2/blob/master/artic2.sh && chmod 777 artic2.sh && ./artic2.sh install
 ```
 
-1. Download the repo
-
-2. Run the installer script
-
-3. Launch ARTi-C2
-
-4. Launch ARTi-C2 CLI
+## DOCUMENTATION NOTES:
+- In progress. For immediate help, reach out to us on Slack.
 
 ## GET INVOLVED
-Have questions? , Need a Slack invitation? 
-Join the Blackbot Labs Community Today!
-- [https://community.blackbot.io](https://community.blackbot.io)
+Write atomic test cases for the folks at Red Canary and we'll take care of the test.
+Join the Attack Intelligence Community Today!
+- [ https://attackintelligence.slack.com](https://attackintelligence.slack.com)
 
 
 
