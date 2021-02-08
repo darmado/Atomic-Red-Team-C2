@@ -60,8 +60,8 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic
 </br>
 ## MITRE ATT&CK COVERAGE
 - [MITRE ATT&CK Coverage Map](https://attack.blackbot.io)
-- Have questions? Join the attack intelligence community on Slack at [https://attackintelligence.slack.com](https://attackintelligence.slack.com)
-- Connect with us and signup via Slack. [Slack Signup Page](https://join.slack.com/t/attackintelligence/signup) 
+- Have questions? Join the Blackbot community on Slack at [https://attackintelligence.slack.com](https://blackbotlab.slack.com)
+- Connect with us and signup via Slack. [Slack Signup Page](https://join.slack.com/t/blackbotlab/signup) 
 </br>
 </br>
 </br>
@@ -93,8 +93,8 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic
 
 ## GET INVOLVED
 Write atomic test cases for the folks at Red Canary and we'll take care of the test.
-Join the Attack Intelligence Community Today!
-- [ https://attackintelligence.slack.com](https://attackintelligence.slack.com)
+Join the Blackbot Community Today!
+- [ https://blackbotlab.slack.com](https://blackbotlab.slack.com)
 </br>
 </br>
 </br>
