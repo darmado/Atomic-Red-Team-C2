@@ -99,9 +99,9 @@ Join the Blackbot Community Today!
 </br>
 </br>
 </br>
-### CODE OF CONDUCT
+## CODE OF CONDUCT
 
-Blackbot Labs operates under the umbrella of full transparency while ensuring end-user privacy remains a top priority. For more details on how we operate with our community, visit our community page.
+Blackbot Lab operates under the umbrella of full transparency while ensuring end-user privacy remains a top priority. For more details on how we operate with our community, visit our community page.
 
 [https://blackbot.io/community](https://blackbot.io/community)
 
