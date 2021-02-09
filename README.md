@@ -3,10 +3,7 @@
 # DESCRIPTION
 
 ARTi-C2 is a modern execution framework built to empower security teams to scale attack scenario execution from single and multi-breach point targets with the intent to produce actionable attack intelligence that improves the effectiveness security products and incident response.
-</br>
-</br>
-</br>
-</br>
+
 # PHILOSOPHY
 
 Blackbot Labs believes in creating tools where vendor solutions and open source can be provisioned and managed together by all organizations with the intent to deliver actionable attack intelligence organizations can use to define clear objectives and drive strategic security program initiatives.
@@ -34,10 +31,7 @@ Blackbot Labs builds and delivers open source tools with the flexibility and int
 
 - **RAPID DEPLOYMENT**
 Facilitating rapid deployment models is important to us. We'll do our best to deliver practical deployment frameworks that facilitate advanced security eco-systems and data-driven pipelines. 
-</br>
-</br>
-</br>
-</br>
+
 # CAPABILITIES
 
 ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic tests executed through Boo are from [ATOMIC-RED-TEAM](https://github.com/redcanaryco/atomic-red-team). All other feature enhancements were built to ensure operational trade-craft, agility, scalability, and rapid execution is not compromised.
@@ -54,16 +48,11 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic
 | **Dynamic Attack Formations** | Dynamically form and execute attack-chains in real-time without the need to recompile or restart ARTi-C2. As of today, ARTiC2 supports 3 differnt attack functions:</br>    - Attack Chains:</br>- Attack Profiles:</br>- Attack Scenarios:
 | **Modular Payload Delivery** | ARTi-C2 leverages [SILENTRINITY's](https://github.com/byt3bl33d3r/SILENTTRINITY) framework to deliver Red Team Atomic tests "As is" through the following dynamically compiled payload deliver controllers:</br>- unmanaged powershell</br>- stageless powershell
 | **Operational Management** | Job IDs are included for controller execution and evidence collection. They're great for event analysis and evidence correlation.
-| **Atomic Updates** | The ART port pipeline is triggered by repo updates at [ATOMIC-RED-TEAM](https://github.com/redcanaryco/atomic-red-team   
-</br>
-</br>
-</br>
-</br>
+| **Atomic Updates** | The ART port pipeline is triggered by repo updates at [ATOMIC-RED-TEAM](https://github.com/redcanaryco/atomic-red-team)   
+
 ## MITRE ATT&CK COVERAGE
 - [MITRE ATT&CK Coverage Map](https://attack.blackbot.io)
-</br>
-</br>
-</br>
+
 
 
 
@@ -78,30 +67,30 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic
 - Organizations are required to keep tight margins between mean time to detect \(MTTD\) and mean time to respond \(MTTR\) metrics can demonstrate improvement
 - Organizations need to continually improve SOAR workbooks
 - Organizations need to evaluate system risk profiles across departments with thousands of systems. We recommend testing one and deploying the risk profile configuration settings based on your organizations' policy/system deployment orchestration framework. 
-</br>
-</br>
-</br>
-</br>
+
 ## GET STARTED
 
-```- In progress. Best to connect with us on slack.  
+```- In Progress
 ```
 
 ## DOCUMENTATION NOTES:
 - In progress. 
 
 ## GET INVOLVED
-Write atomic test cases for the folks at from [Red Canary](https://github.com/redcanaryco/) 
+Contribute atomic test cases for the folks at from [Red Canary](https://github.com/redcanaryco/) 
+-  [Contributing Atomic Test Cases](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 
-- Join the Atomic Red Team Today!
+- Join the Atomic Red Team Slack Channel
 - [https://slack.atomicredteam.io/](https://slack.atomicredteam.io/)
-</br>
-</br>
-</br>
-</br>
+
 ## CODE OF CONDUCT
 
 Blackbot Labs operates under the umbrella of full transparency while ensuring end-user privacy remains a top priority. For more details on how we operate with our community, visit our community page.
 
 [https://blackbot.io/community](https://blackbot.io/community)
 
+## CREDITS & ACKNOWLEDGEMENTS 
+
+- Marcello Salvati [@byt3bl33d3r](https://twitter.com/byt3bl33d3r) and all [SILENTRINITY](https://github.com/byt3bl33d3r/SILENTTRINITY) c2 project contributors
+- [Red Canary](https://github.com/redcanaryco) and all [ATOMIC RED TEAM](https://github.com/redcanaryco/atomic-red-team) project contributors
+- [Atomic Red Team Community](https://slack.atomicredteam.io/)  
