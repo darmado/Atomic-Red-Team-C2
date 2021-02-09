@@ -53,15 +53,14 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic
 | **Modular Payload Development** |     - Boo using reflective DLL injection to invoke Powershell's  run-time environment</br> - Boo using reflective DLL injection to invoke system calls and CMD
 | **Dynamic Attack Formations** | Dynamically form and execute attack-chains in real-time without the need to recompile or restart ARTi-C2. As of today, ARTiC2 supports 3 differnt attack functions:</br>    - Attack Chains:</br>- Attack Profiles:</br>- Attack Scenarios:
 | **Modular Payload Delivery** | ARTi-C2 leverages [SILENTRINITY's](https://github.com/byt3bl33d3r/SILENTTRINITY) framework to deliver Red Team Atomic tests "As is" through the following dynamically compiled payload deliver controllers:</br>- unmanaged powershell</br>- stageless powershell
-| **Operational Management** | Job IDs are included for controller execution and evidence collection. They're great for event analysis and evidence correlation. 
+| **Operational Management** | Job IDs are included for controller execution and evidence collection. They're great for event analysis and evidence correlation.
+| **Atomic Updates** | The ART port pipeline is triggered by repo updates at [ATOMIC-RED-TEAM](https://github.com/redcanaryco/atomic-red-team   
 </br>
 </br>
 </br>
 </br>
 ## MITRE ATT&CK COVERAGE
 - [MITRE ATT&CK Coverage Map](https://attack.blackbot.io)
-- Have questions? Join the Blackbot community on Slack at [https://attackintelligence.slack.com](https://blackbotlab.slack.com)
-- Connect with us and signup via Slack. [Slack Signup Page](https://join.slack.com/t/blackbotlab/signup) 
 </br>
 </br>
 </br>
@@ -89,19 +88,20 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic
 ```
 
 ## DOCUMENTATION NOTES:
-- In progress. Best to connect with us on slack. 
+- In progress. 
 
 ## GET INVOLVED
-Write atomic test cases for the folks at Red Canary and we'll take care of the test.
-Join the Blackbot Community Today!
-- [ https://blackbotlab.slack.com](https://blackbotlab.slack.com)
+Write atomic test cases for the folks at from [Red Canary](https://github.com/redcanaryco/) 
+
+- Join the Atomic Red Team Today!
+- [https://slack.atomicredteam.io/](https://slack.atomicredteam.io/)
 </br>
 </br>
 </br>
 </br>
 ## CODE OF CONDUCT
 
-Blackbot Lab operates under the umbrella of full transparency while ensuring end-user privacy remains a top priority. For more details on how we operate with our community, visit our community page.
+Blackbot Labs operates under the umbrella of full transparency while ensuring end-user privacy remains a top priority. For more details on how we operate with our community, visit our community page.
 
 [https://blackbot.io/community](https://blackbot.io/community)
 
