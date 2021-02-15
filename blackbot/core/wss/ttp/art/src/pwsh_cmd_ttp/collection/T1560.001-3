@@ -1,0 +1,23 @@
+#TechniqueName: Archive Collected Data: Archive via Utility
+#AtomicTestName: Compress Data and lock with password for Exfiltration with winzip
+#Language: cmd
+
+#get_prereq_commands
+if(Invoke-WebRequestVerifyHash "https://download.winzip.com/gl/nkln/winzip24-home.exe" "$env:Temp\winzip.exe" B59DB592B924E963C21DA8709417AC0504F6158CFCB12FE5536F4A0E0D57D7FB){
+  Write-Host Follow the installation prompts to continue
+  cmd /c "$env:Temp\winzip.exe"
+}
+
+
+#prereq_commands
+cmd /c 'if not exist "%ProgramFiles%\WinZip\winzip64.exe" (echo 1) else (echo 0)'
+
+
+#commands
+path=%path%;"C:\Program Files (x86)\winzip"
+mkdir .\tmp\victim-files
+cd .\tmp\victim-files
+echo "This file will be encrypted" > .\encrypted_file.txt
+"%ProgramFiles%\WinZip\winzip64.exe" -min -a -s"hello" archive.zip *
+dir
+

@@ -1,0 +1,22 @@
+#TechniqueName: Event Triggered Execution: AppInit DLLs
+#AtomicTestName: Install AppInit Shim
+#Language: cmd
+
+#get_prereq_commands
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1546.010\src\T1546.010.reg) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1546.010/src/T1546.010.reg" -OutFile "PathToAtomicsFolder\T1546.010\src\T1546.010.reg"
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1546.010/src/T1546.010-cleanup.reg" -OutFile "PathToAtomicsFolder\T1546.010\src\T1546.010-cleanup.reg"
+
+
+#prereq_commands
+if ((Test-Path PathToAtomicsFolder\T1546.010\src\T1546.010.reg) -and (Test-Path PathToAtomicsFolder\T1546.010\src\T1546.010-cleanup.reg)) {exit 0} else {exit 1}
+
+
+#commands
+reg.exe import PathToAtomicsFolder\T1546.010\src\T1546.010.reg
+
+
+#cleanup_commands
+reg.exe import PathToAtomicsFolder\T1546.010\src\T1546.010-cleanup.reg >nul 2>&1
+

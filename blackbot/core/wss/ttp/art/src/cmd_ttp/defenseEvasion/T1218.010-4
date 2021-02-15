@@ -11,9 +11,9 @@ if exist %temp%\shell32.jpg ( exit 0 ) else ( exit 1 )
 
 
 #commands
-regsvr32 /s %temp%\shell32.jpg
+C:\Windows\system32\regsvr32.exe /s %temp%\shell32.jpg
 
 
 #cleanup_commands
-regsvr32 /U /s %temp%\shell32.jpg
+C:\Windows\system32\regsvr32.exe /U /s %temp%\shell32.jpg
 

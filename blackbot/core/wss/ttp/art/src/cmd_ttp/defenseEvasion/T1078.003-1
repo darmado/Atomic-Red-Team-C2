@@ -1,0 +1,12 @@
+#TechniqueName: Valid Accounts: Local Accounts
+#AtomicTestName: Create local account with admin priviliges
+#Language: cmd
+
+#commands
+net user art-test /add
+net user art-test Password123!
+net localgroup administrators art-test /add
+
+#cleanup_commands
+net localgroup administrators art-test /delete >nul 2>&1
+net user art-test /delete >nul 2>&1

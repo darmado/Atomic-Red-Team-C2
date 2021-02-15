@@ -1,0 +1,17 @@
+#TechniqueName: Impair Defenses: Disable or Modify System Firewall
+#AtomicTestName: Allow Executable Through Firewall Located in Non-Standard Location
+#Language: ps1
+
+#get_prereq_commands
+Copy-Item PathToAtomicsFolder\T1562.004\bin\AtomicTest.exe -Destination "C:\Users\$env:UserName"
+
+
+#prereq_commands
+if (Get-Item "C:\Users\$env:UserName\AtomicTest.exe") {exit 0} else {exit 1}
+
+
+#commands
+netsh advfirewall firewall add rule name="Atomic Test" dir=in action=allow program="C:\Users\$env:UserName\AtomicTest.exe" enable=yes
+
+#cleanup_commands
+netsh advfirewall firewall delete rule name="Atomic Test" | Out-Null

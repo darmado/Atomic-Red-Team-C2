@@ -1,0 +1,23 @@
+#TechniqueName: Subvert Trust Controls: Install Root Certificate
+#AtomicTestName: Install root CA on Windows with certutil
+#Language: ps1
+
+#get_prereq_commands
+$cert = New-SelfSignedCertificate -DnsName atomicredteam.com -CertStoreLocation cert:\LocalMachine\My
+Export-Certificate -Type CERT -Cert  Cert:\LocalMachine\My\$($cert.Thumbprint) -FilePath $env:Temp\rootCA2.cer
+Get-ChildItem Cert:\LocalMachine\My\$($cert.Thumbprint) | Remove-Item
+
+
+#prereq_commands
+if (Test-Path $env:Temp\rootCA2.cer) { exit 0 } else { exit 1 }
+
+
+#commands
+certutil -addstore my $env:Temp\rootCA2.cer
+
+
+#cleanup_commands
+$cert = Import-Certificate -FilePath $env:Temp\rootCA2.cer -CertStoreLocation Cert:\LocalMachine\My
+Get-ChildItem Cert:\LocalMachine\My\$($cert.Thumbprint) -ErrorAction Ignore | Remove-Item -ErrorAction Ignore
+Get-ChildItem Cert:\LocalMachine\Root\$($cert.Thumbprint) -ErrorAction Ignore | Remove-Item -ErrorAction Ignore
+

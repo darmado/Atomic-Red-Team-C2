@@ -11,5 +11,5 @@ if (Test-Path "C:\Program Files\Microsoft Office\Office16\protocolhandler.exe") 
 
 
 #commands
-C:\Program Files\Microsoft Office\Office16\protocolhandler.exe "ms-word:nft|u|https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1218/src/T1218Test.docx"
+"C:\Program Files\Microsoft Office\Office16\protocolhandler.exe" "ms-word:nft|u|https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1218/src/T1218Test.docx"
 

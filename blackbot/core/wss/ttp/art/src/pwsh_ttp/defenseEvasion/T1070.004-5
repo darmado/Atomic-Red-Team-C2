@@ -1,5 +1,5 @@
 #TechniqueName: Indicator Removal on Host: File Deletion
-#AtomicTestName: Delete-PrefetchFile
+#AtomicTestName: Delete Prefetch File
 #Language: ps1
 
 #commands

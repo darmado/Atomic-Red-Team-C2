@@ -1,0 +1,15 @@
+#TechniqueName: Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder
+#AtomicTestName: Suspicious bat file run from startup Folder
+#Language: ps1
+
+#commands
+Copy-Item $PathToAtomicsFolder\T1547.001\src\batstartup.bat "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\batstartup.bat"
+Copy-Item $PathToAtomicsFolder\T1547.001\src\batstartup.bat "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\batstartup.bat"
+Start-Process "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\batstartup.bat"
+Start-Process "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\batstartup.bat"
+
+
+#cleanup_commands
+Remove-Item "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\batstartup.bat" -ErrorAction Ignore
+Remove-Item "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\batstartup.bat" -ErrorAction Ignore
+

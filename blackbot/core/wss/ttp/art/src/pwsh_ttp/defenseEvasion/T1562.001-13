@@ -1,0 +1,12 @@
+#TechniqueName: Impair Defenses: Disable or Modify Tools
+#AtomicTestName: Tamper with Windows Defender Evade Scanning -Folder
+#Language: ps1
+
+#commands
+$excludedpath= "C:\Temp"
+Add-MpPreference -ExclusionPath $excludedpath
+
+#cleanup_commands
+$excludedpath= "C:\Temp"
+Remove-MpPreference -ExclusionPath $excludedpath
+

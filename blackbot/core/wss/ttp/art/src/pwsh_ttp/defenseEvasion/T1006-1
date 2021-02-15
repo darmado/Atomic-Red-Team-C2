@@ -1,0 +1,11 @@
+#TechniqueName: Direct Volume Access
+#AtomicTestName: Read volume boot sector via DOS device path (PowerShell)
+#Language: ps1
+
+#commands
+$buffer = New-Object byte[] 11
+$handle = New-Object IO.FileStream "\\.\C:", 'Open', 'Read', 'ReadWrite'
+$handle.Read($buffer, 0, $buffer.Length)
+$handle.Close()
+Format-Hex -InputObject $buffer
+

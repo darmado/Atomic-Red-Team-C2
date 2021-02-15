@@ -1,0 +1,7 @@
+#TechniqueName: Event Triggered Execution: Netsh Helper DLL
+#AtomicTestName: Netsh Helper DLL Registration
+#Language: cmd
+
+#commands
+netsh.exe add helper C:\Path\file.dll
+

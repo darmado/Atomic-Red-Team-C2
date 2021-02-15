@@ -1,0 +1,11 @@
+#TechniqueName: Event Triggered Execution: Change Default File Association
+#AtomicTestName: Change Default File Association
+#Language: cmd
+
+#commands
+assoc .hta=txtfile
+
+
+#cleanup_commands
+assoc  .hta=htafile
+

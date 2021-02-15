@@ -1,0 +1,7 @@
+#TechniqueName: Impair Defenses: Disable or Modify Tools
+#AtomicTestName: Remove Windows Defender Definition Files
+#Language: cmd
+
+#commands
+"C:\Program Files\Windows Defender\MpCmdRun.exe" -RemoveDefinitions -All
+

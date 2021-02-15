@@ -1,0 +1,15 @@
+#TechniqueName: Signed Binary Proxy Execution
+#AtomicTestName: Microsoft.Workflow.Compiler.exe Payload Execution
+#Language: ps1
+
+#get_prereq_commands
+write-host ".Net must be installed for this test to work correctly."
+
+
+#prereq_commands
+if (Test-Path C:\Windows\Microsoft.NET\Framework64\v4.0.30319\microsoft.workflow.compiler.exe ) {exit 0} else {exit 1}
+
+
+#commands
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\microsoft.workflow.compiler.exe "PathToAtomicsFolder\T1218\src\T1218.xml" output.txt
+

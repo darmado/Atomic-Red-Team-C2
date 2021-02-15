@@ -11,7 +11,7 @@ Copy-Item $env:TEMP\sys_info.vbs PathToAtomicsFolder\T1059.005\src\sys_info.vbs 
 if (Test-Path PathToAtomicsFolder\T1059.005\src\sys_info.vbs) {exit 0} else {exit 1} 
 
 #commands
-cscript PathToAtomicsFolder\T1059.005\src\sys_info.vbs > $env:TEMP\out.txt
+cscript PathToAtomicsFolder\T1059.005\src\sys_info.vbs > $env:TEMP\T1059.005.out.txt
 
 #cleanup_commands
 Remove-Item $env:TEMP\sys_info.vbs -ErrorAction Ignore

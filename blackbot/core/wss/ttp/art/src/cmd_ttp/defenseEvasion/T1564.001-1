@@ -1,0 +1,19 @@
+#TechniqueName: Hide Artifacts: Hidden Files and Directories
+#AtomicTestName: Create Windows System File with Attrib
+#Language: cmd
+
+#get_prereq_commands
+echo system_Attrib_T1564.001 >> %temp%\T1564.001.txt
+
+
+#prereq_commands
+IF EXIST %temp%\T1564.001.txt ( EXIT 0 ) ELSE ( EXIT 1 )
+
+
+#commands
+attrib.exe +s %temp%\T1564.001.txt
+
+
+#cleanup_commands
+del /A:S %temp%\T1564.001.txt >nul 2>&1
+

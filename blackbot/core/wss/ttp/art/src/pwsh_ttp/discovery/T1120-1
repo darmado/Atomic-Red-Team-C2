@@ -1,0 +1,11 @@
+#TechniqueName: Peripheral Device Discovery
+#AtomicTestName: Win32_PnPEntity Hardware Inventory
+#Language: ps1
+
+#commands
+Get-WMIObject Win32_PnPEntity | Format-Table Name, Description, Manufacturer > $env:TEMP\T1120_collection.txt
+$Space,$Heading,$Break,$Data = Get-Content $env:TEMP\T1120_collection.txt
+@($Heading; $Break; $Data |Sort-Object -Unique) | ? {$_.trim() -ne "" } |Set-Content $env:TEMP\T1120_collection.txt
+
+#cleanup_commands
+Remove-Item $env:TEMP\T1120_collection.txt -ErrorAction Ignore

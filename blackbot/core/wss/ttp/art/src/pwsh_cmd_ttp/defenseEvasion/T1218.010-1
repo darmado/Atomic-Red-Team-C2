@@ -12,5 +12,5 @@ if (Test-Path PathToAtomicsFolder\T1218.010\src\RegSvr32.sct) {exit 0} else {exi
 
 
 #commands
-regsvr32.exe /s /u /i:PathToAtomicsFolder\T1218.010\src\RegSvr32.sct scrobj.dll
+C:\Windows\system32\regsvr32.exe /s /u /i:PathToAtomicsFolder\T1218.010\src\RegSvr32.sct scrobj.dll
 

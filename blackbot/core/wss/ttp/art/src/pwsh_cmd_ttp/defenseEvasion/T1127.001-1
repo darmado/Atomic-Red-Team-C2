@@ -1,5 +1,5 @@
 #TechniqueName: Trusted Developer Utilities Proxy Execution: MSBuild
-#AtomicTestName: MSBuild Bypass Using Inline Tasks
+#AtomicTestName: MSBuild Bypass Using Inline Tasks (C#)
 #Language: cmd
 
 #get_prereq_commands

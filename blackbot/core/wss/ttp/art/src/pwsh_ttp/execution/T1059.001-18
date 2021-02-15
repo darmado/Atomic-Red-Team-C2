@@ -1,0 +1,15 @@
+#TechniqueName: Command and Scripting Interpreter: PowerShell
+#AtomicTestName: ATHPowerShellCommandLineParameter -EncodedCommand parameter variations with encoded arguments
+#Language: ps1
+
+#get_prereq_commands
+Install-Module -Name AtomicTestHarnesses -Scope CurrentUser -Force
+
+
+#prereq_commands
+$RequiredModule = Get-Module -Name AtomicTestHarnesses -ListAvailable
+if (-not $RequiredModule) {exit 1}
+if (-not $RequiredModule.ExportedCommands['Out-ATHPowerShellCommandLineParameter']) {exit 1} else {exit 0}
+
+#commands
+Out-ATHPowerShellCommandLineParameter -CommandLineSwitchType Hyphen -EncodedCommandParamVariation E -UseEncodedArguments -EncodedArgumentsParamVariation EncodedArguments -Execute -ErrorAction Stop

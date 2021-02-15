@@ -1,0 +1,7 @@
+#TechniqueName: Unsecured Credentials: Credentials in Registry
+#AtomicTestName: Enumeration for PuTTY Credentials in Registry
+#Language: cmd
+
+#commands
+reg query HKCU\Software\SimonTatham\PuTTY\Sessions /t REG_SZ /s
+

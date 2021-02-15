@@ -1,0 +1,11 @@
+#TechniqueName: Office Application Startup: Outlook Home Page
+#AtomicTestName: Install Outlook Home Page Persistence
+#Language: cmd
+
+#commands
+reg.exe add HKCU\Software\Microsoft\Office\16.0\Outlook\WebView\Inbox /v URL /t REG_SZ /d file://PathToAtomicsFolder\T1137.004\src\T1137.004.html /f
+
+
+#cleanup_commands
+reg.exe delete HKCU\Software\Microsoft\Office\16.0\Outlook\WebView\Inbox /v URL /f
+

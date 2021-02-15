@@ -12,5 +12,5 @@ if (Test-Path PathToAtomicsFolder\T1218.010\bin\AllTheThingsx86.dll) {exit 0} el
 
 
 #commands
-IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" (C:\Windows\syswow64\regsvr32.exe /s PathToAtomicsFolder\T1218.010\bin\AllTheThingsx86.dll) ELSE ( regsvr32.exe /s PathToAtomicsFolder\T1218.010\bin\AllTheThingsx86.dll )
+IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" (C:\Windows\syswow64\regsvr32.exe /s PathToAtomicsFolder\T1218.010\bin\AllTheThingsx86.dll) ELSE ( C:\Windows\system32\regsvr32.exe /s PathToAtomicsFolder\T1218.010\bin\AllTheThingsx86.dll )
 

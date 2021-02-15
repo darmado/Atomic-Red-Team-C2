@@ -1,0 +1,8 @@
+#TechniqueName: Signed Binary Proxy Execution: Rundll32
+#AtomicTestName: Execution of HTA and VBS Files using Rundll32 and URL.dll
+#Language: cmd
+
+#commands
+rundll32.exe url.dll,OpenURL PathToAtomicsFolder\T1218.011\src\index.hta
+rundll32.exe URL.dll,FileProtocolHandler PathToAtomicsFolder\T1218.011\src\akteullen.vbs
+

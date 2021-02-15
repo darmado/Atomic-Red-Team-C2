@@ -1,0 +1,6 @@
+#TechniqueName: System Information Discovery
+#AtomicTestName: Griffon Recon
+#Language: ps1
+
+#commands
+cscript PathToAtomicsFolder\T1595.002\src\griffon_recon.vbs

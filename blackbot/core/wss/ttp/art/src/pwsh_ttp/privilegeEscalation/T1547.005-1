@@ -1,0 +1,14 @@
+#TechniqueName: Boot or Logon Autostart Execution: Security Support Provider
+#AtomicTestName: Modify SSP configuration in registry
+#Language: ps1
+
+#commands
+# run these in sequence
+$SecurityPackages = Get-ItemProperty HKLM:\System\CurrentControlSet\Control\Lsa -Name 'Security Packages' | Select-Object -ExpandProperty 'Security Packages'
+$SecurityPackagesUpdated = $SecurityPackages
+$SecurityPackagesUpdated += "not-a-ssp"
+Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\Lsa -Name 'Security Packages' -Value $SecurityPackagesUpdated
+
+# revert (before reboot)
+Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\Lsa -Name 'Security Packages' -Value $SecurityPackages
+

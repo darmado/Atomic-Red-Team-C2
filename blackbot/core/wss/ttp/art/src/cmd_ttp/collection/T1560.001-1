@@ -1,0 +1,21 @@
+#TechniqueName: Archive Collected Data: Archive via Utility
+#AtomicTestName: Compress Data for Exfiltration With Rar
+#Language: cmd
+
+#get_prereq_commands
+echo Downloading Winrar installer
+bitsadmin /transfer myDownloadJob /download /priority normal "https://www.win-rar.com/fileadmin/winrar-versions/winrar/th/winrar-x64-580.exe" %TEMP%\winrar.exe
+%TEMP%\winrar.exe /S
+
+
+#prereq_commands
+if not exist "%programfiles%/WinRAR/Rar.exe" (exit /b 1)
+
+
+#commands
+"%programfiles%/WinRAR/Rar.exe" a -r %USERPROFILE%\T1560.001-data.rar %USERPROFILE%\*.txt
+
+
+#cleanup_commands
+del /f /q /s %USERPROFILE%\T1560.001-data.rar >nul 2>&1
+

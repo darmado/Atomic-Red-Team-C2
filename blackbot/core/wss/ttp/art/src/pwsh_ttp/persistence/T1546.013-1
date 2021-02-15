@@ -1,0 +1,22 @@
+#TechniqueName: Event Triggered Execution: PowerShell Profile
+#AtomicTestName: Append malicious start-process cmdlet
+#Language: ps1
+
+#get_prereq_commands
+New-Item -Path $profile -Type File -Force
+
+
+#prereq_commands
+if (Test-Path $profile) {exit 0} else {exit 1}
+
+
+#commands
+Add-Content $profile -Value ""
+Add-Content $profile -Value "Start-Process calc.exe"
+powershell -Command exit
+
+
+#cleanup_commands
+$oldprofile = cat $profile | Select-Object -skiplast 1
+Set-Content $profile -Value $oldprofile
+

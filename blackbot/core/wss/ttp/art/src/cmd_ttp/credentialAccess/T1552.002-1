@@ -1,0 +1,8 @@
+#TechniqueName: Unsecured Credentials: Credentials in Registry
+#AtomicTestName: Enumeration for Credentials in Registry
+#Language: cmd
+
+#commands
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
+

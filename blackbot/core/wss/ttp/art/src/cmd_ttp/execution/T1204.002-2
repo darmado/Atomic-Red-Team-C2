@@ -1,4 +1,4 @@
-#TechniqueName: User Execution: Malicious Link
+#TechniqueName: User Execution: Malicious File
 #AtomicTestName: OSTap Payload Download
 #Language: cmd
 

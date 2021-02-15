@@ -1,0 +1,10 @@
+#TechniqueName: Impair Defenses: Disable or Modify System Firewall
+#AtomicTestName: Opening ports for proxy - HARDRAIN
+#Language: cmd
+
+#commands
+netsh advfirewall firewall add rule name="atomic testing" action=allow dir=in protocol=TCP localport=450 
+
+
+#cleanup_commands
+netsh advfirewall firewall delete rule name="atomic testing" protocol=TCP localport=450 >nul 2>&1

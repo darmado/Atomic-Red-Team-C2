@@ -1,0 +1,9 @@
+#TechniqueName: Impair Defenses: Disable or Modify System Firewall
+#AtomicTestName: Open a local port through Windows Firewall to any profile
+#Language: ps1
+
+#commands
+netsh advfirewall firewall add rule name="Open Port to Any" dir=in protocol=tcp localport=3389 action=allow profile=any
+
+#cleanup_commands
+netsh advfirewall firewall delete rule name="Open Port to Any" | Out-Null

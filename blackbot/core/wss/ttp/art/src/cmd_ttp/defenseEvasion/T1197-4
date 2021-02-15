@@ -1,5 +1,5 @@
 #TechniqueName: BITS Jobs
-#AtomicTestName: Bits download using destktopimgdownldr.exe (cmd)
+#AtomicTestName: Bits download using desktopimgdownldr.exe (cmd)
 #Language: cmd
 
 #commands
@@ -7,5 +7,5 @@ set "SYSTEMROOT=C:\Windows\Temp" && cmd /c desktopimgdownldr.exe /lockscreenurl:
 
 
 #cleanup_commands
-del C:\Windows\Temp\Personalization\LockScreenImage\*.md
+del C:\Windows\Temp\Personalization\LockScreenImage\*.md >null 2>&1
 

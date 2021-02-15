@@ -1,0 +1,7 @@
+#TechniqueName: Inter-Process Communication: Dynamic Data Exchange
+#AtomicTestName: Execute PowerShell script via Word DDE
+#Language: cmd
+
+#commands
+start $PathToAtomicsFolder\T1559.002\bin\DDE_Document.docx
+

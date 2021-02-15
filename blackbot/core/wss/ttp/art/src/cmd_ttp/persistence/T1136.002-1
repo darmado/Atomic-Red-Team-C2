@@ -1,0 +1,12 @@
+#TechniqueName: Create Account: Domain Account
+#AtomicTestName: Create a new Windows domain admin user
+#Language: cmd
+
+#commands
+net user "T1136.002_Admin" "T1136_pass123!" /add /domain
+net group "Domain Admins" "T1136.002_Admin" /add /domain
+
+
+#cleanup_commands
+net user "T1136.002_Admin" >nul 2>&1 /del /domain
+

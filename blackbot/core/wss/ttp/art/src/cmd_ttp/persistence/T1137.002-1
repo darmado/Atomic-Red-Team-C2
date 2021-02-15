@@ -1,0 +1,11 @@
+#TechniqueName: Office Application Startup: Office Test
+#AtomicTestName: Office Apllication Startup Test Persistence
+#Language: cmd
+
+#commands
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Office test\Special\Perf" /t REG_SZ /d "C:\Path\AtomicRedTeam.dll"
+
+
+#cleanup_commands
+reg delete "HKEY_CURRENT_USER\Software\Microsoft\Office test\Special\Perf"
+

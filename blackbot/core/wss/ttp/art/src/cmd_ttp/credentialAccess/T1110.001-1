@@ -1,5 +1,5 @@
 #TechniqueName: Brute Force: Password Guessing
-#AtomicTestName: Brute Force Credentials
+#AtomicTestName: Brute Force Credentials of all domain users via SMB
 #Language: cmd
 
 #commands

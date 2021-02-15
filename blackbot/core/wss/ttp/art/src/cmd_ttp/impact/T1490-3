@@ -1,7 +1,7 @@
 #TechniqueName: Inhibit System Recovery
-#AtomicTestName: Windows - Delete Windows Backup Catalog
+#AtomicTestName: Windows - wbadmin Delete Windows Backup Catalog
 #Language: cmd
 
 #commands
-wbadmin.exe delete catalog -quiet
+wbadmin delete catalog -quiet
 

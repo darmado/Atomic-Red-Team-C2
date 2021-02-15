@@ -1,5 +1,5 @@
 #TechniqueName: Remote Services: Remote Desktop Protocol
-#AtomicTestName: RDPto-DomainController
+#AtomicTestName: RDP to DomainController
 #Language: ps1
 
 #get_prereq_commands

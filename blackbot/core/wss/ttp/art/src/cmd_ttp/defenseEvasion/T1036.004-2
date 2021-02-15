@@ -1,0 +1,12 @@
+#TechniqueName: Masquerading: Masquerade Task or Service
+#AtomicTestName: Creating W32Time similar named service using sc
+#Language: cmd
+
+#commands
+sc create win32times binPath= "cmd /c start c:\T1036.004_NonExistingScript.ps1"
+sc qc win32times
+
+
+#cleanup_commands
+sc delete win32times
+

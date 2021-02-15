@@ -1,0 +1,21 @@
+#TechniqueName: Archive Collected Data: Archive via Utility
+#AtomicTestName: Compress Data and lock with password for Exfiltration with winrar
+#Language: cmd
+
+#get_prereq_commands
+echo Downloading Winrar installer
+bitsadmin /transfer myDownloadJob /download /priority normal "https://www.win-rar.com/fileadmin/winrar-versions/winrar/th/winrar-x64-580.exe" %TEMP%\winrar.exe
+%TEMP%\winrar.exe /S
+
+
+#prereq_commands
+if not exist "%programfiles%/WinRAR/Rar.exe" (exit /b 1)
+
+
+#commands
+mkdir .\tmp\victim-files
+cd .\tmp\victim-files
+echo "This file will be encrypted" > .\encrypted_file.txt
+"%programfiles%/WinRAR/Rar.exe" a -hp"blue" hello.rar
+dir
+

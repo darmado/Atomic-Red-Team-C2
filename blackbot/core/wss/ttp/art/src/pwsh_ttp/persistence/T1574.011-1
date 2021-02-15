@@ -1,0 +1,8 @@
+#TechniqueName: Hijack Execution Flow: Services Registry Permissions Weakness
+#AtomicTestName: Service Registry Permissions Weakness
+#Language: ps1
+
+#commands
+get-acl REGISTRY::HKLM\SYSTEM\CurrentControlSet\Services\* |FL
+get-acl REGISTRY::HKLM\SYSTEM\CurrentControlSet\Services\weakservicename |FL
+

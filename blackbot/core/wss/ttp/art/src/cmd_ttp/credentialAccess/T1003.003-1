@@ -1,5 +1,5 @@
 #TechniqueName: OS Credential Dumping: NTDS
-#AtomicTestName: Create Volume Shadow Copy with NTDS.dit
+#AtomicTestName: Create Volume Shadow Copy with vssadmin
 #Language: cmd
 
 #get_prereq_commands

