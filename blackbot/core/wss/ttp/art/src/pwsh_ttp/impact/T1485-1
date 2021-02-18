@@ -13,5 +13,6 @@ if (Test-Path $env:TEMP\Sdelete\sdelete.exe) {exit 0} else {exit 1}
 
 
 #commands
+if (-not (Test-Path $env:TEMP\T1485.txt)) { New-Item $env:TEMP\T1485.txt -Force }
 Invoke-Expression -Command "$env:TEMP\Sdelete\sdelete.exe -accepteula $env:TEMP\T1485.txt"
 
