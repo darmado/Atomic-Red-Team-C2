@@ -18,7 +18,7 @@ We work under the umbrella of full transparency during all phases of tool and fr
 
 
 - **AGILITY**
-We take pride in enabling lean security teams to remain agile and focused on developing a unique trade-craft that's agnostic to certain tools developed by the red team community. Whether the focus is to keep tight margins between mean time to detect \(MTTD\) metrics and mean time to respond \(MTTR\) metrics or evaluating security control effectiveness, Blackbot Labs will always build tools and frameworks to help cut through the noise and eliminate the gray areas of targetted attacks and practical testing applications.
+We take pride in enabling lean security teams to remain agile and focused on developing a unique trade-craft that's agnostic to certain tools developed by the red team community. Whether you're keeping tight margins between \(MTTD\) and  \(MTTR\) metrics or evaluating security controls, we'll be here building tools to help you get the job done faster.
 
 
 - **SCALABILITY**
@@ -41,14 +41,13 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic
 | ------ | ------ |
 | **Rapid Deployment** | Automate and scale testing efforts from single and multi-target breach points located in different regional environments
 | **Modern Command & Control** | *Implant and Server Comms:* Uses the power of SILENTRINITY's ECDHE Encrypted C2 Communication capabilities to encrypt all C2 traffic. Implant management capabilities allow security teams to use multi-channel communication techniques mapped to MITRE ATT&CK. </br>*Client and Server Comms*: Uses Asyncio and WebSockets are used by a modern CLI powered by prompt-toolkit. Notable features include:     - Implant location tagging NGROK integration 
-| **Standard Execution Header** | Automate and scale testing efforts from single and multi-target breach points located in different regional environments
-| **JSON Logging Support** | Streamline, ingest, decode, and analyze evidence with your ELK stack or any Analytics platform ready to parse JSON.
-| **Stageless in Memory Code Execution** | Send a single web request to a callback URL and observe the stager dynamically compile, check-in, evaluate, and execute tasks in the jobs queue. Continuously execute Atomic Red Team tests in real-time.
-| **Modular Payload Development** |     - Boo using reflective DLL injection to invoke Powershell's  run-time environment</br> - Boo using reflective DLL injection to invoke system calls and CMD
-| **Dynamic Attack Formations** | Dynamically form and execute attack-chains in real-time without the need to recompile or restart ARTi-C2. As of today, ARTiC2 supports 3 differnt attack functions:</br>    - Attack Chains:</br>- Attack Profiles:</br>- Attack Scenarios:
-| **Modular Payload Delivery** | ARTi-C2 leverages [SILENTRINITY's](https://github.com/byt3bl33d3r/SILENTTRINITY) framework to deliver Red Team Atomic tests "As is" through the following dynamically compiled payload deliver controllers:</br>- unmanaged powershell</br>- stageless powershell
-| **Operational Management** | Job IDs are included for controller execution and evidence collection. They're great for event analysis and evidence correlation.
-| **Atomic Updates** | The ART port pipeline is triggered by repo updates at [ATOMIC-RED-TEAM](https://github.com/redcanaryco/atomic-red-team)   
+| **Standard Signature Header** | JSON `PID: , Date(UTC), IsHighIntegrity, HostName, CurrentUser , IsUserAdmin, IPv4, IPv6`
+| **JSON Logging Support** | Streamline, ingest, decode, and analyze evidence with your ELK stack or any Analytics platform ready to parse JSON.| 
+||
+| **Stageless in Memory Code Execution** |  Execute Atomic Red Team tests from `unmanaged powershell process`. 
+| **Dynamic Attack Formations** | Execute attack-chains without the need to recompile or restart ARTi-C2. Currently supports 3 differnt attack functions:</br>    - Attack Chains:</br>- Attack Profiles:</br>- Attack Scenarios:|
+| **Modular Payload Delivery** | ARTi-C2 leverages [SILENTRINITY's](https://github.com/byt3bl33d3r/SILENTTRINITY) framework to deliver Red Team Atomic tests "As is" through:</br>- `unmanaged powershell`</br>- `stageless powershell`
+| **Operational Management** | Job IDs are included for controller execution and evidence collection. They're great for event  analysis and evidence correlation. `"job_id": "D3l820IWpyi67"`| **Atomic Updates** | The ART port pipeline is triggered by repo updates at [ATOMIC-RED-TEAM](https://github.com/redcanaryco/atomic-red-team)   
 
 ## MITRE ATT&CK COVERAGE
 - [MITRE ATT&CK Coverage Map](https://attack.blackbot.io)
