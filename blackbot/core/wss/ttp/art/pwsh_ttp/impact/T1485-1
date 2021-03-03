@@ -1,0 +1,14 @@
+#TechniqueName: Data Destruction
+#AtomicTestName: Windows - Overwrite file with Sysinternals SDelete
+#Description: Overwrites and deletes a file using Sysinternals SDelete. Upon successful execution, "Files deleted: 1" will be displayed in&the powershell session along with other information about the file that was deleted.&
+#Language: ps1
+
+#get_prereq_commands
+Invoke-WebRequest "https://download.sysinternals.com/files/SDelete.zip" -OutFile "$env:TEMP\SDelete.zip"
+Expand-Archive $env:TEMP\SDelete.zip $env:TEMP\Sdelete -Force
+Remove-Item $env:TEMP\SDelete.zip -Force
+
+
+#commands
+Invoke-Expression -Command "$env:TEMP\Sdelete\sdelete.exe -accepteula $env:TEMP\T1485.txt"
+

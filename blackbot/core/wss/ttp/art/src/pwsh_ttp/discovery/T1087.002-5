@@ -1,7 +1,0 @@
-#TechniqueName: Account Discovery: Domain Account
-#AtomicTestName: Adfind -Listing password policy
-#Language: ps1
-
-#commands
-PathToAtomicsFolder\T1087.002\src\AdFind -default -s base lockoutduration lockoutthreshold lockoutobservationwindow maxpwdage minpwdage minpwdlength pwdhistorylength pwdproperties
-

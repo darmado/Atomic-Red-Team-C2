@@ -1,0 +1,16 @@
+#TechniqueName: Impair Defenses: Disable Windows Event Logging
+#AtomicTestName: Impair Windows Audit Log Policy
+#Description: Disables the windows audit policy to prevent key host based telemetry being written into the event logs.&[Solarigate example](https://www.microsoft.com/security/blog/2021/01/20/deep-dive-into-the-solorigate-second-stage-activation-from-sunburst-to-teardrop-and-raindrop/)
+#Language: cmd
+
+#commands
+auditpol /set /category:"Account Logon" /success:disable /failure:disable
+auditpol /set /category:"Logon/Logoff" /success:disable /failure:disable
+auditpol /set /category:"Detailed Tracking" /success:disable
+
+
+#cleanup_commands
+auditpol /set /category:"Account Logon" /success:enable /failure:enable
+auditpol /set /category:"Detailed Tracking" /success:enable
+auditpol /set /category:"Logon/Logoff" /success:enable /failure:enable
+

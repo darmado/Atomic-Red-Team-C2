@@ -1,0 +1,8 @@
+#TechniqueName: Service Stop
+#AtomicTestName: Windows - Stop service by killing process
+#Description: Stops a specified service killng the service's process.&This technique was used by WannaCry. Upon execution, if the spoolsv service was running "SUCCESS: The process "spoolsv.exe" with PID 2316 has been terminated."&will be displayed. If the service was not running "ERROR: The process "spoolsv.exe" not found." will be displayed and it can be&started by running the cleanup command.&
+#Language: cmd
+
+#commands
+taskkill.exe /f /im spoolsv.exe
+

@@ -1,0 +1,30 @@
+atomic
+use LateralMovement/T1021.002-3
+run SESSION
+use LateralMovement/T1021.006-3
+run SESSION
+use LateralMovement/T1021.003-1
+run SESSION
+use LateralMovement/T1021.002-1
+run SESSION
+use LateralMovement/T1021.001-2
+run SESSION
+use LateralMovement/T1550.002-2
+run SESSION
+use LateralMovement/T1550.002-1
+run SESSION
+use LateralMovement/T1021.006-2
+run SESSION
+use LateralMovement/T1563.002-1
+run SESSION
+use LateralMovement/T1021.002-2
+run SESSION
+use LateralMovement/T1021.006-1
+run SESSION
+use LateralMovement/T1550.003-1
+run SESSION
+use LateralMovement/T1021.001-1
+run SESSION
+use LateralMovement/T1021.002-4
+run SESSION
+campaigns

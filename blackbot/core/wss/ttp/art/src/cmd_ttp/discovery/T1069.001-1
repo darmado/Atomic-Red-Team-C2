@@ -1,8 +1,0 @@
-#TechniqueName: Permission Groups Discovery: Local Groups
-#AtomicTestName: Basic Permission Groups Discovery Windows (Local)
-#Language: cmd
-
-#commands
-net localgroup
-net localgroup "Administrators"
-

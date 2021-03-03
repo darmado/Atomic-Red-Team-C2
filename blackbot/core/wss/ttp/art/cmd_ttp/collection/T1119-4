@@ -1,0 +1,18 @@
+#TechniqueName: Automated Collection
+#AtomicTestName: Recon information for export with Command Prompt
+#Description: collect information for exfiltration. Upon execution, check the users temp directory (%temp%) for files T1119_*.txt&to see what was collected.&
+#Language: cmd
+
+#commands
+sc query type=service > %TEMP%\T1119_1.txt
+doskey /history > %TEMP%\T1119_2.txt
+wmic process list > %TEMP%\T1119_3.txt
+tree C:\AtomicRedTeam\atomics > %TEMP%\T1119_4.txt
+
+
+#cleanup_commands
+del %TEMP%\T1119_1.txt >nul 2>&1
+del %TEMP%\T1119_2.txt >nul 2>&1
+del %TEMP%\T1119_3.txt >nul 2>&1
+del %TEMP%\T1119_4.txt >nul 2>&1
+

@@ -1,0 +1,43 @@
+#TechniqueName: Signed Binary Proxy Execution: InstallUtil
+#AtomicTestName: CheckIfInstallable method call
+#Description: Executes the CheckIfInstallable class constructor runner instead of executing InstallUtil. Upon execution, the InstallUtil test harness will be executed.&If no output is displayed the test executed successfuly.&
+#Language: ps1
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1218.004\src\InstallUtilTestHarness.ps1) -ErrorAction ignore | Out-Null
+Invoke-WebRequest 'https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.004/src/InstallUtilTestHarness.ps1' -OutFile "PathToAtomicsFolder\T1218.004\src\InstallUtilTestHarness.ps1"
+
+
+#commands
+# Import the required test harness function, Invoke-BuildAndInvokeInstallUtilAssembly
+. PathToAtomicsFolder\T1218.004\src\InstallUtilTestHarness.ps1
+
+$InstallerAssemblyDir = "$Env:TEMP\"
+$InstallerAssemblyFileName = "T1218.004.dll"
+$InstallerAssemblyFullPath = Join-Path -Path $InstallerAssemblyDir -ChildPath $InstallerAssemblyFileName
+
+$ExpectedOutput = 'Constructor_'
+
+$TestArgs = @{
+    OutputAssemblyDirectory = $InstallerAssemblyDir
+    OutputAssemblyFileName = $InstallerAssemblyFileName
+    InvocationMethod = 'CheckIfInstallable'
+}
+
+$ActualOutput = Invoke-BuildAndInvokeInstallUtilAssembly @TestArgs -MinimumViableAssembly
+
+if ($ActualOutput -ne $ExpectedOutput) {
+    throw @"
+CheckIfInstallable method execution test failure. Installer assembly execution output did not match the expected output.
+Expected: $ExpectedOutput
+Actual: $ActualOutput
+"@
+}
+
+
+#cleanup_commands
+$InstallerAssemblyDir = "$Env:TEMP\"
+$InstallerAssemblyFileName = "T1218.004.dll"
+$InstallerAssemblyFullPath = Join-Path -Path $InstallerAssemblyDir -ChildPath $InstallerAssemblyFileName
+Remove-Item -Path $InstallerAssemblyFullPath -ErrorAction Ignore
+

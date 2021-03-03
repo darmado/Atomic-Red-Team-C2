@@ -1,0 +1,11 @@
+#TechniqueName: Access Token Manipulation: Parent PID Spoofing
+#AtomicTestName: Parent PID Spoofing - Spawn from New Process
+#Description: Creates a notepad.exe process and then spawns a powershell.exe process as a child of it.
+#Language: ps1
+
+#get_prereq_commands
+Install-Module -Name AtomicTestHarnesses -Scope CurrentUser -Force
+
+
+#commands
+Start-Process -FilePath $Env:windir\System32\notepad.exe -PassThru | Start-ATHProcessUnderSpecificParent -FilePath $Env:windir\System32\WindowsPowerShell\v1.0\powershell.exe -CommandLine '-Command Start-Sleep 10'

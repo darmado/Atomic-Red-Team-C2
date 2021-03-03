@@ -1,0 +1,12 @@
+#TechniqueName: System Network Configuration Discovery
+#AtomicTestName: System Network Configuration Discovery on Windows
+#Description: Identify network configuration information&&Upon successful execution, cmd.exe will spawn multiple commands to list network configuration settings. Output will be via stdout.&
+#Language: cmd
+
+#commands
+ipconfig /all
+netsh interface show interface
+arp -a
+nbtstat -n
+net config
+

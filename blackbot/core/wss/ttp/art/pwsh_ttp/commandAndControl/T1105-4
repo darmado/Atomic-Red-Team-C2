@@ -1,0 +1,12 @@
+#TechniqueName: Ingress Tool Transfer
+#AtomicTestName: Windows - PowerShell Download
+#Description: This test uses PowerShell to download a payload.&This technique is used by multiple adversaries and malware families.&
+#Language: ps1
+
+#commands
+(New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/LICENSE.txt", "$env:TEMP\Atomic-license.txt")
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\Atomic-license.txt -Force -ErrorAction Ignore
+

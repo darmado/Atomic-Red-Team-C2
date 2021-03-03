@@ -1,0 +1,22 @@
+#TechniqueName: File and Directory Permissions Modification: Windows File and Directory Permissions Modification
+#AtomicTestName: attrib - hide file
+#Description: Attackers leverage an existing Windows binary, attrib.exe, to mark specific files or folder as hidden by using specific flags so that&the victim does not see the file.&
+#Language: cmd
+
+#get_prereq_commands
+mkdir %temp%\T1222.001_attrib_2
+echo T1222.001_attrib1 >> %temp%\T1222.001_attrib_2\T1222.001_attrib1.txt
+echo T1222.001_attrib2 >> %temp%\T1222.001_attrib_2\T1222.001_attrib2.txt
+
+
+#commands
+attrib.exe +h %temp%\T1222.001_attrib_2\T1222.001_attrib1.txt
+attrib.exe +h %temp%\T1222.001_attrib_2\T1222.001_attrib2.txt
+
+
+#cleanup_commands
+attrib.exe -h %temp%\T1222.001_attrib_2\T1222.001_attrib1.txt
+attrib.exe -h %temp%\T1222.001_attrib_2\T1222.001_attrib2.txt
+del %temp%\T1222.001_attrib_2\T1222.001_attrib*.txt
+rmdir %temp%\T1222.001_attrib_2
+

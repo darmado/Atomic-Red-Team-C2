@@ -1,7 +1,0 @@
-#TechniqueName: Browser Bookmark Discovery
-#AtomicTestName: List Internet Explorer Bookmarks using the command prompt
-#Language: cmd
-
-#commands
-dir /s /b %USERPROFILE%\Favorites
-

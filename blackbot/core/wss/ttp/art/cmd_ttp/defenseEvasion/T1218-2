@@ -1,0 +1,8 @@
+#TechniqueName: Signed Binary Proxy Execution
+#AtomicTestName: SyncAppvPublishingServer - Execute arbitrary PowerShell code
+#Description: Executes arbitrary PowerShell code using SyncAppvPublishingServer.exe. Requires Windows 10.&
+#Language: cmd
+
+#commands
+SyncAppvPublishingServer.exe "n; Start-Process calc.exe"
+

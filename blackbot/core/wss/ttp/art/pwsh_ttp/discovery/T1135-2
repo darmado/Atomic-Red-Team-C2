@@ -1,0 +1,9 @@
+#TechniqueName: Network Share Discovery
+#AtomicTestName: Network Share Discovery PowerShell
+#Description: Network Share Discovery utilizing PowerShell. The computer name variable may need to be modified to point to a different host&Upon execution, avalaible network shares will be displayed in the powershell session&
+#Language: ps1
+
+#commands
+net view \\localhost
+get-smbshare -Name localhost
+

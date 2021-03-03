@@ -1,0 +1,12 @@
+#TechniqueName: Windows Management Instrumentation
+#AtomicTestName: WMI Execute Remote Process
+#Description: This test uses wmic.exe to execute a process on a remote host. Specify a valid value for remote IP using the node parameter.&To clean up, provide the same node input as the one provided to run the test&A common error message is "Node - (provided IP or default)  ERROR Description =The RPC server is unavailable" if the default or provided IP is unreachable&
+#Language: cmd
+
+#commands
+wmic /user:DOMAIN\Administrator /password:P@ssw0rd1 /node:"127.0.0.1" process call create notepad.exe
+
+
+#cleanup_commands
+wmic /user:DOMAIN\Administrator /password:P@ssw0rd1 /node:"127.0.0.1" process where name='notepad.exe' delete >nul 2>&1
+

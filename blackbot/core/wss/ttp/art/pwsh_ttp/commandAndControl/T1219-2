@@ -1,0 +1,14 @@
+#TechniqueName: Remote Access Software
+#AtomicTestName: AnyDesk Files Detected Test on Windows
+#Description: An adversary may attempt to trick the user into downloading AnyDesk and use to establish C2. Download of AnyDesk installer will be at the destination location and ran when sucessfully executed.&
+#Language: ps1
+
+#commands
+Invoke-WebRequest -OutFile C:\Users\$env:username\Desktop\AnyDesk.exe https://download.anydesk.com/AnyDesk.exe
+$file1 = "C:\Users\" + $env:username + "\Desktop\AnyDesk.exe"
+Start-Process $file1 /S;
+
+
+#cleanup_commands
+$file1 = "C:\Users\" + $env:username + "\Desktop\AnyDesk.exe.exe"
+Remove-Item $file1 -ErrorAction Ignore

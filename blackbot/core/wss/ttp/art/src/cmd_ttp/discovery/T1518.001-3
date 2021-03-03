@@ -1,7 +1,0 @@
-#TechniqueName: Software Discovery: Security Software Discovery
-#AtomicTestName: Security Software Discovery - Sysmon Service
-#Language: cmd
-
-#commands
-fltmc.exe | findstr.exe 385201
-

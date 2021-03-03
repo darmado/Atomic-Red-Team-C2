@@ -1,0 +1,13 @@
+#TechniqueName: Trusted Developer Utilities Proxy Execution: MSBuild
+#AtomicTestName: MSBuild Bypass Using Inline Tasks (VB)
+#Description: Executes the code in a project file using msbuild.exe. The default Visual Basic example file (vb.xml) will simply print "Hello from a Visual Basic inline task!" to the screen.&
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1127.001\src\vb.xml) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1127.001/src/vb.xml" -OutFile "PathToAtomicsFolder\T1127.001\src\vb.xml"
+
+
+#commands
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe PathToAtomicsFolder\T1127.001\src\vb.xml
+

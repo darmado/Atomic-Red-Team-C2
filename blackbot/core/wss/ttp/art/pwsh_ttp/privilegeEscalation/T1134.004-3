@@ -1,0 +1,11 @@
+#TechniqueName: Access Token Manipulation: Parent PID Spoofing
+#AtomicTestName: Parent PID Spoofing - Spawn from Specified Process
+#Description: Spawns a notepad.exe process as a child of the current process.
+#Language: ps1
+
+#get_prereq_commands
+Install-Module -Name AtomicTestHarnesses -Scope CurrentUser -Force
+
+
+#commands
+Start-ATHProcessUnderSpecificParent  -ParentId $PID -TestGuid 12345678-1234-1234-1234-123456789123

@@ -1,7 +1,0 @@
-#TechniqueName: Account Discovery: Local Account
-#AtomicTestName: Enumerate logged on users via PowerShell
-#Language: ps1
-
-#commands
-query user
-

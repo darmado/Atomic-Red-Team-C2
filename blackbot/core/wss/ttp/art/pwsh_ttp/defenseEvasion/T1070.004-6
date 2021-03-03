@@ -1,0 +1,12 @@
+#TechniqueName: Indicator Removal on Host: File Deletion
+#AtomicTestName: Delete TeamViewer Log Files
+#Description: Adversaries may delete TeamViewer log files to hide activity. This should provide a high true-positive alert ration.&This test just places the files in a non-TeamViewer folder, a detection would just check for a deletion event matching the TeamViewer&log file format of TeamViewer_##.log. Upon execution, no output will be displayed. Use File Explorer to verify the folder was deleted.&&https://twitter.com/SBousseaden/status/1197524463304290305?s=20&
+#Language: ps1
+
+#get_prereq_commands
+New-Item -Path $env:TEMP\TeamViewer_54.log | Out-Null
+
+
+#commands
+Remove-Item $env:TEMP\TeamViewer_54.log
+

@@ -1,0 +1,8 @@
+#TechniqueName: Software Discovery: Security Software Discovery
+#AtomicTestName: Security Software Discovery - Sysmon Service
+#Description: Discovery of an installed Sysinternals Sysmon service using driver altitude (even if the name is changed).&&when sucessfully executed, the test is going to display sysmon driver instance if it is installed.&
+#Language: cmd
+
+#commands
+fltmc.exe | findstr.exe 385201
+

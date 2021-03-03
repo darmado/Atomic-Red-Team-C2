@@ -1,7 +1,0 @@
-#TechniqueName: Indirect Command Execution
-#AtomicTestName: Indirect Command Execution - conhost.exe
-#Language: cmd
-
-#commands
-conhost.exe "notepad.exe"
-

@@ -1,0 +1,14 @@
+#TechniqueName: Masquerading: Rename System Utilities
+#AtomicTestName: Masquerading - windows exe running as different windows exe
+#Description: Copies a windows exe, renames it as another windows exe, and launches it to masquerade as second windows exe&
+#Language: ps1
+
+#commands
+copy $env:ComSpec ($env:TEMP + "\svchost.exe")
+$myT1036_003 = (Start-Process -PassThru -FilePath ($env:TEMP + "\svchost.exe")).Id
+Stop-Process -ID $myT1036_003
+
+
+#cleanup_commands
+Remove-Item ($env:TEMP + "\svchost.exe") -Force -ErrorAction Ignore
+

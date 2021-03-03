@@ -1,0 +1,12 @@
+#TechniqueName: Event Triggered Execution: Change Default File Association
+#AtomicTestName: Change Default File Association
+#Description: Change Default File Association From cmd.exe of hta to notepad.&&Upon successful execution, cmd.exe will change the file association of .hta to notepad.exe. &
+#Language: cmd
+
+#commands
+assoc .hta=txtfile
+
+
+#cleanup_commands
+assoc  .hta=htafile
+

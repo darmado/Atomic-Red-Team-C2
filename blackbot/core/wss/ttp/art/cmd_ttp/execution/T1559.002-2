@@ -1,0 +1,8 @@
+#TechniqueName: Inter-Process Communication: Dynamic Data Exchange
+#AtomicTestName: Execute PowerShell script via Word DDE
+#Description: When the word document opens it will prompt the user to click ok on a dialogue box, then attempt to run PowerShell with DDEAUTO to download and execute a powershell script&
+#Language: cmd
+
+#commands
+start $PathToAtomicsFolder\T1559.002\bin\DDE_Document.docx
+

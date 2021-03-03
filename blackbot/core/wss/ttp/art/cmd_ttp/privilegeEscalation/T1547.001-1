@@ -1,0 +1,12 @@
+#TechniqueName: Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder
+#AtomicTestName: Reg Key Run
+#Description: Run Key Persistence&&Upon successful execution, cmd.exe will modify the registry by adding \"Atomic Red Team\" to the Run key. Output will be via stdout. &
+#Language: cmd
+
+#commands
+REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "Atomic Red Team" /t REG_SZ /F /D "C:\Path\AtomicRedTeam.exe"
+
+
+#cleanup_commands
+REG DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "Atomic Red Team" /f >nul 2>&1
+

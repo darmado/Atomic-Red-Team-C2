@@ -1,0 +1,9 @@
+#TechniqueName: Unsecured Credentials: Credentials In Files
+#AtomicTestName: Access unattend.xml
+#Description: Attempts to access unattend.xml, where credentials are commonly stored, within the Panther directory where installation logs are stored.&If these files exist, their contents will be displayed. They are used to store credentials/answers during the unattended windows install process.&
+#Language: cmd
+
+#commands
+type C:\Windows\Panther\unattend.xml
+type C:\Windows\Panther\Unattend\unattend.xml
+

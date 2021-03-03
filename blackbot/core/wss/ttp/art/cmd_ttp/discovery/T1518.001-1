@@ -1,0 +1,13 @@
+#TechniqueName: Software Discovery: Security Software Discovery
+#AtomicTestName: Security Software Discovery
+#Description: Methods to identify Security Software on an endpoint&&when sucessfully executed, the test is going to display running processes, firewall configuration on network profiles&and specific security software.&
+#Language: cmd
+
+#commands
+netsh.exe advfirewall  show allprofiles
+tasklist.exe
+tasklist.exe | findstr /i virus
+tasklist.exe | findstr /i cb
+tasklist.exe | findstr /i defender
+tasklist.exe | findstr /i cylance
+

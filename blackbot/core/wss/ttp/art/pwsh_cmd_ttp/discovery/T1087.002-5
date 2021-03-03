@@ -1,0 +1,12 @@
+#TechniqueName: Account Discovery: Domain Account
+#AtomicTestName: Adfind -Listing password policy
+#Description: Adfind tool can be used for reconnaissance in an Active directory environment. The example chosen illustrates adfind used to query the local password policy.&reference- http://www.joeware.net/freetools/tools/adfind/, https://social.technet.microsoft.com/wiki/contents/articles/7535.adfind-command-examples.aspx&
+#Language: cmd
+
+#get_prereq_commands
+Invoke-WebRequest -Uri "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1087.002/src/AdFind.exe" -OutFile PathToAtomicsFolder\T1087.002\src\AdFind.exe
+
+
+#commands
+PathToAtomicsFolder\T1087.002\src\AdFind.exe -default -s base lockoutduration lockoutthreshold lockoutobservationwindow maxpwdage minpwdage minpwdlength pwdhistorylength pwdproperties
+

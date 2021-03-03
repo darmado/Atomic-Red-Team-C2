@@ -1,7 +1,0 @@
-#TechniqueName: Remote System Discovery
-#AtomicTestName: Remote System Discovery - nltest
-#Language: cmd
-
-#commands
-nltest.exe /dclist:domain.local
-

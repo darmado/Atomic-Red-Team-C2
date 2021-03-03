@@ -1,0 +1,34 @@
+atomic
+use Impact/T1490-2
+run SESSION
+use Impact/T1531-1
+run SESSION
+use Impact/T1529-2
+run SESSION
+use Impact/T1490-7
+run SESSION
+use Impact/T1490-3
+run SESSION
+use Impact/T1489-1
+run SESSION
+use Impact/T1490-4
+run SESSION
+use Impact/T1490-1
+run SESSION
+use Impact/T1531-3
+run SESSION
+use Impact/T1529-1
+run SESSION
+use Impact/T1490-6
+run SESSION
+use Impact/T1489-2
+run SESSION
+use Impact/T1531-2
+run SESSION
+use Impact/T1490-5
+run SESSION
+use Impact/T1489-3
+run SESSION
+use Impact/T1485-1
+run SESSION
+campaigns

@@ -1,0 +1,27 @@
+#TechniqueName: Boot or Logon Autostart Execution: Shortcut Modification
+#AtomicTestName: Create shortcut to cmd in startup folders
+#Description: LNK file to launch CMD placed in startup folder. Upon execution, open File Explorer and browse to "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\"&to view the new shortcut.&
+#Language: ps1
+
+#commands
+$Shell = New-Object -ComObject ("WScript.Shell")
+$ShortCut = $Shell.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\T1547.009.lnk")
+$ShortCut.TargetPath="cmd.exe"
+$ShortCut.WorkingDirectory = "C:\Windows\System32";
+$ShortCut.WindowStyle = 1;
+$ShortCut.Description = "T1547.009.";
+$ShortCut.Save()
+
+$Shell = New-Object -ComObject ("WScript.Shell")
+$ShortCut = $Shell.CreateShortcut("$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\T1547.009.lnk")
+$ShortCut.TargetPath="cmd.exe"
+$ShortCut.WorkingDirectory = "C:\Windows\System32";
+$ShortCut.WindowStyle = 1;
+$ShortCut.Description = "T1547.009.";
+$ShortCut.Save()
+
+
+#cleanup_commands
+Remove-Item "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\T1547.009.lnk" -ErrorAction Ignore
+Remove-Item "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\T1547.009.lnk" -ErrorAction Ignore
+

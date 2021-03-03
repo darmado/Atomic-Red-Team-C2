@@ -1,0 +1,18 @@
+#TechniqueName: Command and Scripting Interpreter: PowerShell
+#AtomicTestName: NTFS Alternate Data Stream Access
+#Description: Creates a file with an alternate data stream and simulates executing that hidden code/file. Upon execution, "Stream Data Executed" will be displayed.&
+#Language: ps1
+
+#get_prereq_commands
+Write-Host Prereq's for this test cannot be met automatically
+
+
+#commands
+Add-Content -Path $env:TEMP\NTFS_ADS.txt -Value 'Write-Host "Stream Data Executed"' -Stream 'streamCommand'
+$streamcommand = Get-Content -Path $env:TEMP\NTFS_ADS.txt -Stream 'streamcommand'
+Invoke-Expression $streamcommand
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\NTFS_ADS.txt -Force -ErrorAction Ignore
+

@@ -1,0 +1,7 @@
+#TechniqueName: File and Directory Permissions Modification: Windows File and Directory Permissions Modification
+#AtomicTestName: Grant Full Access to folder for Everyone - Ryuk Ransomware Style
+#Description: Invokes the command line similar to that used by Ryuk Ransomware to grant full access to the entire C:\ drive for Everyone.&**icacls "C:\*" /grant Everyone:F /T /C /Q**&However, for this atomic we set the permission on C:\Users\Public so it completes faster and doesn't irreversibly affect the host.&You can set your own path variable to "C:\*" if you prefer.&
+#Language: cmd
+
+#commands
+icacls "C:\Users\Public\*" /grant Everyone:F /T /C /Q

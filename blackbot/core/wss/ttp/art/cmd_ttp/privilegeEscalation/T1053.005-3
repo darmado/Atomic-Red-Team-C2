@@ -1,0 +1,12 @@
+#TechniqueName: Scheduled Task/Job: Scheduled Task
+#AtomicTestName: Scheduled task Remote
+#Description: Create a task on a remote system.&&Upon successful execution, cmd.exe will create a scheduled task to spawn cmd.exe at 20:10 on a remote endpoint.&
+#Language: cmd
+
+#commands
+SCHTASKS /Create /S localhost /RU DOMAIN\user /RP At0micStrong /TN "Atomic task" /TR "C:\windows\system32\cmd.exe" /SC daily /ST 1210
+
+
+#cleanup_commands
+SCHTASKS /Delete /S localhost /RU DOMAIN\user /RP At0micStrong /TN "Atomic task" /F >nul 2>&1
+

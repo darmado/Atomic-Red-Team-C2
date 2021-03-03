@@ -1,0 +1,9 @@
+#TechniqueName: Unsecured Credentials: Credentials in Registry
+#AtomicTestName: Enumeration for Credentials in Registry
+#Description: Queries to enumerate for credentials in the Registry. Upon execution, any registry key containing the word "password" will be displayed.&
+#Language: cmd
+
+#commands
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
+

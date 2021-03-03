@@ -1,8 +1,0 @@
-#TechniqueName: Account Access Removal
-#AtomicTestName: Delete User - Windows
-#Language: cmd
-
-#commands
-net user AtomicUser User2DeletePW! /add
-net.exe user AtomicUser /delete
-

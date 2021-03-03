@@ -1,0 +1,13 @@
+#TechniqueName: Scheduled Task/Job: Scheduled Task
+#AtomicTestName: Task Scheduler via VBA
+#Description: This module utilizes the Windows API to schedule a task for code execution (notepad.exe). The task scheduler will execute "notepad.exe" within&30 - 40 seconds after this module has run&
+#Language: ps1
+
+#get_prereq_commands
+Write-Host "You will need to install Microsoft Word manually to meet this requirement"
+
+
+#commands
+IEX (iwr "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Public/Invoke-MalDoc.ps1") 
+Invoke-MalDoc -macroFile "PathToAtomicsFolder\T1053.005\src\T1053.005-macrocode.txt" -officeProduct "Word" -sub "Scheduler"
+

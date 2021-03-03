@@ -1,0 +1,11 @@
+#TechniqueName: Signed Binary Proxy Execution
+#AtomicTestName: Invoke-ATHRemoteFXvGPUDisablementCommand base test
+#Description: RemoteFXvGPUDisablement.exe is an abusable, signed PowerShell host executable that was introduced in Windows 10 and Server 2019 (OS Build 17763.1339).&&One of the PowerShell functions called by RemoteFXvGPUDisablement.exe is Get-VMRemoteFXPhysicalVideoAdapter, a part of the Hyper-V module. This atomic test influences RemoteFXvGPUDisablement.exe to execute custom PowerShell code by using a technique referred to as "PowerShell module load-order hijacking" where a module containing, in this case, an implementation of the Get-VMRemoteFXPhysicalVideoAdapter is loaded first by way of introducing a temporary module into the first directory listed in the %PSModulePath% environment variable or within a user-specified module directory outside of %PSModulePath%. Upon execution the temporary module is deleted.&&Invoke-ATHRemoteFXvGPUDisablementCommand is used in this test to demonstrate how a PowerShell host executable can be directed to user-supplied PowerShell code without needing to supply anything at the command-line. PowerShell code execution is triggered when supplying the "Disable" argument to RemoteFXvGPUDisablement.exe.&&The Invoke-ATHRemoteFXvGPUDisablementCommand function outputs all relevant execution-related artifacts.&&Reference: https://github.com/redcanaryco/AtomicTestHarnesses/blob/master/TestHarnesses/T1218_SignedBinaryProxyExecution/InvokeRemoteFXvGPUDisablementCommand.ps1&
+#Language: ps1
+
+#get_prereq_commands
+Install-Module -Name AtomicTestHarnesses -Scope CurrentUser -Force
+
+
+#commands
+Invoke-ATHRemoteFXvGPUDisablementCommand -ModuleName foo -ModulePath $PWD

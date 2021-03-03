@@ -1,0 +1,14 @@
+#TechniqueName: Virtualization/Sandbox Evasion: System Checks
+#AtomicTestName: Detect Virtualization Environment (Windows)
+#Description: Windows Management Instrumentation(WMI) objects contains system information which helps to detect virtualization. This command will specifically attempt to get the CurrentTemperature value from this object and will check to see if the attempt results in an error that contains the word supported. This is meant to find the result of Not supported, which is the result if run in a virtual machine&
+#Language: ps1
+
+#commands
+$error.clear()
+Get-WmiObject -Query "SELECT * FROM MSAcpi_ThermalZoneTemperature" -ErrorAction SilentlyContinue
+if($error) {echo "Virtualization Environment detected"}
+
+
+#cleanup_commands
+$error.clear()
+

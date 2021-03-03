@@ -1,0 +1,8 @@
+#TechniqueName: Process Discovery
+#AtomicTestName: Process Discovery - tasklist
+#Description: Utilize tasklist to identify processes.&&Upon successful execution, cmd.exe will execute tasklist.exe to list processes. Output will be via stdout. &
+#Language: cmd
+
+#commands
+tasklist
+

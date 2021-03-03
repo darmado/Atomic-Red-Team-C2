@@ -1,7 +1,0 @@
-#TechniqueName: Hide Artifacts: Hidden Window
-#AtomicTestName: Hidden Window
-#Language: ps1
-
-#commands
-Start-Process powershell.exe -WindowStyle hidden calc.exe
-

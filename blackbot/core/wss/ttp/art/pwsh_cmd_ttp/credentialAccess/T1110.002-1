@@ -1,0 +1,22 @@
+#TechniqueName: Brute Force: Password Cracking
+#AtomicTestName: Password Cracking with Hashcat
+#Description: Execute Hashcat.exe with provided SAM file from registry of Windows and Password list to crack against
+#Language: cmd
+
+#get_prereq_commands
+Invoke-WebRequest "https://www.7-zip.org/a/7z1900.exe" -OutFile "$env:TEMP\7z1900.exe"
+Start-Process -FilePath "$env:Temp\7z1900.exe" -ArgumentList "/S /D=$env:temp\7zi" -NoNewWindow
+Invoke-WebRequest "https://hashcat.net/files/hashcat-6.1.1.7z" -OutFile "$env:TEMP\hashcat6.7z"
+Start-Process cmd.exe -Args  "/c %temp%\7z\7z.exe x %temp%\hashcat6.7z -aoa -o%temp%\hashcat-unzip" -Wait
+New-Item -ItemType Directory (Split-Path $(cmd /c echo %temp%\hashcat6\hashcat-6.1.1\hashcat.exe)) -Force | Out-Null
+Move-Item $env:Temp\hashcat-unzip\hashcat-6.1.1\* $(cmd /c echo %temp%\hashcat6\hashcat-6.1.1\hashcat.exe\..) -Force -ErrorAction Ignore
+
+#commands
+cd %temp%\hashcat6\hashcat-6.1.1\hashcat.exe\..
+%temp%\hashcat6\hashcat-6.1.1\hashcat.exe -a 0 -m 1000 -r .\rules\Incisive-leetspeak.rule PathToAtomicsFolder\T1110.002\src\sam.txt PathToAtomicsFolder\T1110.002\src\password.lst
+
+#cleanup_commands
+del %temp%\hashcat6.7z >nul 2>&1
+del %temp%\7z1900.exe >nul 2>&1
+del %temp%\7z /Q /S >nul 2>&1
+del %temp%\hashcat-unzip /Q /S >nul 2>&1

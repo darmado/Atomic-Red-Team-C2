@@ -1,0 +1,11 @@
+#TechniqueName: Signed Binary Proxy Execution: Compiled HTML File
+#AtomicTestName: Invoke CHM with default Shortcut Command Execution
+#Description: Executes a CHM file with the default Shortcut Command method.
+#Language: ps1
+
+#get_prereq_commands
+Install-Module -Name AtomicTestHarnesses -Scope CurrentUser -Force
+
+
+#commands
+Invoke-ATHCompiledHelp -HHFilePath $env:windir\hh.exe -CHMFilePath Test.chm

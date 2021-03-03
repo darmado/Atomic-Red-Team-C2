@@ -1,7 +1,0 @@
-#TechniqueName: Windows Management Instrumentation
-#AtomicTestName: WMI Reconnaissance Software
-#Language: cmd
-
-#commands
-wmic qfe get description,installedOn /format:csv
-

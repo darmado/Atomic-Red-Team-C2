@@ -1,0 +1,18 @@
+#TechniqueName: Phishing: Spearphishing Attachment
+#AtomicTestName: Word spawned a command shell and used an IP address in the command line
+#Description: Word spawning a command prompt then running a command with an IP address in the command line is an indiciator of malicious activity.&Upon execution, CMD will be lauchned and ping 8.8.8.8&
+#Language: ps1
+
+#get_prereq_commands
+Write-Host "You will need to install Microsoft Word manually to meet this requirement"
+
+
+#commands
+IEX (iwr "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Public/Invoke-MalDoc.ps1")
+$macrocode = "   Open `"C:\Users\Public\art.jse`" For Output As #1`n   Write #1, `"WScript.Quit`"`n   Close #1`n   Shell`$ `"ping 8.8.8.8`"`n"
+Invoke-MalDoc -macroCode $macrocode -officeProduct "Word"
+
+
+#cleanup_commands
+Remove-Item C:\Users\Public\art.jse -ErrorAction Ignore
+

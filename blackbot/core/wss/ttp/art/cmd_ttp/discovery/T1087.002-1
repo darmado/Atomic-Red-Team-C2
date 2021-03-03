@@ -1,0 +1,9 @@
+#TechniqueName: Account Discovery: Domain Account
+#AtomicTestName: Enumerate all accounts (Domain)
+#Description: Enumerate all accounts&Upon exection, multiple enumeration commands will be run and their output displayed in the PowerShell session&
+#Language: cmd
+
+#commands
+net user /domain
+net group /domain
+

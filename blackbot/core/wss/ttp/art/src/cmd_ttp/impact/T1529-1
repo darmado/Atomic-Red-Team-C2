@@ -1,7 +1,0 @@
-#TechniqueName: System Shutdown/Reboot
-#AtomicTestName: Shutdown System - Windows
-#Language: cmd
-
-#commands
-shutdown /s /t 1
-

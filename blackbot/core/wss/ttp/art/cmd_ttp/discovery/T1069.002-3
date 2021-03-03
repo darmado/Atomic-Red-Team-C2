@@ -1,0 +1,11 @@
+#TechniqueName: Permission Groups Discovery: Domain Groups
+#AtomicTestName: Elevated group enumeration using net group (Domain)
+#Description: Runs "net group" command including command aliases and loose typing to simulate enumeration/discovery of high value domain groups. This&test will display some errors if run on a computer not connected to a domain. Upon execution, domain information will be displayed.&
+#Language: cmd
+
+#commands
+net group /domai "Domain Admins"
+net groups "Account Operators" /doma
+net groups "Exchange Organization Management" /doma
+net group "BUILTIN\Backup Operators" /doma
+

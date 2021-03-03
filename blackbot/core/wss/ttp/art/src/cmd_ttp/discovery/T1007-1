@@ -1,9 +1,0 @@
-#TechniqueName: System Service Discovery
-#AtomicTestName: System Service Discovery
-#Language: cmd
-
-#commands
-tasklist.exe
-sc query
-sc query state= all
-

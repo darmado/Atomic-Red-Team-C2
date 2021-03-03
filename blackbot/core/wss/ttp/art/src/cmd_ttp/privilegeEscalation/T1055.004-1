@@ -1,7 +1,0 @@
-#TechniqueName: Process Injection: Asynchronous Procedure Call
-#AtomicTestName: Process Injection via C#
-#Language: cmd
-
-#commands
-PathToAtomicsFolder\T1055.004\bin\T1055.exe
-

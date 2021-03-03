@@ -1,7 +1,0 @@
-#TechniqueName: Signed Binary Proxy Execution
-#AtomicTestName: SyncAppvPublishingServer - Execute arbitrary PowerShell code
-#Language: cmd
-
-#commands
-SyncAppvPublishingServer.exe "n; Start-Process calc.exe"
-

@@ -1,0 +1,11 @@
+#TechniqueName: Signed Binary Proxy Execution: Mshta
+#AtomicTestName: Invoke HTML Application - Jscript Engine over Local UNC Simulating Lateral Movement
+#Description: Executes an HTA Application using JScript script engine using local UNC path simulating lateral movement.
+#Language: ps1
+
+#get_prereq_commands
+Install-Module -Name AtomicTestHarnesses -Scope CurrentUser -Force
+
+
+#commands
+Invoke-ATHHTMLApplication -HTAFilePath Test.hta -ScriptEngine JScript -AsLocalUNCPath -SimulateLateralMovement -MSHTAFilePath $env:windir\system32\mshta.exe

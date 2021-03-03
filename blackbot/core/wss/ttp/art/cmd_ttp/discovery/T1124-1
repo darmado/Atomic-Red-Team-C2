@@ -1,0 +1,9 @@
+#TechniqueName: System Time Discovery
+#AtomicTestName: System Time Discovery
+#Description: Identify the system time. Upon execution, the local computer system time and timezone will be displayed.&
+#Language: cmd
+
+#commands
+net time \\localhost
+w32tm /tz
+

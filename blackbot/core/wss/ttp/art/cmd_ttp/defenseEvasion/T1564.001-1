@@ -1,0 +1,16 @@
+#TechniqueName: Hide Artifacts: Hidden Files and Directories
+#AtomicTestName: Create Windows System File with Attrib
+#Description: Creates a file and marks it as a system file using the attrib.exe utility. Upon execution, open the file in file explorer then open Properties > Details&and observe that the Attributes are "SA" for System and Archive.&
+#Language: cmd
+
+#get_prereq_commands
+echo system_Attrib_T1564.001 >> %temp%\T1564.001.txt
+
+
+#commands
+attrib.exe +s %temp%\T1564.001.txt
+
+
+#cleanup_commands
+del /A:S %temp%\T1564.001.txt >nul 2>&1
+

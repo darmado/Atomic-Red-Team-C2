@@ -1,7 +1,0 @@
-#TechniqueName: System Information Discovery
-#AtomicTestName: Hostname Discovery (Windows)
-#Language: cmd
-
-#commands
-hostname
-

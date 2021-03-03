@@ -1,0 +1,8 @@
+#TechniqueName: Browser Bookmark Discovery
+#AtomicTestName: List Mozilla Firefox bookmarks on Windows with command prompt
+#Description: Searches for Mozilla Firefox bookmarks file (on Windows distributions) that contains bookmarks in a SQLITE database.&Upon execution, paths that contain bookmark files will be displayed.&
+#Language: cmd
+
+#commands
+where /R C:\Users\ places.sqlite
+

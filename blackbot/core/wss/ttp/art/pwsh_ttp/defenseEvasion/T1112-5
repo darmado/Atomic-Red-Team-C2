@@ -1,0 +1,12 @@
+#TechniqueName: Modify Registry
+#AtomicTestName: Javascript in registry
+#Description: Upon execution, a javascript block will be placed in the registry for persistence.&Additionally, open Registry Editor to view the modified entry in HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings.&
+#Language: ps1
+
+#commands
+New-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name T1112 -Value "<script>"
+
+
+#cleanup_commands
+Remove-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name T1112 -ErrorAction Ignore
+

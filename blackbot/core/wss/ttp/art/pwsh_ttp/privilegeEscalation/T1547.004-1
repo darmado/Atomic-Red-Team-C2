@@ -1,0 +1,12 @@
+#TechniqueName: Boot or Logon Autostart Execution: Winlogon Helper DLL
+#AtomicTestName: Winlogon Shell Key Persistence - PowerShell
+#Description: PowerShell code to set Winlogon shell key to execute a binary at logon along with explorer.exe.&&Upon successful execution, PowerShell will modify a registry value to execute cmd.exe upon logon/logoff.&
+#Language: ps1
+
+#commands
+Set-ItemProperty "HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\" "Shell" "explorer.exe, C:\Windows\System32\cmd.exe" -Force
+
+
+#cleanup_commands
+Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\" -Name "Shell" -Force -ErrorAction Ignore
+

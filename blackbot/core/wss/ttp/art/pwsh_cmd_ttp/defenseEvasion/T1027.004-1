@@ -1,0 +1,17 @@
+#TechniqueName: Obfuscated Files or Information: Compile After Delivery
+#AtomicTestName: Compile After Delivery using csc.exe
+#Description: Compile C# code using csc.exe binary used by .NET&Upon execution an exe named T1027.004.exe will be placed in the temp folder&
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1027.004\src\calc.cs) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1027.004/src/calc.cs" -OutFile "PathToAtomicsFolder\T1027.004\src\calc.cs"
+
+
+#commands
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Windows\Temp\T1027.004.exe PathToAtomicsFolder\T1027.004\src\calc.cs
+
+
+#cleanup_commands
+del C:\Windows\Temp\T1027.004.exe >nul 2>&1
+

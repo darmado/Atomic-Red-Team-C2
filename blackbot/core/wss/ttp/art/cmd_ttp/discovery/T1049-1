@@ -1,0 +1,10 @@
+#TechniqueName: System Network Connections Discovery
+#AtomicTestName: System Network Connections Discovery
+#Description: Get a listing of network connections.&&Upon successful execution, cmd.exe will execute `netstat`, `net use` and `net sessions`. Results will output via stdout.&
+#Language: cmd
+
+#commands
+netstat
+net use
+net sessions
+

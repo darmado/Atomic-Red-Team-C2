@@ -1,0 +1,12 @@
+#TechniqueName: Modify Registry
+#AtomicTestName: Change Powershell Execution Policy to Bypass
+#Description: Attackers need to change the powershell execution policy in order to run their malicious powershell scripts.&They can either specify it during the execution of the powershell script or change the registry value for it.&
+#Language: ps1
+
+#commands
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine
+
+
+#cleanup_commands
+Set-ExecutionPolicy -ExecutionPolicy Default -Scope LocalMachine
+

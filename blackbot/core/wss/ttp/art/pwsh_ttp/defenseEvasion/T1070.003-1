@@ -1,0 +1,11 @@
+#TechniqueName: Indicator Removal on Host: Clear Command History
+#AtomicTestName: Prevent Powershell History Logging
+#Description: Prevents Powershell history&
+#Language: ps1
+
+#commands
+Set-PSReadlineOption –HistorySaveStyle SaveNothing
+
+
+#cleanup_commands
+Set-PSReadLineOption -HistorySaveStyle SaveIncrementally

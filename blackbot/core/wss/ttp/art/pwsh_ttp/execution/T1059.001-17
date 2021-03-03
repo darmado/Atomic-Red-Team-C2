@@ -1,0 +1,11 @@
+#TechniqueName: Command and Scripting Interpreter: PowerShell
+#AtomicTestName: ATHPowerShellCommandLineParameter -EncodedCommand parameter variations
+#Description: Executes powershell.exe with variations of the -EncodedCommand parameter
+#Language: ps1
+
+#get_prereq_commands
+Install-Module -Name AtomicTestHarnesses -Scope CurrentUser -Force
+
+
+#commands
+Out-ATHPowerShellCommandLineParameter -CommandLineSwitchType Hyphen -EncodedCommandParamVariation E -Execute -ErrorAction Stop

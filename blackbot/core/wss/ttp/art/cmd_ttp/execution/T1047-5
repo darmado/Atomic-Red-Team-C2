@@ -1,0 +1,12 @@
+#TechniqueName: Windows Management Instrumentation
+#AtomicTestName: WMI Execute Local Process
+#Description: This test uses wmic.exe to execute a process on the local host.&When the test completes , a new process will be started locally .A notepad application will be started when input is left on default.&
+#Language: cmd
+
+#commands
+wmic process call create notepad.exe
+
+
+#cleanup_commands
+wmic process where name='notepad.exe' delete >nul 2>&1
+

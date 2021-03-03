@@ -1,0 +1,15 @@
+#TechniqueName: Hide Artifacts: NTFS File Attributes
+#AtomicTestName: Store file in Alternate Data Stream (ADS)
+#Description: Storing files in Alternate Data Stream (ADS) similar to Astaroth malware.&Upon execution cmd will run and attempt to launch desktop.ini. No windows remain open after the test&
+#Language: ps1
+
+#commands
+if (!(Test-Path C:\Users\Public\Libraries\yanki -PathType Container)) {
+    New-Item -ItemType Directory -Force -Path C:\Users\Public\Libraries\yanki
+    }
+Start-Process -FilePath "$env:comspec" -ArgumentList "/c,type,c:\windows\system32\cmd.exe,>,`"C:\Users\Public\Libraries\yanki\desktop.ini:desktop.ini`""
+
+
+#cleanup_commands
+Remove-Item "C:\Users\Public\Libraries\yanki\desktop.ini" -Force -ErrorAction Ignore
+

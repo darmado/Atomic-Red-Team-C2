@@ -1,7 +1,0 @@
-#TechniqueName: Browser Bookmark Discovery
-#AtomicTestName: List Google Chrome Bookmarks on Windows with powershell
-#Language: ps1
-
-#commands
-Get-ChildItem -Path C:\Users\ -Filter Bookmarks -Recurse -ErrorAction SilentlyContinue -Force
-

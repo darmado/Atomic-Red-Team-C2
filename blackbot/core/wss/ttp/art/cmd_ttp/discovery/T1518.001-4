@@ -1,0 +1,7 @@
+#TechniqueName: Software Discovery: Security Software Discovery
+#AtomicTestName: Security Software Discovery - AV Discovery via WMI
+#Description: Discovery of installed antivirus products via a WMI query.&&when sucessfully executed, the test is going to display installed AV software.&
+#Language: cmd
+
+#commands
+wmic.exe /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get displayName /Format:List

@@ -1,0 +1,9 @@
+#TechniqueName: Application Layer Protocol: DNS
+#AtomicTestName: DNS Regular Beaconing
+#Description: This test simulates an infected host beaconing via DNS queries to a command and control server at regular intervals over time.&This behaviour is typical of implants either in an idle state waiting for instructions or configured to use a low query volume over time to evade threshold based detection.&A custom domain and sub-domain will need to be passed as input parameters for this test to work. Upon execution, DNS information about the domain will be displayed for each callout.&
+#Language: ps1
+
+#commands
+Set-Location PathToAtomicsFolder
+.\T1071.004\src\T1071-dns-beacon.ps1 -Domain 127.0.0.1.xip.io -Subdomain atomicredteam -QueryType TXT -C2Interval 30 -C2Jitter 20 -RunTime 30
+

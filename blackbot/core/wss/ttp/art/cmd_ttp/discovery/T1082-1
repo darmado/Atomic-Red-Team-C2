@@ -1,0 +1,9 @@
+#TechniqueName: System Information Discovery
+#AtomicTestName: System Information Discovery
+#Description: Identify System Info. Upon execution, system info and time info will be displayed.&
+#Language: cmd
+
+#commands
+systeminfo
+reg query HKLM\SYSTEM\CurrentControlSet\Services\Disk\Enum
+

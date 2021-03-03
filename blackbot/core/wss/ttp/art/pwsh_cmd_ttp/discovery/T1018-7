@@ -1,0 +1,12 @@
+#TechniqueName: Remote System Discovery
+#AtomicTestName: Remote System Discovery - adidnsdump
+#Description: This tool enables enumeration and exporting of all DNS records in the zone for recon purposes of internal networks&Python 3 and adidnsdump must be installed, use the get_prereq_command's to meet the prerequisites for this test.&Successful execution of this test will list dns zones in the terminal.&
+#Language: cmd
+
+#get_prereq_commands
+echo "Python 3 must be installed manually"
+
+
+#commands
+adidnsdump -u domain\user -p password --print-zones 192.168.1.1
+

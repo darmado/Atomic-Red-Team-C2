@@ -1,0 +1,11 @@
+#TechniqueName: Signed Binary Proxy Execution: Compiled HTML File
+#AtomicTestName: Invoke CHM Simulate Double click
+#Description: Executes a CHM file simulating a user double click.
+#Language: ps1
+
+#get_prereq_commands
+Install-Module -Name AtomicTestHarnesses -Scope CurrentUser -Force
+
+
+#commands
+Invoke-ATHCompiledHelp -SimulateUserDoubleClick -CHMFilePath Test.chm

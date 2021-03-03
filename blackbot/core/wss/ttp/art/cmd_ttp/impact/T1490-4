@@ -1,0 +1,14 @@
+#TechniqueName: Inhibit System Recovery
+#AtomicTestName: Windows - Disable Windows Recovery Console Repair
+#Description: Disables repair by the Windows Recovery Console on boot. This technique is used by numerous ransomware families and APT malware such as Olympic Destroyer.&Upon execution, "The operation completed successfully." will be displayed in the powershell session.&
+#Language: cmd
+
+#commands
+bcdedit.exe /set {default} bootstatuspolicy ignoreallfailures
+bcdedit.exe /set {default} recoveryenabled no
+
+
+#cleanup_commands
+bcdedit.exe /set {default} bootstatuspolicy DisplayAllFailures >nul 2>&1
+bcdedit.exe /set {default} recoveryenabled yes >nul 2>&1
+

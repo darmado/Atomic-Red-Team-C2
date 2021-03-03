@@ -1,0 +1,14 @@
+#TechniqueName: Event Triggered Execution: Application Shimming
+#AtomicTestName: Registry key creation and/or modification events for SDB
+#Description: Create registry keys in locations where fin7 typically places SDB patches. Upon execution, output will be displayed describing&the registry keys that were created. These keys can also be viewed using the Registry Editor.&&https://www.fireeye.com/blog/threat-research/2017/05/fin7-shim-databases-persistence.html&
+#Language: ps1
+
+#commands
+New-ItemProperty -Path HKLM:"\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Custom" -Name "AtomicRedTeamT1546.011" -Value "AtomicRedTeamT1546.011"
+New-ItemProperty -Path HKLM:"\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\InstalledSDB" -Name "AtomicRedTeamT1546.011" -Value "AtomicRedTeamT1546.011"
+
+
+#cleanup_commands
+Remove-ItemProperty -Path HKLM:"\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Custom" -Name "AtomicRedTeamT1546.011" -ErrorAction Ignore
+Remove-ItemProperty -Path HKLM:"\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\InstalledSDB" -Name "AtomicRedTeamT1546.011" -ErrorAction Ignore
+

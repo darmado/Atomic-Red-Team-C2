@@ -1,7 +1,0 @@
-#TechniqueName: Scheduled Task/Job: At (Windows)
-#AtomicTestName: At.exe Scheduled task
-#Language: cmd
-
-#commands
-at 13:20 /interactive cmd
-

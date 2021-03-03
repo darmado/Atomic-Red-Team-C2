@@ -1,0 +1,8 @@
+#TechniqueName: Account Discovery: Local Account
+#AtomicTestName: Enumerate logged on users via CMD (Local)
+#Description: Enumerate logged on users. Upon exeuction, logged on users will be displayed.&
+#Language: cmd
+
+#commands
+query user
+

@@ -1,0 +1,8 @@
+#TechniqueName: Remote System Discovery
+#AtomicTestName: Remote System Discovery - net group Domain Computers
+#Description: Identify remote systems with net.exe querying the Active Directory Domain Computers group.&&Upon successful execution, cmd.exe will execute cmd.exe against Active Directory to list the "Domain Computers" group. Output will be via stdout.&
+#Language: cmd
+
+#commands
+net group "Domain Computers" /domain
+

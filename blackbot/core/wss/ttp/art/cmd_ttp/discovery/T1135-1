@@ -1,0 +1,8 @@
+#TechniqueName: Network Share Discovery
+#AtomicTestName: Network Share Discovery command prompt
+#Description: Network Share Discovery utilizing the command prompt. The computer name variable may need to be modified to point to a different host&Upon execution avalaible network shares will be displayed in the powershell session&
+#Language: cmd
+
+#commands
+net view \\localhost
+

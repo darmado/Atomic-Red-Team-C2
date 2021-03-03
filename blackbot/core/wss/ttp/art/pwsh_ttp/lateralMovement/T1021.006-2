@@ -1,0 +1,8 @@
+#TechniqueName: Remote Services: Windows Remote Management
+#AtomicTestName: Invoke-Command
+#Description: Execute Invoke-command on remote host.&&Upon successful execution, powershell will execute ipconfig on localhost using `invoke-command`.&
+#Language: ps1
+
+#commands
+invoke-command -ComputerName localhost -scriptblock {ipconfig}
+

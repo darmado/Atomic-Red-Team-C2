@@ -1,0 +1,19 @@
+#TechniqueName: Event Triggered Execution: AppInit DLLs
+#AtomicTestName: Install AppInit Shim
+#Description: AppInit_DLLs is a mechanism that allows an arbitrary list of DLLs to be loaded into each user mode process on the system. Upon succesfully execution, &you will see the message "The operation completed successfully." Each time the DLL is loaded, you will see a message box with a message of "Install AppInit Shim DLL was called!" appear.&This will happen regularly as your computer starts up various applications and may in fact drive you crazy. A reliable way to make the message box appear and verify the &AppInit Dlls are loading is to start the notepad application. Be sure to run the cleanup commands afterwards so you don't keep getting message boxes showing up&
+#Language: cmd
+
+#get_prereq_commands
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1546.010\src\T1546.010.reg) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1546.010/src/T1546.010.reg" -OutFile "PathToAtomicsFolder\T1546.010\src\T1546.010.reg"
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1546.010/src/T1546.010-cleanup.reg" -OutFile "PathToAtomicsFolder\T1546.010\src\T1546.010-cleanup.reg"
+
+
+#commands
+reg.exe import PathToAtomicsFolder\T1546.010\src\T1546.010.reg
+
+
+#cleanup_commands
+reg.exe import PathToAtomicsFolder\T1546.010\src\T1546.010-cleanup.reg >nul 2>&1
+

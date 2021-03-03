@@ -1,0 +1,13 @@
+#TechniqueName: Impair Defenses: Disable or Modify Tools
+#AtomicTestName: Tamper with Windows Defender Evade Scanning -Extension
+#Description: Malware can exclude specific extensions from being scanned and evading detection. &Upon successful execution, the extension(s) should be on the list of excluded extensions.&To check the exclusion list using poweshell  (Get-MpPreference).ExclusionExtension.&
+#Language: ps1
+
+#commands
+$excludedExts= ".exe"
+Add-MpPreference -ExclusionExtension  $excludedExts
+
+#cleanup_commands
+$excludedExts= ".exe"
+Remove-MpPreference -ExclusionExtension  $excludedExts -ErrorAction Ignore
+

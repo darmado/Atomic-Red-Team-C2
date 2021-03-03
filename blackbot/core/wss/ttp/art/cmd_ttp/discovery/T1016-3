@@ -1,0 +1,11 @@
+#TechniqueName: System Network Configuration Discovery
+#AtomicTestName: System Network Configuration Discovery (TrickBot Style)
+#Description: Identify network configuration information as seen by Trickbot and described here https://www.sneakymonkey.net/2019/10/29/trickbot-analysis-part-ii/&&Upon successful execution, cmd.exe will spawn `ipconfig /all`, `net config workstation`, `net view /all /domain`, `nltest /domain_trusts`. Output will be via stdout.&
+#Language: cmd
+
+#commands
+ipconfig /all
+net config workstation
+net view /all /domain
+nltest /domain_trusts
+

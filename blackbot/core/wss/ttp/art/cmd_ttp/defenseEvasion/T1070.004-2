@@ -1,0 +1,12 @@
+#TechniqueName: Indicator Removal on Host: File Deletion
+#AtomicTestName: Delete an entire folder - Windows cmd
+#Description: Recursively delete a folder in the temporary directory using cmd.exe.&Upon execution, no output will be displayed. Use File Explorer to verify the folder was deleted.&
+#Language: cmd
+
+#get_prereq_commands
+mkdir %temp%\deleteme_T1551.004
+
+
+#commands
+rmdir /s /q %temp%\deleteme_T1551.004
+

@@ -1,0 +1,8 @@
+#TechniqueName: Event Triggered Execution: Netsh Helper DLL
+#AtomicTestName: Netsh Helper DLL Registration
+#Description: Netsh interacts with other operating system components using dynamic-link library (DLL) files&
+#Language: cmd
+
+#commands
+netsh.exe add helper C:\Path\file.dll
+

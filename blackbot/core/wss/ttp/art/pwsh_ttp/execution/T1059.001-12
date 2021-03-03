@@ -1,0 +1,12 @@
+#TechniqueName: Command and Scripting Interpreter: PowerShell
+#AtomicTestName: PowerShell Downgrade Attack
+#Description: This test requires the manual installation of PowerShell V2.&&Attempts to run powershell commands in version 2.0 https://www.leeholmes.com/blog/2017/03/17/detecting-and-preventing-powershell-downgrade-attacks/&
+#Language: ps1
+
+#get_prereq_commands
+Write-Host  Automated installer not implemented yet, please install PowerShell v2 manually
+
+
+#commands
+powershell.exe -version 2 -Command Write-Host $PSVersion
+

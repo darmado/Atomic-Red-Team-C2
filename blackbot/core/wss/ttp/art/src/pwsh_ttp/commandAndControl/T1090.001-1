@@ -1,9 +1,0 @@
-#TechniqueName: Proxy: Internal Proxy
-#AtomicTestName: portproxy reg key
-#Language: ps1
-
-#commands
-netsh interface portproxy add v4tov4 listenport=1337 connectport=1337 connectaddress=127.0.0.1
-
-#cleanup_commands
-netsh interface portproxy delete v4tov4 listenport=1337 -ErrorAction Ignore | Out-Null

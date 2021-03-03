@@ -1,0 +1,8 @@
+#TechniqueName: Unsecured Credentials: Private Keys
+#AtomicTestName: Private Keys
+#Description: Find private keys on the Windows file system.&File extensions include: .key, .pgp, .gpg, .ppk., .p12, .pem, pfx, .cer, .p7b, .asc&
+#Language: cmd
+
+#commands
+dir c:\ /b /s .key | findstr /e .key
+

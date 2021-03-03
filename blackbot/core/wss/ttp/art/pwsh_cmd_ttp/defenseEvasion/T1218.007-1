@@ -1,0 +1,12 @@
+#TechniqueName: Signed Binary Proxy Execution: Msiexec
+#AtomicTestName: Msiexec.exe - Execute Local MSI file
+#Description: Execute arbitrary MSI file. Commonly seen in application installation. The MSI opens notepad.exe when sucessfully executed.&
+#Language: cmd
+
+#get_prereq_commands
+Write-Host "You must provide your own MSI"
+
+
+#commands
+msiexec.exe /q /i "PathToAtomicsFolder\T1218.007\src\Win32\T1218.msi"
+

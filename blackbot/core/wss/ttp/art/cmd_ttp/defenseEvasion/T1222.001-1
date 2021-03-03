@@ -1,0 +1,14 @@
+#TechniqueName: File and Directory Permissions Modification: Windows File and Directory Permissions Modification
+#AtomicTestName: Take ownership using takeown utility
+#Description: Modifies the filesystem permissions of the specified file or folder to take ownership of the object. Upon execution, "SUCCESS" will&be displayed for the folder and each file inside of it.&
+#Language: cmd
+
+#get_prereq_commands
+mkdir %temp%\T1222.001_takeown_folder
+echo T1222.001_takeown1 >> %temp%\T1222.001_takeown_folder\T1222.001_takeown1.txt
+echo T1222.001_takeown2 >> %temp%\T1222.001_takeown_folder\T1222.001_takeown2.txt
+
+
+#commands
+takeown.exe /f %temp%\T1222.001_takeown_folder /r
+

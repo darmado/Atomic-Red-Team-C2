@@ -1,0 +1,8 @@
+#TechniqueName: Windows Management Instrumentation
+#AtomicTestName: WMI Reconnaissance Users
+#Description: An adversary might use WMI to list all local User Accounts. &When the test completes , there should be local user accounts information displayed on the command line.&
+#Language: cmd
+
+#commands
+wmic useraccount get /ALL /format:csv
+

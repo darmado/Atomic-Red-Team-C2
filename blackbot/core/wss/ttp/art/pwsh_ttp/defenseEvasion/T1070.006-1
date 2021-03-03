@@ -1,0 +1,17 @@
+#TechniqueName: Indicator Removal on Host: Timestomp
+#AtomicTestName: Windows - Modify file creation timestamp with PowerShell
+#Description: Modifies the file creation timestamp of a specified file. This technique was seen in use by the Stitch RAT.&To verify execution, use File Explorer to view the Properties of the file and observe that the Created time is the year 1970.&
+#Language: ps1
+
+#get_prereq_commands
+New-Item -Path $env:TEMP\T1551.006_timestomp.txt -Force | Out-Null
+Set-Content $env:TEMP\T1551.006_timestomp.txt -Value "T1551.006 Timestomp" -Force | Out-Null
+
+
+#commands
+Get-ChildItem $env:TEMP\T1551.006_timestomp.txt | % { $_.CreationTime = "01/01/1970 00:00:00" }
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\T1551.006_timestomp.txt -Force -ErrorAction Ignore
+

@@ -1,0 +1,8 @@
+#TechniqueName: Process Injection: Asynchronous Procedure Call
+#AtomicTestName: Process Injection via C#
+#Description: Process Injection using C#&reference: https://github.com/pwndizzle/c-sharp-memory-injection&Excercises Five Techniques&1. Process injection&2. ApcInjectionAnyProcess&3. ApcInjectionNewProcess&4. IatInjection&5. ThreadHijack&Upon successful execution, cmd.exe will execute T1055.exe, which exercises 5 techniques. Output will be via stdout.&
+#Language: cmd
+
+#commands
+PathToAtomicsFolder\T1055.004\bin\T1055.exe
+

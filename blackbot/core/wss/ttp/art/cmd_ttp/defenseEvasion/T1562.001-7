@@ -1,0 +1,15 @@
+#TechniqueName: Impair Defenses: Disable or Modify Tools
+#AtomicTestName: Tamper with Windows Defender Command Prompt
+#Description: Attempting to disable scheduled scanning and other parts of windows defender atp. These commands must be run as System, so they still fail as administrator.&However, adversaries do attempt to perform this action so monitoring for these command lines can help alert to other bad things going on. Upon execution, "Access Denied"&will be displayed twice and the WinDefend service status will be displayed.&
+#Language: cmd
+
+#commands
+sc stop WinDefend
+sc config WinDefend start=disabled
+sc query WinDefend
+
+
+#cleanup_commands
+sc start WinDefend >nul 2>&1
+sc config WinDefend start=enabled >nul 2>&1
+

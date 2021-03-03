@@ -1,0 +1,13 @@
+#TechniqueName: Input Capture: Keylogging
+#AtomicTestName: Input Capture
+#Description: Utilize PowerShell and external resource to capture keystrokes&[Payload](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1056.001/src/Get-Keystrokes.ps1)&Provided by [PowerSploit](https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-Keystrokes.ps1)&&Upon successful execution, Powershell will execute `Get-Keystrokes.ps1` and output to key.log.&
+#Language: ps1
+
+#commands
+Set-Location $PathToAtomicsFolder
+.\T1056.001\src\Get-Keystrokes.ps1 -LogPath $env:TEMP\key.log
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\key.log -ErrorAction Ignore
+

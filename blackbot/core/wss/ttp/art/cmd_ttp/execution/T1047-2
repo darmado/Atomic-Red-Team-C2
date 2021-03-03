@@ -1,0 +1,8 @@
+#TechniqueName: Windows Management Instrumentation
+#AtomicTestName: WMI Reconnaissance Processes
+#Description: An adversary might use WMI to list Processes running on the compromised host.&When the test completes , there should be running processes listed on the command line.&
+#Language: cmd
+
+#commands
+wmic process get caption,executablepath,commandline /format:csv
+

@@ -1,0 +1,12 @@
+#TechniqueName: Data Staged: Local Data Staging
+#AtomicTestName: Zip a Folder with PowerShell for Staging in Temp
+#Description: Use living off the land tools to zip a file and stage it in the Windows temporary folder for later exfiltration. Upon execution, Verify that a zipped folder named Folder_to_zip.zip&was placed in the temp directory.&
+#Language: ps1
+
+#commands
+Compress-Archive -Path PathToAtomicsFolder\T1074.001\bin\Folder_to_zip -DestinationPath $env:TEMP\Folder_to_zip.zip -Force
+
+
+#cleanup_commands
+Remove-Item -Path $env:TEMP\Folder_to_zip.zip -ErrorAction Ignore
+

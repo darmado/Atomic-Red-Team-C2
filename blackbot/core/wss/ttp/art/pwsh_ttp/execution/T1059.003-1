@@ -1,0 +1,17 @@
+#TechniqueName: Command and Scripting Interpreter: Windows Command Shell
+#AtomicTestName: Create and Execute Batch Script
+#Description: Creates and executes a simple batch script. Upon execution, CMD will briefly launch to run the batch script then close again.&
+#Language: ps1
+
+#get_prereq_commands
+New-Item $env:TEMP\T1059.003_script.bat -Force | Out-Null
+Set-Content -Path $env:TEMP\T1059.003_script.bat -Value "dir"
+
+
+#commands
+Start-Process $env:TEMP\T1059.003_script.bat
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\T1059.003_script.bat -Force -ErrorAction Ignore
+

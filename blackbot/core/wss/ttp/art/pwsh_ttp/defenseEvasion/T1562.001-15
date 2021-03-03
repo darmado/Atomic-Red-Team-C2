@@ -1,0 +1,13 @@
+#TechniqueName: Impair Defenses: Disable or Modify Tools
+#AtomicTestName: Tamper with Windows Defender Evade Scanning -Process
+#Description: Malware can exclude specific processes from being scanned and evading detection.&Upon successful execution, the process(es) should be on the list of excluded processes. &To check the exclusion list using poweshell  (Get-MpPreference).ExclusionProcess."&
+#Language: ps1
+
+#commands
+$excludedProcess = "outlook.exe"
+Add-MpPreference -ExclusionProcess $excludedProcess
+
+#cleanup_commands
+$excludedProcess = "outlook.exe"
+Remove-MpPreference -ExclusionProcess  $excludedProcess
+

@@ -1,0 +1,10 @@
+#TechniqueName: File and Directory Discovery
+#AtomicTestName: File and Directory Discovery (PowerShell)
+#Description: Find or discover files on the file system. Upon execution, file and folder information will be displayed.&
+#Language: ps1
+
+#commands
+ls -recurse
+get-childitem -recurse
+gci -recurse
+

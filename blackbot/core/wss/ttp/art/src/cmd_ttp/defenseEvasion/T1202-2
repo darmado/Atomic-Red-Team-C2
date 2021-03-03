@@ -1,8 +1,0 @@
-#TechniqueName: Indirect Command Execution
-#AtomicTestName: Indirect Command Execution - forfiles.exe
-#Language: cmd
-
-#commands
-forfiles /p c:\windows\system32 /m notepad.exe /c calc.exe
-forfiles /p c:\windows\system32 /m notepad.exe /c "c:\folder\normal.dll:evil.exe"
-

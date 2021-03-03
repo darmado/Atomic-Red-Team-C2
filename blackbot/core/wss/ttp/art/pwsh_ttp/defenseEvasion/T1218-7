@@ -1,0 +1,12 @@
+#TechniqueName: Signed Binary Proxy Execution
+#AtomicTestName: Renamed Microsoft.Workflow.Compiler.exe Payload Executions
+#Description: Emulates attack with a renamed Microsoft.Workflow.Compiler.exe running a .Net assembly that launches calc.exe&
+#Language: ps1
+
+#get_prereq_commands
+write-host "you need to rename workflow complier before you run this test"
+
+
+#commands
+PathToAtomicsFolder\T1218\src\svchost.exe PathToAtomicsFolder\T1218\src\T1218.xml output.txt
+

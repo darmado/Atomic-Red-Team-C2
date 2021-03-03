@@ -1,7 +1,0 @@
-#TechniqueName: System Network Configuration Discovery
-#AtomicTestName: List Windows Firewall Rules
-#Language: cmd
-
-#commands
-netsh advfirewall firewall show rule name=all
-

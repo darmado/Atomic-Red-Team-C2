@@ -1,0 +1,9 @@
+#TechniqueName: Clipboard Data
+#AtomicTestName: Execute Commands from Clipboard using PowerShell
+#Description: Utilize PowerShell to echo a command to clipboard and execute it&
+#Language: ps1
+
+#commands
+echo Get-Process | clip
+Get-Clipboard | iex
+

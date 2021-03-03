@@ -1,6 +1,0 @@
-#TechniqueName: File and Directory Permissions Modification: Windows File and Directory Permissions Modification
-#AtomicTestName: Grant Full Access to folder for Everyone - Ryuk Ransomware Style
-#Language: cmd
-
-#commands
-icacls "C:\Users\Public\*" /grant Everyone:F /T /C /Q

@@ -1,7 +1,0 @@
-#TechniqueName: Account Discovery: Domain Account
-#AtomicTestName: Enumerate Default Domain Admin Details (Domain)
-#Language: cmd
-
-#commands
-net user administrator /domain
-

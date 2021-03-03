@@ -1,0 +1,12 @@
+#TechniqueName: Create or Modify System Process: Windows Service
+#AtomicTestName: Modify Fax service to run PowerShell
+#Description: This test will temporarily modify the service Fax by changing the binPath to PowerShell&and will then revert the binPath change, restoring Fax to its original state.&Upon successful execution, cmd will modify the binpath for `Fax` to spawn powershell. Powershell will then spawn.&
+#Language: cmd
+
+#commands
+sc config Fax binPath= "C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe -noexit -c \"write-host 'T1543.003 Test'\""
+sc start Fax
+
+
+#cleanup_commands
+sc config Fax binPath= "C:\WINDOWS\system32\fxssvc.exe" >nul 2>&1

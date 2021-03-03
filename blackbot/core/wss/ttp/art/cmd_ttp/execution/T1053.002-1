@@ -1,0 +1,8 @@
+#TechniqueName: Scheduled Task/Job: At (Windows)
+#AtomicTestName: At.exe Scheduled task
+#Description: Executes cmd.exe&Note: deprecated in Windows 8+&&Upon successful execution, cmd.exe will spawn at.exe and create a scheduled task that will spawn cmd at a specific time.&
+#Language: cmd
+
+#commands
+at 13:20 /interactive cmd
+

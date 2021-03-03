@@ -1,7 +1,0 @@
-#TechniqueName: Remote Services: SMB/Windows Admin Shares
-#AtomicTestName: Map admin share
-#Language: cmd
-
-#commands
-cmd.exe /c "net use \\Target\C$ P@ssw0rd1 /u:DOMAIN\Administrator"
-

@@ -1,0 +1,36 @@
+atomic
+use Collection/T1119-3
+run SESSION
+use Collection/T1119-1
+run SESSION
+use Collection/T1560.001-1
+run SESSION
+use Collection/T1115-2
+run SESSION
+use Collection/T1113-1
+run SESSION
+use Collection/T1074.001-2
+run SESSION
+use Collection/T1560-1
+run SESSION
+use Collection/T1074.001-1
+run SESSION
+use Collection/T1115-1
+run SESSION
+use Collection/T1119-2
+run SESSION
+use Collection/T1115-3
+run SESSION
+use Collection/T1560.001-4
+run SESSION
+use Collection/T1560.001-2
+run SESSION
+use Collection/T1119-4
+run SESSION
+use Collection/T1123-1
+run SESSION
+use Collection/T1114.001-1
+run SESSION
+use Collection/T1560.001-3
+run SESSION
+campaigns

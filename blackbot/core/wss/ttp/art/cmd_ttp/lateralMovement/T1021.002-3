@@ -1,0 +1,8 @@
+#TechniqueName: Remote Services: SMB/Windows Admin Shares
+#AtomicTestName: Copy and Execute File with PsExec
+#Description: Copies a file to a remote host and executes it using PsExec. Requires the download of PsExec from [https://docs.microsoft.com/en-us/sysinternals/downloads/psexec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec).&
+#Language: cmd
+
+#commands
+psexec.exe \\localhost -accepteula -c C:\Windows\System32\cmd.exe
+

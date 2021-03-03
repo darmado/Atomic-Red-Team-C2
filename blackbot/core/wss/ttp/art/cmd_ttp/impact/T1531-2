@@ -1,0 +1,9 @@
+#TechniqueName: Account Access Removal
+#AtomicTestName: Delete User - Windows
+#Description: Deletes a user account to prevent access. Upon execution, run the command "net user" to verify that the new "AtomicUser" account was deleted.&
+#Language: cmd
+
+#commands
+net user AtomicUser User2DeletePW! /add
+net.exe user AtomicUser /delete
+

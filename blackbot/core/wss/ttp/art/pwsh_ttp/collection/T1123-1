@@ -1,0 +1,8 @@
+#TechniqueName: Audio Capture
+#AtomicTestName: using device audio capture commandlet
+#Description: [AudioDeviceCmdlets](https://github.com/cdhunt/WindowsAudioDevice-Powershell-Cmdlet)&
+#Language: ps1
+
+#commands
+powershell.exe -Command WindowsAudioDevice-Powershell-Cmdlet
+

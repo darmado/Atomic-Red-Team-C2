@@ -1,0 +1,10 @@
+atomic
+use Exfiltration/T1048.003-1
+run SESSION
+use Exfiltration/T1048.003-3
+run SESSION
+use Exfiltration/T1020-1
+run SESSION
+use Exfiltration/T1048.003-2
+run SESSION
+campaigns

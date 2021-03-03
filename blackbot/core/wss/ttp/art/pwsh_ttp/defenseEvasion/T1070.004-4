@@ -1,0 +1,12 @@
+#TechniqueName: Indicator Removal on Host: File Deletion
+#AtomicTestName: Delete an entire folder - Windows PowerShell
+#Description: Recursively delete a folder in the temporary directory using Powershell. Upon execution, no output will be displayed. Use File Explorer to verify the folder was deleted.&
+#Language: ps1
+
+#get_prereq_commands
+New-Item -Path $env:TEMP\deleteme_folder_T1551.004 -Type Directory | Out-Null
+
+
+#commands
+Remove-Item -Path $env:TEMP\deleteme_folder_T1551.004 -Recurse
+

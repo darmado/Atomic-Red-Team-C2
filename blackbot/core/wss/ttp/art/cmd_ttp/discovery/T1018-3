@@ -1,0 +1,8 @@
+#TechniqueName: Remote System Discovery
+#AtomicTestName: Remote System Discovery - nltest
+#Description: Identify domain controllers for specified domain.&&Upon successful execution, cmd.exe will execute nltest.exe against a target domain to retrieve a list of domain controllers. Output will be via stdout.&
+#Language: cmd
+
+#commands
+nltest.exe /dclist:domain.local
+

@@ -1,0 +1,12 @@
+#TechniqueName: Service Stop
+#AtomicTestName: Windows - Stop service using Service Controller
+#Description: Stops a specified service using the sc.exe command. Upon execution, if the spooler service was running infomration will be displayed saying&it has changed to a state of STOP_PENDING. If the spooler service was not running "The service has not been started." will be displayed and it can be&started by running the cleanup command.&
+#Language: cmd
+
+#commands
+sc.exe stop spooler
+
+
+#cleanup_commands
+sc.exe start spooler >nul 2>&1
+

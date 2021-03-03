@@ -1,7 +1,0 @@
-#TechniqueName: Remote System Discovery
-#AtomicTestName: Remote System Discovery - arp
-#Language: cmd
-
-#commands
-arp -a
-

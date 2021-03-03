@@ -1,7 +1,0 @@
-#TechniqueName: Unsecured Credentials: Private Keys
-#AtomicTestName: Private Keys
-#Language: cmd
-
-#commands
-dir c:\ /b /s .key | findstr /e .key
-

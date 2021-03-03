@@ -1,7 +1,0 @@
-#TechniqueName: Inhibit System Recovery
-#AtomicTestName: Windows - wbadmin Delete systemstatebackup
-#Language: cmd
-
-#commands
-wbadmin delete systemstatebackup -keepVersions:0
-

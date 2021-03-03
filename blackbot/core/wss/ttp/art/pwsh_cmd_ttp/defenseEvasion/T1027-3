@@ -1,0 +1,20 @@
+#TechniqueName: Obfuscated Files or Information
+#AtomicTestName: Execution from Compressed File
+#Description: Mimic execution of compressed executable. When successfully executed, calculator.exe will open.&
+#Language: cmd
+
+#get_prereq_commands
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1027/bin/T1027.zip" -OutFile "$env:temp\T1027.zip"
+Expand-Archive -path "$env:temp\T1027.zip" -DestinationPath "$env:temp\temp_T1027.zip\" -Force
+
+
+#commands
+"%temp%\temp_T1027.zip\T1027.exe"
+
+
+#cleanup_commands
+taskkill /f /im calculator.exe >nul 2>nul
+rmdir /S /Q %temp%\temp_T1027.zip >nul 2>nul
+del /Q "%temp%\T1027.zip" >nul 2>nul
+

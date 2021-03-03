@@ -1,0 +1,12 @@
+#TechniqueName: Service Stop
+#AtomicTestName: Windows - Stop service using net.exe
+#Description: Stops a specified service using the net.exe command. Upon execution, if the service was running "The Print Spooler service was stopped successfully."&will be displayed. If the service was not running, "The Print Spooler service is not started." will be displayed and it can be&started by running the cleanup command.&
+#Language: cmd
+
+#commands
+net.exe stop spooler
+
+
+#cleanup_commands
+net.exe start spooler >nul 2>&1
+

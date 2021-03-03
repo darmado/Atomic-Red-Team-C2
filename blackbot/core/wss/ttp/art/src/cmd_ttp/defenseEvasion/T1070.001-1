@@ -1,7 +1,0 @@
-#TechniqueName: Indicator Removal on Host: Clear Windows Event Logs
-#AtomicTestName: Clear Logs
-#Language: cmd
-
-#commands
-wevtutil cl System
-

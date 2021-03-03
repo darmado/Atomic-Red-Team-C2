@@ -1,0 +1,16 @@
+#TechniqueName: Hijack Execution Flow: Services Registry Permissions Weakness
+#AtomicTestName: Service ImagePath Change with reg.exe
+#Description: Change Service registry ImagePath of a bengin service to a malicious file&
+#Language: cmd
+
+#get_prereq_commands
+sc.exe create calcservice binpath= "%windir%\system32\win32calc.exe"
+
+
+#commands
+reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\calcservice" /f /v ImagePath /d "%windir%\system32\cmd.exe"
+
+
+#cleanup_commands
+sc.exe delete calcservice
+

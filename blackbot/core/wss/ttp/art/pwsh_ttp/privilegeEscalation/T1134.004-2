@@ -1,0 +1,11 @@
+#TechniqueName: Access Token Manipulation: Parent PID Spoofing
+#AtomicTestName: Parent PID Spoofing - Spawn from Current Process
+#Description: Spawns a powershell.exe process as a child of the current process.
+#Language: ps1
+
+#get_prereq_commands
+Install-Module -Name AtomicTestHarnesses -Scope CurrentUser -Force
+
+
+#commands
+Start-ATHProcessUnderSpecificParent -FilePath $Env:windir\System32\WindowsPowerShell\v1.0\powershell.exe -CommandLine '-Command Start-Sleep 10' -ParentId $PID

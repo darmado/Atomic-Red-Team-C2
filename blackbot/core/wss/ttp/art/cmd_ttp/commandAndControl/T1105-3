@@ -1,0 +1,8 @@
+#TechniqueName: Ingress Tool Transfer
+#AtomicTestName: Windows - BITSAdmin BITS Download
+#Description: This test uses BITSAdmin.exe to schedule a BITS job for the download of a file.&This technique is used by Qbot malware to download payloads.&
+#Language: cmd
+
+#commands
+C:\Windows\System32\bitsadmin.exe /transfer qcxjb7 /Priority HIGH https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/LICENSE.txt %temp%\Atomic-license.txt
+

@@ -1,0 +1,13 @@
+#TechniqueName: Signed Binary Proxy Execution: Regsvr32
+#AtomicTestName: Regsvr32 local COM scriptlet execution
+#Description: Regsvr32.exe is a command-line program used to register and unregister OLE controls. Upon execution, calc.exe will be launched.&
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1218.010\src\RegSvr32.sct) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.010/src/RegSvr32.sct" -OutFile "PathToAtomicsFolder\T1218.010\src\RegSvr32.sct"
+
+
+#commands
+C:\Windows\system32\regsvr32.exe /s /u /i:PathToAtomicsFolder\T1218.010\src\RegSvr32.sct scrobj.dll
+

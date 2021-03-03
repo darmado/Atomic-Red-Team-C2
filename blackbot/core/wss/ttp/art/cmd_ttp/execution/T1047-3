@@ -1,0 +1,8 @@
+#TechniqueName: Windows Management Instrumentation
+#AtomicTestName: WMI Reconnaissance Software
+#Description: An adversary might use WMI to list installed Software hotfix and patches.&When the test completes, there should be a list of installed patches and when they were installed.&
+#Language: cmd
+
+#commands
+wmic qfe get description,installedOn /format:csv
+

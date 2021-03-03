@@ -1,0 +1,9 @@
+#TechniqueName: Application Layer Protocol: DNS
+#AtomicTestName: DNS Long Domain Query
+#Description: This test simulates an infected host returning data to a command and control server using long domain names.&The simulation involves sending DNS queries that gradually increase in length until reaching the maximum length. The intent is to test the effectiveness of detection of DNS queries for long domain names over a set threshold.& Upon execution, DNS information about the domain will be displayed for each callout.&
+#Language: ps1
+
+#commands
+Set-Location PathToAtomicsFolder
+.\T1071.004\src\T1071-dns-domain-length.ps1 -Domain 127.0.0.1.xip.io -Subdomain atomicredteamatomicredteamatomicredteamatomicredteamatomicredte -QueryType TXT
+

@@ -1,0 +1,8 @@
+#TechniqueName: Unsecured Credentials: Credentials in Registry
+#AtomicTestName: Enumeration for PuTTY Credentials in Registry
+#Description: Queries to enumerate for PuTTY credentials in the Registry. PuTTY must be installed for this test to work. If any registry&entries are found, they will be displayed.&
+#Language: cmd
+
+#commands
+reg query HKCU\Software\SimonTatham\PuTTY\Sessions /t REG_SZ /s
+

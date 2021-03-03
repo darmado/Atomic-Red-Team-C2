@@ -1,0 +1,8 @@
+#TechniqueName: System Network Configuration Discovery
+#AtomicTestName: Qakbot Recon
+#Description: A list of commands known to be performed by Qakbot for recon purposes
+#Language: cmd
+
+#commands
+PathToAtomicsFolder\T1016\src\qakbot.bat
+

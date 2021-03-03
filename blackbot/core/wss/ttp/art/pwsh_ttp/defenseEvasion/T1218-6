@@ -1,0 +1,12 @@
+#TechniqueName: Signed Binary Proxy Execution
+#AtomicTestName: Microsoft.Workflow.Compiler.exe Payload Execution
+#Description: Emulates attack with Microsoft.Workflow.Compiler.exe running a .Net assembly that launches calc.exe&
+#Language: ps1
+
+#get_prereq_commands
+write-host ".Net must be installed for this test to work correctly."
+
+
+#commands
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\microsoft.workflow.compiler.exe "PathToAtomicsFolder\T1218\src\T1218.xml" output.txt
+

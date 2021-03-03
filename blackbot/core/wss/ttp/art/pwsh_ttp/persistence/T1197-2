@@ -1,0 +1,12 @@
+#TechniqueName: BITS Jobs
+#AtomicTestName: Bitsadmin Download (PowerShell)
+#Description: This test simulates an adversary leveraging bitsadmin.exe to download&and execute a payload leveraging PowerShell&&Upon execution you will find a github markdown file downloaded to the Temp directory&
+#Language: ps1
+
+#commands
+Start-BitsTransfer -Priority foreground -Source https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md -Destination $env:TEMP\bitsadmin2_flag.ps1
+
+
+#cleanup_commands
+Remove-Item $env:TEMP\bitsadmin2_flag.ps1 -ErrorAction Ignore
+

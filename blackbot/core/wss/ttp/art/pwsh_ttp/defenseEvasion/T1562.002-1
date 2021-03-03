@@ -1,0 +1,14 @@
+#TechniqueName: Impair Defenses: Disable Windows Event Logging
+#AtomicTestName: Disable Windows IIS HTTP Logging
+#Description: Disables HTTP logging on a Windows IIS web server as seen by Threat Group 3390 (Bronze Union).&This action requires HTTP logging configurations in IIS to be unlocked.&
+#Language: ps1
+
+#commands
+C:\Windows\System32\inetsrv\appcmd.exe set config "Default Web Site" /section:httplogging /dontLog:true
+
+
+#cleanup_commands
+if(Test-Path "C:\Windows\System32\inetsrv\appcmd.exe"){
+  C:\Windows\System32\inetsrv\appcmd.exe set config "Default Web Site" /section:httplogging /dontLog:false *>$null
+}
+

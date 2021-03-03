@@ -1,0 +1,13 @@
+#TechniqueName: Impair Defenses: Disable or Modify Tools
+#AtomicTestName: Tamper with Windows Defender Evade Scanning -Folder
+#Description: Malware can exclude a specific path from being scanned and evading detection. &Upon successul execution, the file provided should be on the list of excluded path. &To check the exclusion list using poweshell (Get-MpPreference).ExclusionPath &
+#Language: ps1
+
+#commands
+$excludedpath= "C:\Temp"
+Add-MpPreference -ExclusionPath $excludedpath
+
+#cleanup_commands
+$excludedpath= "C:\Temp"
+Remove-MpPreference -ExclusionPath $excludedpath
+

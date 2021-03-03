@@ -1,0 +1,11 @@
+#TechniqueName: Access Token Manipulation: Parent PID Spoofing
+#AtomicTestName: Parent PID Spoofing - Spawn from svchost.exe
+#Description: Spawnd a process as a child of the first accessible svchost.exe process.
+#Language: ps1
+
+#get_prereq_commands
+Install-Module -Name AtomicTestHarnesses -Scope CurrentUser -Force
+
+
+#commands
+Get-CimInstance -ClassName Win32_Process -Property Name, CommandLine, ProcessId -Filter "Name = 'svchost.exe' AND CommandLine LIKE '%'" | Select-Object -First 1 | Start-ATHProcessUnderSpecificParent -FilePath $Env:windir\System32\WindowsPowerShell\v1.0\powershell.exe -CommandLine '-Command Start-Sleep 10'

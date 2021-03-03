@@ -1,0 +1,18 @@
+#TechniqueName: Hide Artifacts: NTFS File Attributes
+#AtomicTestName: Create ADS PowerShell
+#Description: Create an Alternate Data Stream with PowerShell. Write access is required. To verify execution, the the command "ls -Recurse | %{ gi $_.Fullname -stream *} | where stream -ne ':$Data' | Select-Object pschildname"&in the %temp% direcotry to view all files with hidden data streams. To view the data in the alternate data stream, run "notepad.exe T1564.004_has_ads_powershell.txt:adstest.txt" in the %temp% folder.&
+#Language: ps1
+
+#get_prereq_commands
+New-Item -Path $env:TEMP\T1564.004_has_ads_powershell.txt | Out-Null
+
+
+#commands
+echo "test" > $env:TEMP\T1564.004_has_ads_powershell.txt | set-content -path test.txt -stream adstest.txt -value "test"
+set-content -path $env:TEMP\T1564.004_has_ads_powershell.txt -stream adstest.txt -value "test2"
+set-content -path . -stream adstest.txt -value "test3"
+
+
+#cleanup_commands
+Remove-Item -Path $env:TEMP\T1564.004_has_ads_powershell.txt -ErrorAction Ignore
+

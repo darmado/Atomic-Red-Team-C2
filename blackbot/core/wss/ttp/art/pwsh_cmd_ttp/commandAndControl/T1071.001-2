@@ -1,0 +1,19 @@
+#TechniqueName: Application Layer Protocol: Web Protocols
+#AtomicTestName: Malicious User Agents - CMD
+#Description: This test simulates an infected host beaconing to command and control. Upon execution, no out put will be displayed. &Use an application such as Wireshark to record the session and observe user agent strings and responses.&&Inspired by APTSimulator - https://github.com/NextronSystems/APTSimulator/blob/master/test-sets/command-and-control/malicious-user-agents.bat&
+#Language: cmd
+
+#get_prereq_commands
+Invoke-WebRequest "https://curl.haxx.se/windows/dl-7.71.1/curl-7.71.1-win32-mingw.zip" -Outfile $env:temp\curl.zip
+Expand-Archive -Path $env:temp\curl.zip -DestinationPath $env:temp\curl
+Copy-Item $env:temp\curl\curl-7.71.1-win32-mingw\bin\curl.exe C:\Windows\System32\Curl.exe
+Remove-Item $env:temp\curl
+Remove-Item $env:temp\curl.zip
+
+
+#commands
+C:\Windows\System32\Curl.exe -s -A "HttpBrowser/1.0" -m3 www.google.com >nul 2>&1
+C:\Windows\System32\Curl.exe -s -A "Wget/1.9+cvs-stable (Red Hat modified)" -m3 www.google.com >nul 2>&1
+C:\Windows\System32\Curl.exe -s -A "Opera/8.81 (Windows NT 6.0; U; en)" -m3 www.google.com >nul 2>&1
+C:\Windows\System32\Curl.exe -s -A "*<|>*" -m3 www.google.com >nul 2>&1
+

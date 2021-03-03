@@ -1,0 +1,11 @@
+#TechniqueName: Application Layer Protocol: Web Protocols
+#AtomicTestName: Malicious User Agents - Powershell
+#Description: This test simulates an infected host beaconing to command and control. Upon execution, no output will be displayed. &Use an application such as Wireshark to record the session and observe user agent strings and responses.&&Inspired by APTSimulator - https://github.com/NextronSystems/APTSimulator/blob/master/test-sets/command-and-control/malicious-user-agents.bat&
+#Language: ps1
+
+#commands
+Invoke-WebRequest www.google.com -UserAgent "HttpBrowser/1.0" | out-null
+Invoke-WebRequest www.google.com -UserAgent "Wget/1.9+cvs-stable (Red Hat modified)" | out-null
+Invoke-WebRequest www.google.com -UserAgent "Opera/8.81 (Windows NT 6.0; U; en)" | out-null
+Invoke-WebRequest www.google.com -UserAgent "*<|>*" | out-null
+

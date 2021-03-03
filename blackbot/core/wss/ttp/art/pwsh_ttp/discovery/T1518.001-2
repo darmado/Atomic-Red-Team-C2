@@ -1,0 +1,11 @@
+#TechniqueName: Software Discovery: Security Software Discovery
+#AtomicTestName: Security Software Discovery - powershell
+#Description: Methods to identify Security Software on an endpoint&&when sucessfully executed, powershell is going to processes related AV products if they are running.&
+#Language: ps1
+
+#commands
+get-process | ?{$_.Description -like "*virus*"}
+get-process | ?{$_.Description -like "*carbonblack*"}
+get-process | ?{$_.Description -like "*defender*"}
+get-process | ?{$_.Description -like "*cylance*"}
+

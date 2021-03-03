@@ -1,0 +1,18 @@
+#TechniqueName: Archive Collected Data: Archive via Utility
+#AtomicTestName: Compress Data for Exfiltration With Rar
+#Description: An adversary may compress data (e.g., sensitive documents) that is collected prior to exfiltration.&When the test completes you should find the txt files from the %USERPROFILE% directory compressed in a file called T1560.001-data.rar in the %USERPROFILE% directory &
+#Language: cmd
+
+#get_prereq_commands
+echo Downloading Winrar installer
+bitsadmin /transfer myDownloadJob /download /priority normal "https://www.win-rar.com/fileadmin/winrar-versions/winrar/th/winrar-x64-580.exe" %TEMP%\winrar.exe
+%TEMP%\winrar.exe /S
+
+
+#commands
+"%programfiles%/WinRAR/Rar.exe" a -r %USERPROFILE%\T1560.001-data.rar %USERPROFILE%\*.txt
+
+
+#cleanup_commands
+del /f /q /s %USERPROFILE%\T1560.001-data.rar >nul 2>&1
+

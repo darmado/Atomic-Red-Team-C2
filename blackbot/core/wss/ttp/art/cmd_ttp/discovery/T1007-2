@@ -1,0 +1,12 @@
+#TechniqueName: System Service Discovery
+#AtomicTestName: System Service Discovery - net.exe
+#Description: Enumerates started system services using net.exe and writes them to a file. This technique has been used by multiple threat actors.&&Upon successful execution, net.exe will run from cmd.exe that queries services. Expected output is to a txt file in c:\Windows\Temp\service-list.txt.s&
+#Language: cmd
+
+#commands
+net.exe start >> C:\Windows\Temp\service-list.txt
+
+
+#cleanup_commands
+del /f /q /s C:\Windows\Temp\service-list.txt >nul 2>&1
+

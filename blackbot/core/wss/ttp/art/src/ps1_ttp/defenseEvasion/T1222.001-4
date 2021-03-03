@@ -1,6 +1,0 @@
-#TechniqueName: File and Directory Permissions Modification: Windows File and Directory Permissions Modification
-#AtomicTestName: Grant Full Access to Entire C:\ Drive for Everyone - Ryuk Ransomware Style
-#Language: ps1
-
-#commands
-icacls "C:\*" /grant Everyone:F /T /C /Q

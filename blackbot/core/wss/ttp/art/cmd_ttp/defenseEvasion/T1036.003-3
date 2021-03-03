@@ -1,0 +1,13 @@
+#TechniqueName: Masquerading: Rename System Utilities
+#AtomicTestName: Masquerading - wscript.exe running as svchost.exe
+#Description: Copies wscript.exe, renames it, and launches it to masquerade as an instance of svchost.exe.&&Upon execution, no windows will remain open but wscript will have been renamed to svchost and ran out of the temp folder&
+#Language: cmd
+
+#commands
+copy %SystemRoot%\System32\wscript.exe %APPDATA%\svchost.exe /Y
+cmd.exe /c %APPDATA%\svchost.exe /B
+
+
+#cleanup_commands
+del /Q /F %APPDATA%\svchost.exe >nul 2>&1
+

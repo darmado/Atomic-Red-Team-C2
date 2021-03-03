@@ -1,0 +1,8 @@
+#TechniqueName: Indicator Removal on Host: Clear Windows Event Logs
+#AtomicTestName: Clear Logs
+#Description: Upon execution this test will clear Windows Event Logs. Open the System.evtx logs at C:\Windows\System32\winevt\Logs and verify that it is now empty.&
+#Language: cmd
+
+#commands
+wevtutil cl System
+

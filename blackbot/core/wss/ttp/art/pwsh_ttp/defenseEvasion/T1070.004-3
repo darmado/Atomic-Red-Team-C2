@@ -1,0 +1,12 @@
+#TechniqueName: Indicator Removal on Host: File Deletion
+#AtomicTestName: Delete a single file - Windows PowerShell
+#Description: Delete a single file from the temporary directory using Powershell. Upon execution, no output will be displayed. Use File Explorer to verify the file was deleted.&
+#Language: ps1
+
+#get_prereq_commands
+New-Item -Path $env:TEMP\deleteme_T1551.004 | Out-Null
+
+
+#commands
+Remove-Item -path $env:TEMP\deleteme_T1551.004
+

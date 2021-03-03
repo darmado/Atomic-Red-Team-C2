@@ -1,0 +1,8 @@
+#TechniqueName: System Network Configuration Discovery
+#AtomicTestName: List Windows Firewall Rules
+#Description: Enumerates Windows Firewall Rules using netsh.&&Upon successful execution, cmd.exe will spawn netsh.exe to list firewall rules. Output will be via stdout.&
+#Language: cmd
+
+#commands
+netsh advfirewall firewall show rule name=all
+

@@ -1,0 +1,12 @@
+#TechniqueName: Account Discovery: Local Account
+#AtomicTestName: Enumerate all accounts on Windows (Local)
+#Description: Enumerate all accounts&Upon exection, multiple enumeration commands will be run and their output displayed in the PowerShell session&
+#Language: cmd
+
+#commands
+net user
+dir c:\Users\
+cmdkey.exe /list
+net localgroup "Users"
+net localgroup
+

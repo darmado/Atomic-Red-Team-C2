@@ -1,0 +1,8 @@
+#TechniqueName: Signed Binary Proxy Execution: Mshta
+#AtomicTestName: Mshta executes VBScript to execute malicious command
+#Description: Run a local VB script to run local user enumeration powershell command.&This attempts to emulate what FIN7 does with this technique which is using mshta.exe to execute VBScript to execute malicious code on victim systems.&Upon execution, a new PowerShell windows will be opened that displays user information.&
+#Language: cmd
+
+#commands
+mshta vbscript:Execute("CreateObject(""Wscript.Shell"").Run ""powershell -noexit -file PathToAtomicsFolder\T1218.005\src\powershell.ps1"":close")
+

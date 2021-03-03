@@ -1,0 +1,12 @@
+#TechniqueName: Indicator Removal on Host: File Deletion
+#AtomicTestName: Delete a single file - Windows cmd
+#Description: Delete a single file from the temporary directory using cmd.exe.&Upon execution, no output will be displayed. Use File Explorer to verify the file was deleted.&
+#Language: cmd
+
+#get_prereq_commands
+echo deleteme_T1551.004 >> %temp%\deleteme_T1551.004
+
+
+#commands
+del /f %temp%\deleteme_T1551.004
+

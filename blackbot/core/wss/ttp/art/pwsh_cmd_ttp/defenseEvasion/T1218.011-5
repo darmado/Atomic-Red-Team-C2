@@ -1,0 +1,13 @@
+#TechniqueName: Signed Binary Proxy Execution: Rundll32
+#AtomicTestName: Rundll32 syssetup.dll Execution
+#Description: Test execution of a command using rundll32.exe with syssetup.dll. Upon execution, a window saying "installation failed" will be opened&&Reference: https://github.com/LOLBAS-Project/LOLBAS/blob/master/yml/OSLibraries/Syssetup.yml&
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1218.011\src\T1218.011_DefaultInstall.inf) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.011/src/T1218.011_DefaultInstall.inf" -OutFile "PathToAtomicsFolder\T1218.011\src\T1218.011_DefaultInstall.inf"
+
+
+#commands
+rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultInstall 128 .\PathToAtomicsFolder\T1218.011\src\T1218.011_DefaultInstall.inf
+

@@ -1,0 +1,9 @@
+#TechniqueName: Remote System Discovery
+#AtomicTestName: Remote System Discovery - net
+#Description: Identify remote systems with net.exe.&&Upon successful execution, cmd.exe will execute `net.exe view` and display results of local systems on the network that have file and print sharing enabled.&
+#Language: cmd
+
+#commands
+net view /domain
+net view
+

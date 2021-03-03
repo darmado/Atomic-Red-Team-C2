@@ -1,7 +1,0 @@
-#TechniqueName: System Information Discovery
-#AtomicTestName: Windows MachineGUID Discovery
-#Language: cmd
-
-#commands
-REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography /v MachineGuid
-

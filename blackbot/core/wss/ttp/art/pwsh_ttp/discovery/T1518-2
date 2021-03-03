@@ -1,0 +1,9 @@
+#TechniqueName: Software Discovery
+#AtomicTestName: Applications Installed
+#Description: Query the registry to determine software and versions installed on the system. Upon execution a table of&software name and version information will be displayed.&
+#Language: ps1
+
+#commands
+Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table -Autosize
+Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table -Autosize
+

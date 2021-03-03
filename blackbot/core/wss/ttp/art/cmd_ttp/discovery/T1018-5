@@ -1,0 +1,8 @@
+#TechniqueName: Remote System Discovery
+#AtomicTestName: Remote System Discovery - arp
+#Description: Identify remote systems via arp. &&Upon successful execution, cmd.exe will execute arp to list out the arp cache. Output will be via stdout.&
+#Language: cmd
+
+#commands
+arp -a
+

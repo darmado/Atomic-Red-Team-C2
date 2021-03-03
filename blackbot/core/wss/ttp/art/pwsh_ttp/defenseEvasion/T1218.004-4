@@ -1,0 +1,45 @@
+#TechniqueName: Signed Binary Proxy Execution: InstallUtil
+#AtomicTestName: InstallUtil Install method call
+#Description: Executes the Install Method. Upon execution, version information will be displayed the .NET framework install utility.&
+#Language: ps1
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1218.004\src\InstallUtilTestHarness.ps1) -ErrorAction ignore | Out-Null
+Invoke-WebRequest 'https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.004/src/InstallUtilTestHarness.ps1' -OutFile "PathToAtomicsFolder\T1218.004\src\InstallUtilTestHarness.ps1"
+
+
+#commands
+# Import the required test harness function, Invoke-BuildAndInvokeInstallUtilAssembly
+. PathToAtomicsFolder\T1218.004\src\InstallUtilTestHarness.ps1
+
+$InstallerAssemblyDir = "$Env:TEMP\"
+$InstallerAssemblyFileName = "T1218.004.dll"
+$InstallerAssemblyFullPath = Join-Path -Path $InstallerAssemblyDir -ChildPath $InstallerAssemblyFileName
+
+$CommandLine = "/logfile= /logtoconsole=false /installtype=notransaction /action=install `"$InstallerAssemblyFullPath`""
+$ExpectedOutput = 'Constructor_Install_'
+
+$TestArgs = @{
+    OutputAssemblyDirectory = $InstallerAssemblyDir
+    OutputAssemblyFileName = $InstallerAssemblyFileName
+    InvocationMethod = 'Executable'
+    CommandLine = $CommandLine
+}
+
+$ActualOutput = Invoke-BuildAndInvokeInstallUtilAssembly @TestArgs
+
+if ($ActualOutput -ne $ExpectedOutput) {
+    throw @"
+InstallUtil Install method execution test failure. Installer assembly execution output did not match the expected output.
+Expected: $ExpectedOutput
+Actual: $ActualOutput
+"@
+}
+
+
+#cleanup_commands
+$InstallerAssemblyDir = "$Env:TEMP\"
+$InstallerAssemblyFileName = "T1218.004.dll"
+$InstallerAssemblyFullPath = Join-Path -Path $InstallerAssemblyDir -ChildPath $InstallerAssemblyFileName
+Remove-Item -Path $InstallerAssemblyFullPath -ErrorAction Ignore
+

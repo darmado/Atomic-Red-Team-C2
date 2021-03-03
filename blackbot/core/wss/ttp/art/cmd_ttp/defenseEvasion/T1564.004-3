@@ -1,0 +1,13 @@
+#TechniqueName: Hide Artifacts: NTFS File Attributes
+#AtomicTestName: Create ADS command prompt
+#Description: Create an Alternate Data Stream with the command prompt. Write access is required. Upon execution, run "dir /a-d /s /r | find ":$DATA"" in the %temp%&folder to view that the alternate data stream exists. To view the data in the alternate data stream, run "notepad T1564.004_has_ads.txt:adstest.txt"&
+#Language: cmd
+
+#commands
+echo cmd /c echo "Shell code execution."> %temp%\T1564.004_has_ads_cmd.txt:adstest.txt
+for /f "usebackq delims=?" %i in (%temp%\T1564.004_has_ads_cmd.txt:adstest.txt) do %i
+
+
+#cleanup_commands
+del %temp%\T1564.004_has_ads_cmd.txt >nul 2>&1
+

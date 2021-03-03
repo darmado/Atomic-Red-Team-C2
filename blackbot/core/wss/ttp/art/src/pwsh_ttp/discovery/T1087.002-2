@@ -1,9 +1,0 @@
-#TechniqueName: Account Discovery: Domain Account
-#AtomicTestName: Enumerate all accounts via PowerShell (Domain)
-#Language: ps1
-
-#commands
-net user /domain
-get-localgroupmember -group Users
-get-aduser -filter *
-

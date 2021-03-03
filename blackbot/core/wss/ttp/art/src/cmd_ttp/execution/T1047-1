@@ -1,7 +1,0 @@
-#TechniqueName: Windows Management Instrumentation
-#AtomicTestName: WMI Reconnaissance Users
-#Language: cmd
-
-#commands
-wmic useraccount get /ALL /format:csv
-

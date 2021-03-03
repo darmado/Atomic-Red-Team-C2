@@ -1,0 +1,12 @@
+#TechniqueName: Remote System Discovery
+#AtomicTestName: Adfind - Enumerate Active Directory Computer Objects
+#Description: Adfind tool can be used for reconnaissance in an Active directory environment. This example has been documented by ransomware actors enumerating Active Directory Computer Objects&reference- http://www.joeware.net/freetools/tools/adfind/, https://www.fireeye.com/blog/threat-research/2019/04/pick-six-intercepting-a-fin6-intrusion.html&
+#Language: cmd
+
+#get_prereq_commands
+Invoke-WebRequest -Uri "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1087.002/src/AdFind.exe" -OutFile PathToAtomicsFolder\T1087.002\src\AdFind.exe
+
+
+#commands
+PathToAtomicsFolder\T1087.002\src\AdFind.exe -f (objectcategory=computer)
+

@@ -1,0 +1,8 @@
+#TechniqueName: System Time Discovery
+#AtomicTestName: System Time Discovery - PowerShell
+#Description: Identify the system time via PowerShell. Upon execution, the system time will be displayed.&
+#Language: ps1
+
+#commands
+Get-Date
+

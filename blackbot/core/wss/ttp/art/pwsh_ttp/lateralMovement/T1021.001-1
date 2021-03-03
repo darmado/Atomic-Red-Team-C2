@@ -1,0 +1,22 @@
+#TechniqueName: Remote Services: Remote Desktop Protocol
+#AtomicTestName: RDP to DomainController
+#Description: Attempt an RDP session via Remote Desktop Application to a DomainController.&
+#Language: ps1
+
+#get_prereq_commands
+Write-Host Joining this computer to a domain must be done manually
+
+
+#commands
+$Server=$ENV:logonserver.TrimStart("\")
+$User = Join-Path $Env:USERDOMAIN $ENV:USERNAME
+$Password="1password2!"
+cmdkey /generic:TERMSRV/$Server /user:$User /pass:$Password
+mstsc /v:$Server
+echo "RDP connection established"
+
+
+#cleanup_commands
+$p=Tasklist /svc /fi "IMAGENAME eq mstsc.exe" /fo csv | convertfrom-csv
+if(-not ([string]::IsNullOrEmpty($p.PID))) { Stop-Process -Id $p.PID }
+

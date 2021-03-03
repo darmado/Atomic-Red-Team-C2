@@ -1,0 +1,16 @@
+#TechniqueName: Remote Access Software
+#AtomicTestName: LogMeIn Files Detected Test on Windows
+#Description: An adversary may attempt to trick the user into downloading LogMeIn and use to establish C2. Download of LogMeIn installer will be at the destination location and ran when sucessfully executed.&
+#Language: ps1
+
+#commands
+Invoke-WebRequest -OutFile C:\Users\$env:username\Desktop\LogMeInIgnition.msi https://secure.logmein.com/LogMeInIgnition.msi
+$file1 = "C:\Users\" + $env:username + "\Desktop\LogMeInIgnition.msi"
+Start-Process $file1 /S;
+Start-Process 'C:\Program Files (x86)\LogMeInIgnition\LMIIgnition.exe' "/S"
+
+
+#cleanup_commands
+get-package *'LogMeIn Client'* -ErrorAction Ignore | uninstall-package 
+$file1 = "C:\Users\" + $env:username + "\Desktop\LogMeInIgnition.msi"
+Remove-Item $file1 -ErrorAction Ignore

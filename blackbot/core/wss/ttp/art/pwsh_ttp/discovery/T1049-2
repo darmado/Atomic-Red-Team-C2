@@ -1,0 +1,8 @@
+#TechniqueName: System Network Connections Discovery
+#AtomicTestName: System Network Connections Discovery with PowerShell
+#Description: Get a listing of network connections.&&Upon successful execution, powershell.exe will execute `get-NetTCPConnection`. Results will output via stdout.&
+#Language: ps1
+
+#commands
+Get-NetTCPConnection
+

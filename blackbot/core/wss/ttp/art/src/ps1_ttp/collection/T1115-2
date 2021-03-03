@@ -1,8 +1,0 @@
-#TechniqueName: Clipboard Data
-#AtomicTestName: Execute Commands from Clipboard using PowerShell
-#Language: ps1
-
-#commands
-echo Get-Process | clip
-Get-Clipboard | iex
-

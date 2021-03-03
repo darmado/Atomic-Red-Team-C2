@@ -1,0 +1,9 @@
+#TechniqueName: Indirect Command Execution
+#AtomicTestName: Indirect Command Execution - pcalua.exe
+#Description: The Program Compatibility Assistant (pcalua.exe) may invoke the execution of programs and commands from a Command-Line Interface.&[Reference](https://twitter.com/KyleHanslovan/status/912659279806640128)&Upon execution, calc.exe should open&
+#Language: cmd
+
+#commands
+pcalua.exe -a calc.exe
+pcalua.exe -a C:\Windows\System32\calc.exe
+

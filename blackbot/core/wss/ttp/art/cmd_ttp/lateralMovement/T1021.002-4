@@ -1,0 +1,8 @@
+#TechniqueName: Remote Services: SMB/Windows Admin Shares
+#AtomicTestName: Execute command writing output to local Admin Share
+#Description: Executes a command, writing the output to a local Admin Share.&This technique is used by post-exploitation frameworks.&
+#Language: cmd
+
+#commands
+cmd.exe /Q /c hostname 1> \\127.0.0.1\ADMIN$\output.txt 2>&1
+

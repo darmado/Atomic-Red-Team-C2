@@ -1,0 +1,14 @@
+#TechniqueName: Masquerading: Rename System Utilities
+#AtomicTestName: Malicious process Masquerading as LSM.exe
+#Description: Detect LSM running from an incorrect directory and an incorrect service account&This works by copying cmd.exe to a file, naming it lsm.exe, then copying a file to the C:\ folder.&&Upon successful execution, cmd.exe will be renamed as lsm.exe and executed from non-standard path.&
+#Language: cmd
+
+#commands
+copy C:\Windows\System32\cmd.exe C:\lsm.exe
+C:\lsm.exe /c echo T1036.003 > C:\T1036.003.txt
+
+
+#cleanup_commands
+del C:\T1036.003.txt >nul 2>&1
+del C:\lsm.exe >nul 2>&1
+

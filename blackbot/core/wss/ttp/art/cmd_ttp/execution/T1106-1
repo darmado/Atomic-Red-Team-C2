@@ -1,0 +1,9 @@
+#TechniqueName: Native API
+#AtomicTestName: Execution through API - CreateProcess
+#Description: Execute program by leveraging Win32 API's. By default, this will launch calc.exe from the command prompt.
+#Language: cmd
+
+#commands
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /out:"%tmp%\T1106.exe" /target:exe PathToAtomicsFolder\T1106\src\CreateProcess.cs
+%tmp%/T1106.exe
+

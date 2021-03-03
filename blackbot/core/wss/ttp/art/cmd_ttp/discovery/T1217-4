@@ -1,0 +1,8 @@
+#TechniqueName: Browser Bookmark Discovery
+#AtomicTestName: List Internet Explorer Bookmarks using the command prompt
+#Description: This test will list the bookmarks for Internet Explorer that are found in the Favorites folder
+#Language: cmd
+
+#commands
+dir /s /b %USERPROFILE%\Favorites
+

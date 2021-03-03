@@ -1,0 +1,13 @@
+#TechniqueName: Masquerading: Masquerade Task or Service
+#AtomicTestName: Creating W32Time similar named service using sc
+#Description: Creating W32Time similar named service (win32times) using sc just like threat actor dubbed "Operation Wocao"
+#Language: cmd
+
+#commands
+sc create win32times binPath= "cmd /c start c:\T1036.004_NonExistingScript.ps1"
+sc qc win32times
+
+
+#cleanup_commands
+sc delete win32times
+

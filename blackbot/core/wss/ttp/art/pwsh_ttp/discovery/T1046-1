@@ -1,0 +1,12 @@
+#TechniqueName: Network Service Scanning
+#AtomicTestName: Port Scan NMap for Windows
+#Description: Scan ports to check for listening ports for the local host 127.0.0.1
+#Language: ps1
+
+#get_prereq_commands
+Invoke-WebRequest -OutFile $env:temp\nmap-7.80-setup.exe https://nmap.org/dist/nmap-7.80-setup.exe
+Start-Process $env:temp\nmap-7.80-setup.exe /S
+
+
+#commands
+nmap 127.0.0.1

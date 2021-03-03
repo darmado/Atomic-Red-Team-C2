@@ -1,0 +1,10 @@
+#TechniqueName: System Service Discovery
+#AtomicTestName: System Service Discovery
+#Description: Identify system services.&&Upon successful execution, cmd.exe will execute service commands with expected result to stdout.&
+#Language: cmd
+
+#commands
+tasklist.exe
+sc query
+sc query state= all
+

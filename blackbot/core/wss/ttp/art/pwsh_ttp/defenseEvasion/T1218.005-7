@@ -1,0 +1,11 @@
+#TechniqueName: Signed Binary Proxy Execution: Mshta
+#AtomicTestName: Invoke HTML Application - JScript Engine with Rundll32 and Inline Protocol Handler
+#Description: Executes an HTA Application with JScript Engine, Rundll32 and Inline Protocol Handler.
+#Language: ps1
+
+#get_prereq_commands
+Install-Module -Name AtomicTestHarnesses -Scope CurrentUser -Force
+
+
+#commands
+Invoke-ATHHTMLApplication -ScriptEngine JScript -InlineProtocolHandler About -UseRundll32 -Rundll32FilePath $env:windir\system32\rundll32.exe

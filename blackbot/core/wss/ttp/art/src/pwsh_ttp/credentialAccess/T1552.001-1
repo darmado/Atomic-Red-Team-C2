@@ -1,8 +1,0 @@
-#TechniqueName: Unsecured Credentials: Credentials In Files
-#AtomicTestName: Extracting passwords with findstr
-#Language: ps1
-
-#commands
-findstr /si pass *.xml *.doc *.txt *.xls
-ls -R | select-string -Pattern password
-

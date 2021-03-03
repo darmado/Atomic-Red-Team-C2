@@ -1,0 +1,12 @@
+#TechniqueName: Indicator Removal on Host
+#AtomicTestName: Indicator Removal using FSUtil
+#Description: Manages the update sequence number (USN) change journal, which provides a persistent log of all changes made to files on the volume. Upon execution, no output&will be displayed. More information about fsutil can be found at https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/fsutil-usn&
+#Language: cmd
+
+#commands
+fsutil usn deletejournal /D C:
+
+
+#cleanup_commands
+fsutil usn createjournal m=1000 a=100 c:
+

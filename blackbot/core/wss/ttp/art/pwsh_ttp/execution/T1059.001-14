@@ -1,0 +1,16 @@
+#TechniqueName: Command and Scripting Interpreter: PowerShell
+#AtomicTestName: PowerShell Session Creation and Use
+#Description: Connect to a remote powershell session and interact with the host.&Upon execution, network test info and 'T1086 PowerShell Session Creation and Use' will be displayed.&
+#Language: ps1
+
+#get_prereq_commands
+Enable-PSRemoting
+
+
+#commands
+New-PSSession -ComputerName $env:COMPUTERNAME
+Test-Connection $env:COMPUTERNAME
+Set-Content -Path $env:TEMP\T1086_PowerShell_Session_Creation_and_Use -Value "T1086 PowerShell Session Creation and Use"
+Get-Content -Path $env:TEMP\T1086_PowerShell_Session_Creation_and_Use
+Remove-Item -Force $env:TEMP\T1086_PowerShell_Session_Creation_and_Use
+

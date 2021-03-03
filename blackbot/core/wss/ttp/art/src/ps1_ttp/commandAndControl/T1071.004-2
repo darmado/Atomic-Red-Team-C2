@@ -1,8 +1,0 @@
-#TechniqueName: Application Layer Protocol: DNS
-#AtomicTestName: DNS Regular Beaconing
-#Language: ps1
-
-#commands
-Set-Location PathToAtomicsFolder
-.\T1071.004\src\T1071-dns-beacon.ps1 -Domain 127.0.0.1.xip.io -Subdomain atomicredteam -QueryType TXT -C2Interval 30 -C2Jitter 20 -RunTime 30
-

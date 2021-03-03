@@ -1,7 +1,0 @@
-#TechniqueName: Permission Groups Discovery: Domain Groups
-#AtomicTestName: Permission Groups Discovery PowerShell (Domain)
-#Language: ps1
-
-#commands
-get-ADPrincipalGroupMembership administrator | select name
-

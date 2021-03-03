@@ -1,0 +1,13 @@
+#TechniqueName: Impair Defenses: Disable or Modify System Firewall
+#AtomicTestName: Allow SMB and RDP on Microsoft Defender Firewall
+#Description: Allow all SMB and RDP rules on the Microsoft Defender Firewall for all profiles.&Caution if you access remotely the host where the test runs! Especially with the cleanup command which will reset the firewall and risk disabling those services...&
+#Language: cmd
+
+#commands
+netsh advfirewall firewall set rule group="remote desktop" new enable=Yes
+netsh advfirewall firewall set rule group="file and printer sharing" new enable=Yes
+
+
+#cleanup_commands
+netsh advfirewall reset >nul 2>&1
+

