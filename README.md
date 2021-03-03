@@ -77,7 +77,7 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic
 - In progress. 
 
 ## GET INVOLVED
-Contribute atomic test cases for the folks at from [Red Canary](https://github.com/redcanaryco/) 
+Contribute atomic test cases for the folks at [Red Canary](https://github.com/redcanaryco/) 
 -  [Contributing Atomic Test Cases](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 
 - Join the Atomic Red Team Slack Channel
