@@ -22,7 +22,7 @@ We take pride in enabling lean security teams to remain agile and focused on dev
 
 
 - **SCALABILITY**
-Scaling operational activities is critical to sustaining efficient security ecosystem workflows in modern-day environments. If our tools don't help you scale your operational capabilities, let us know and we'll fix it. 
+Scaling operational activities is critical to sustaining efficient security ecosystem workflows in modern environments. If our tools don't help you scale your operational capabilities, let us know and we'll fix it. 
 
 
 - **FLEXIBILITY**
@@ -40,11 +40,11 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic
 | CAPABILITY | DESCRIPTION |
 | ------ | ------ |
 | **Rapid Deployment** | Automate and scale testing efforts from single and multi-target breach points located in different regional environments
-| **Modern Command & Control** | *Implant and Server Comms:* Uses the power of SILENTRINITY's ECDHE Encrypted C2 Communication capabilities to encrypt all C2 traffic. Implant management capabilities allow security teams to use multi-channel communication techniques mapped to MITRE ATT&CK. </br>*Client and Server Comms*: Uses Asyncio and WebSockets are used by a modern CLI powered by prompt-toolkit. Notable features include:     - Implant location tagging NGROK integration 
+| **Modern Command & Control** | *Implant and Server Comms:* Uses SILENTRINITY's ECDHE Encrypted C2 Communication capabilities to encrypt C2 traffic over HTTPS. </br>*Client and Server Comms*: Uses Asyncio, WebSockets, and a prompt-toolkit CLI. Notable features include:     *- Implant location tagging: Helpful when managing singals and breachpoints in different regions. NGROK integration* - Great for staging payloads and deploying them with ngrok URLs 
 | **Standard Signature Header** | JSON `PID: , Date(UTC), IsHighIntegrity, HostName, CurrentUser , IsUserAdmin, IPv4, IPv6`
 | **JSON Logging Support** | Streamline, ingest, decode, and analyze evidence with your ELK stack or any Analytics platform ready to parse JSON.| 
 ||
-| **Stageless in Memory Code Execution** |  Execute Atomic Red Team tests from `unmanaged powershell process`. 
+| **Stageless in Memory Code Execution** |  Execute Atomic Red Team tests from an `unmanaged powershell process` with low, medium, high integrity. 
 | **Dynamic Attack Formations** | Execute attack-chains without the need to recompile or restart ARTi-C2. Currently supports 3 differnt attack functions:</br>    - Attack Chains:</br>- Attack Profiles:</br>- Attack Scenarios:|
 | **Modular Payload Delivery** | ARTi-C2 leverages [SILENTRINITY's](https://github.com/byt3bl33d3r/SILENTTRINITY) framework to deliver Red Team Atomic tests "As is" through:</br>- `unmanaged powershell`</br>- `stageless powershell`
 | **Operational Management** | Job IDs are included for controller execution and evidence collection. They're great for event  analysis and evidence correlation. `"job_id": "D3l820IWpyi67"`| **Atomic Updates** | The ART port pipeline is triggered by repo updates at [ATOMIC-RED-TEAM](https://github.com/redcanaryco/atomic-red-team)   
@@ -58,21 +58,19 @@ ARTi-C2 Core features and capabilities are sourced from SILENTTRINITY and atomic
 ## USE CASES 
 - SOCs need to evaluate and improve EDR solutions in minutes
 - Organizations are evaluating different EDR/AV solutions for Windows OS
-- Organizations need to simulate APT group tactics, techniques, and procedures without the need to go 'ALL IN" on research and planning.
-- Organizations need to know if their assets are protected against common attacks from disk and memory
-- Organizations need to execute lightweight test cases mapped to MITRE ATT&CK and prove their assets are protected
-- Organizations need to benchmark critical risk profiles against the ATT&CK framework before releasing systems to Corp IT/production
-- Organizations need to simulate ransomware tactics without introducing risk in order to develop specific detection and prevention capabilities
-- Organizations are required to keep tight margins between mean time to detect \(MTTD\) and mean time to respond \(MTTR\) metrics can demonstrate improvement
-- Organizations need to continually improve SOAR workbooks
-- Organizations need to evaluate system risk profiles across departments with thousands of systems. We recommend testing one and deploying the risk profile configuration settings based on your organizations' policy/system deployment orchestration framework. 
 
-## GET STARTED
+- Organizations need to: 
+- execute APT group tactics in controlled environments
+- demonstrate the ability to block common attacks from disk and memory
+- execute lightweight atomoics remotely
+- benchmark critical risk profiles against MITRE ATT&CK before releasing systems to Corp IT/production
+- execute ransomware tactics mapped to ATT&CK safely
+- keep tight margins between \(MTTD\) and \(MTTR\) metrics
+- continually improve SOAR workbooks
+- evaluate host security controls between different business units, and regions.
 
-```- In Progress
-```
 
-## DOCUMENTATION NOTES:
+## DOCUMENTATION:
 - In progress. 
 
 ## GET INVOLVED
@@ -87,6 +85,7 @@ Contribute atomic test cases for the folks at [Red Canary](https://github.com/re
 Blackbot Labs operates under the umbrella of full transparency while ensuring end-user privacy remains a top priority. For more details on how we operate with our community, visit our community page.
 
 [https://blackbot.io/community](https://blackbot.io/community)
+
 
 ## CREDITS & ACKNOWLEDGEMENTS 
 
