@@ -47,18 +47,9 @@ arch_install() {
     sudo chmod a+x /usr/local/sbin/ngrok
 }
 
-start_artic2() {
-	check_internet
-	python3 artic2.py wss $1 $2 --port $3
-}
 
-stop_artic2() {
-    file=$(cat blackbot/core/wss/pid.txt)
-    kill $file
-    echo "PID $file killed"
-}
 
-if [[ $1 == "install" ]]
+if [[ $1 ]]
 then
 	if [[ $(which apt-get) == "/usr/bin/apt-get" ]]
 	then
@@ -67,12 +58,6 @@ then
 	then
     	arch_install
 	fi
-elif [[ $1 == "start" ]]
-then
-	start_artic2 $2 $3 $4
-elif [[ $1 == "stop" ]]
-then
-	stop_artic2 $2 $4
 else
-	printf "Invaild argument\nAvailable arguments: install, start, stop\n"
+	printf "Invaild argument\nAvailable arguments: install\n"
 fi

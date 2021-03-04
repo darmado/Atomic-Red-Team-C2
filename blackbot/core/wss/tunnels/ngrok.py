@@ -23,16 +23,16 @@ class ARTIC2Tunnel:
         if target.lower() == 'kill':
             if self.status():
                 self.kill_ngrok()
-                out = 'Ngrok killed'
+                out = 'T1 blackbot/stagers :≫ Ngrok killed'
                 return out
 
             else:
-                out = 'Ngrok is not running'
+                out = 'T1 blackbot/stagers :≫ Ngrok is not running'
                 return out
 
         else:
             if self.status():
-                out = 'Ngrok is already running'
+                out = 'T1 blackbot/stagers :≫ Ngrok i running'
                 return out
             
             else:
@@ -44,8 +44,8 @@ class ARTIC2Tunnel:
                     info = log.read()
                     tunnel_http = re.findall('url=http://.{21}', info)
                     tunnel_https = re.findall('url=https://.{21}', info)
-                    print(tunnel_http[0])
-                    print(tunnel_https[0])
+                    #print(tunnel_http[0])
+                    #print(tunnel_https[0])
 
                 urls = [tunnel_http[0], tunnel_https[0]]
                 out = 'URLs to download stager\n'

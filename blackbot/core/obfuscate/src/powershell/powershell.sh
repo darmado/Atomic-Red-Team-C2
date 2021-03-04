@@ -1,15 +1,5 @@
 #!/bin/bash
 
-# Chimera is a (shiny and very hack-ish) PowerShell obfuscation script
-# designed to bypass AMSI and antivirus solutions. It digests malicious
-# PS1's known to trigger AV and uses string substitution and variable
-# concatenation to evade common detection signatures.
-
-# write-up: https://null-byte.com/bypass-amsi-0333967/
-
-# depends: apt-get update && apt-get install -Vy sed xxd libc-bin curl jq perl gawk grep coreutils
-
-# usage: ./chimera.sh -f shells/Invoke-PowerShellTcp.ps1 -l 4 -v -t -c -i -p -s ascii,get-location,getstream -b invoke-expression,new-object,reverse,powershell -j -g -r -h -o /tmp/chimera.ps1
 
 # timestamp for filenames
 timestamp="$(date +%H%M%S)";
@@ -143,21 +133,14 @@ args "$@";
 
 function ascii_art () {
 	clear;
-	banner=" _____________________________________________________
-
-  ░░░░░░ ░░   ░░ ░░ ░░░    ░░░ ░░░░░░░ ░░░░░░   ░░░░░
- ▒▒      ▒▒   ▒▒ ▒▒ ▒▒▒▒  ▒▒▒▒ ▒▒      ▒▒   ▒▒ ▒▒   ▒▒
- ▓▓      ▓▓▓▓▓▓▓ ▓▓ ▓▓ ▓▓▓▓ ▓▓ ▓▓▓▓▓   ▓▓▓▓▓▓  ▓▓▓▓▓▓▓
- ██      ██   ██ ██ ██  ██  ██ ██      ██   ██ ██   ██
-  ██████ ██   ██ ██ ██      ██ ███████ ██   ██ ██   ██
- _____________________________________________________";
+	banner="";
 
 	# mind-blowing banner rendering
 	for ((b=0; b<${#banner}; b++ ));do
 		sleep .001;
 		printf "${c[1]}%s${c[0]}" "${banner:$b:1}";
 	done;
-	printf "\n\n ░ by @tokyoneon_\n\n"
+	printf "\n\n ░ chimera code written by @tokyoneon_\n\n"
 	sleep 1.5 # for release
 };
 

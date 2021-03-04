@@ -8,7 +8,6 @@ class Atomic:
         self.run_in_thread = True
         self.references = []
         self.options = {}
-        self.ttp_list = []
 
     def __getitem__(self, key):
         for k,_ in self.options.items():
@@ -27,4 +26,3 @@ class Atomic:
         yield ("last_updated_by", self.last_updated_by)
         yield ("references", self.references)
         yield ("options", self.options)
-        yield ("ttp_list", self.ttp_list)

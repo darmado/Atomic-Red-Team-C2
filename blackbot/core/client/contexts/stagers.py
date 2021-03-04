@@ -127,11 +127,11 @@ class Stagers:
         """
     
     @command
-    def tunnel(self, tunnel_name: str, target: str, response):
+    def tunnel(self, tunnel_name: str, stager: str, response):
         """
-        Open tunnels to stager deployment
+        Start ngrok tunnel 
 
-        Usage: tunnel [-h] <tunnel_name> <target>
+        Usage: tunnel [-h] <tunnel_name> <stager>
         """
         urls = response.result
         print(urls)
