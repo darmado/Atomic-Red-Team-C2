@@ -217,7 +217,7 @@ class ARTIC2Shell:
                  f"T{len(self.wsserver.connections)}"
                  "</ansiwhite>"
 
-                "<ansired> blackbot/main :≫ "
+                "<ansired> ARTi-c2/main :≫ "
                  f"</ansired>"
             ),
             bottom_toolbar=functools.partial(bottom_toolbar, ts=self.wsserver),
@@ -258,7 +258,7 @@ class ARTIC2Shell:
         self.prompt_session.message = HTML(
             ("<ansired>"
              f"T{len(self.wsserver.connections)}"
-             f"</ansired> blackbot/{ctx.name} :≫<ansired></ansired> {' ' if not ctx.prompt else ctx.prompt + ' ' }")
+             f"</ansired> ARTi-c2/{ctx.name} :≫<ansired></ansired> {' ' if not ctx.prompt else ctx.prompt + ' ' }")
         )
 
     async def switched_context(self, text):

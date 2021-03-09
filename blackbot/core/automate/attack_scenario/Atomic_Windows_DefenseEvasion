@@ -149,6 +149,8 @@ use DefenseEvasion/T1562.001-15
 run SESSION
 use DefenseEvasion/T1553.004-2
 run SESSION
+use DefenseEvasion/T1562.002-4
+run SESSION
 use DefenseEvasion/T1218.004-1
 run SESSION
 use DefenseEvasion/T1127.001-2

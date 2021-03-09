@@ -10,5 +10,6 @@ Remove-Item $env:TEMP\SDelete.zip -Force
 
 
 #commands
+if (-not (Test-Path $env:TEMP\T1485.txt)) { New-Item $env:TEMP\T1485.txt -Force }
 Invoke-Expression -Command "$env:TEMP\Sdelete\sdelete.exe -accepteula $env:TEMP\T1485.txt"
 
