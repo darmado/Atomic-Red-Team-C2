@@ -1,6 +1,6 @@
 /*
 
-Stolen from SharpSploit 
+ORIGINAL CODE PORTED FROM: SharpSploit 
     - https://github.com/cobbr/SharpSploit/blob/871ab3ee664e87cdc400a53f804096d206ef559c/SharpSploit/Execution/Shell.cs#L32
 */ 
 

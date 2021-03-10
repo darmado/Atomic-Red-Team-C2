@@ -4,6 +4,7 @@ import System.Security.Principal
 import System.Globalization
 import System.Net
 
+/*Original Code from: https://github.com/byt3bl33d3r/SILENTTRINITY*/
 /*Adversaries may abuse the at.exe utility to perform task scheduling for initial or recurring execution of malicious code. The [at](https://attack.mitre.org/software/S0110) utility exists as an executable within Windows for scheduling tasks at a specified time and date. Using [at](https://attack.mitre.org/software/S0110) requires that the Task Scheduler service be running, and the user to be logged on as a member of the local Administrators group.
 
 An adversary may use at.exe in Windows environments to execute programs at system startup or on a scheduled basis for persistence. at can also be abused to conduct remote Execution as part of Lateral Movement and or to run a process under the context of a specified account (such as SYSTEM).
