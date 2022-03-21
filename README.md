@@ -1,4 +1,3 @@
-<p><img src="https://blackbot.io/wp-content/uploads/2020/11/artic_c2_logo_red_v1-e1606038603815.png" width="350px" /></p>
 
 # DESCRIPTION
 
