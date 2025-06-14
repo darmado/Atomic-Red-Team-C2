@@ -35,7 +35,7 @@ pyasn1==0.4.8
 pycparser==2.19
 pypykatz==0.3.3
 quart==0.10.0
-requests==2.22.0
+requests==2.32.4
 six==1.14.0
 socks5line==0.0.3
 sortedcontainers==2.1.0
