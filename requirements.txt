@@ -31,7 +31,7 @@ multidict==4.7.4
 netifaces==0.10.9
 priority==1.3.0
 prompt-toolkit==3.0.2
-pyasn1==0.4.8
+pyasn1==0.6.2
 pycparser==2.19
 pypykatz==0.3.3
 quart==0.10.0
